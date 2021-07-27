@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GeeKery</title>
+    <title>GeeKery | 高手分割线</title>
     <link>/</link>
-    <description>Recent content on GeeKery</description>
+    <description>Recent content on GeeKery | 高手分割线</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 02 Feb 2021 10:20:19 +0600</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -143,7 +143,7 @@ npx --version 如果 npm 版本低于 5.</description>
       <guid>/about/</guid>
       <description>行远自迩，登高自卑。以歌咏志，凭文载道。
 Transfer 博客使用 Typecho 程序搭建，搭建步骤参考 《Ubuntu 20.04 安装 Typecho 并完成 HTTPS 认证》 一文，主题使用 Chakhsu Lau 开发的 Pinghsu。
-由于一开始考虑到博客系统的扩展性，方便将来添加相簿、文档等功能，采用了功能强大的 Typecho 搭建。实际使用中，Typecho 的编辑器与 Typora 渲染有不兼容的地方，需要手动修改，而 Ubuntu 系统和数据库等对硬件资源较大的占用，未雨绸缪成了杞人忧天。权衡利弊，使用 Hugo 渲染文章，主题用的是 hugo-theme-cactus，部分样式和功能有自定义。</description>
+由于一开始考虑到博客系统的扩展性，方便将来添加相簿、文档等功能，采用了功能强大的 Typecho 搭建。实际使用中，Typecho 的编辑器与 Typora 渲染有不兼容的地方，需要手动修改，而 Ubuntu 系统和数据库等对硬件资源较大的占用，未雨绸缪成了杞人忧天。权衡利弊，使用 Hugo 渲染文章，主题用的是 bookworm，部分样式和功能有自定义。</description>
     </item>
     
     <item>

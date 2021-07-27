@@ -1,7 +1,4 @@
 code{
     font-family: "JetBrains Mono", monospace;
-}
-
-*{
-    color: red !important;
+    font-size: 12px !important;
 }
