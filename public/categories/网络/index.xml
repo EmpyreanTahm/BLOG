@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网络 on GeeKery</title>
+    <link>/categories/%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 网络 on GeeKery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 15 Jan 2021 20:14:56 +0800</lastBuildDate><atom:link href="/categories/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>确保 Web 安全的 HTTPS</title>
+      <link>/blog/%E7%A1%AE%E4%BF%9D-web-%E5%AE%89%E5%85%A8%E7%9A%84-https/</link>
+      <pubDate>Fri, 15 Jan 2021 20:14:56 +0800</pubDate>
+      
+      <guid>/blog/%E7%A1%AE%E4%BF%9D-web-%E5%AE%89%E5%85%A8%E7%9A%84-https/</guid>
+      <description>HTTP 的缺点 HTTP 具有相当优秀的和方便的一面，简单、灵活、易于扩展是它显著的特点。然而 HTTP 并非只有好的一面，事物皆具有两面性，它也有不足之处。
+明文通信 HTTP 本身不具备加密的功能，无法做到对通信整体进行加密。按 TCP/IP 协议族的工作机制，通信内容在所有的通信线路上都有可能遭到窥视。窃听相同段上的通信并非难事。只需要收集在互联网上流动的数据包，然后使用抓包或嗅探器工具对收集来的数据包进行解析即可。
+不验证通信方的身份 HTTP 协议中的请求和响应不会对通信方进行确认，任何人都可以发起请求。服务器只要接收到请求，并且发送端的 IP 地址和端口号没有被 Web 服务器设定限制访问，不管对方是谁都会返回一个响应，这样会存在以下隐患：无法确定请求的目标服务器是否是按真实意图返回响应的那台服务器，有可能是已伪装的 Web 服务器；无法确定响应返回的客户端是否是按真实意图接收响应的那个客户端，有可能是已伪装的客户端；无法确定正在通信的对方是否具备访问权限；无法判定请求是来自何方、出自谁手；即使是无意义的请求也会照单全收，无法阻止海量请求下的 DoS 攻击</description>
+    </item>
+    
+    <item>
+      <title>深入浅出 HTTP 缓存机制</title>
+      <link>/blog/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-http-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Sat, 09 Jan 2021 12:26:02 +0800</pubDate>
+      
+      <guid>/blog/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-http-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</guid>
+      <description>HTTP 缓存通过资源复用，可以减轻服务器负担，显著提高网站和应用程序的性能。HTTP 缓存主要有客户端缓存和代理缓存，其它还包括网关缓存、CDN、反向代理缓存和负载均衡器等部署在服务器上的缓存方式。HTTP 缓存主要存储 GET 响应。
+以 Chrome 为例，打开新标签页后调出 DevTools，将功能切至 NetWork，首次访问 Google 搜索页面，能看到请求：
+ctrl + r 刷新页面，可看到请求：
+在 Size 一栏中，可以看到部分资源来自 Memory Cache，部分来自 Disk Cache，其余从服务器获取。在首次访问页面之后，浏览器会将资源缓存，后续访问这些资源时，可直接从缓存中获取，不必再从服务器下载。</description>
+    </item>
+    
+  </channel>
+</rss>

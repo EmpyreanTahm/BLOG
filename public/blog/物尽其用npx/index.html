@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>物尽其用「npx」</title>
+
+  <meta name="author" content="GeeKery">
+  <meta name="description" content="  朝闻道 夕死可矣  ">
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <!-- CSS Plugins -->
+  
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Long&#43;Cang&amp;display=swap">
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@100&amp;display=swap">
+
+
+
+
+<link rel="stylesheet" href="/css/vendor.min.682ad40b4e0c58b6094d2b8a06374b3dd5bf815615c70f33ef768dafea641f953216ff72454d61f99d82f7ccffc9046270e7378509f84020f2bd1f2d6b3b1502.css" integrity="sha512-aCrUC04MWLYJTSuKBjdLPdW/gVYVxw8z73aNr&#43;pkH5UyFv9yRU1h&#43;Z2C98z/yQRicOc3hQn4QCDyvR8tazsVAg==" media="screen">
+
+</head>
+
+<body>
+  
+  <div class="header-height-fix"></div>
+<header class="header-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+          <a class="navbar-brand font-weight-bold mr-0" href="/">
+            
+            <img loading="lazy" src="/images/logo.png" alt="GeeKery" height="40px">
+            
+          </a>
+
+          
+          <button class="search-toggle d-inline-block d-lg-none ml-auto mr-3" data-toggle="search" aria-label="Search Toggle">
+            <i class="las la-search"></i>
+          </button>
+          
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navHeader" aria-controls="navHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="d-inline lab la-buromobelexperte"></i>
+            <i class="d-none las la-times"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navHeader">
+            <ul class="navbar-nav mx-auto">
+
+              
+              
+              
+              
+              
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              
+              
+              
+              
+              
+              <li class="nav-item ">
+                <a class="nav-link" href="/categories">Categories</a>
+              </li>
+              
+              
+              
+              
+              
+              <li class="nav-item ">
+                <a class="nav-link" href="/tags">Tags</a>
+              </li>
+              
+              
+              
+              
+              
+              <li class="nav-item ">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              
+              
+            </ul>
+            
+            
+            <div class="navbar-right d-none d-lg-inline-block">
+              <ul class="social-links list-unstyled list-inline">
+                <li class="list-inline-item ml-4 d-none d-lg-inline-block">
+                  <button class="search-toggle" data-toggle="search" aria-label="Search Toggle">
+                    <i class="las la-search"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="search-block">
+  <div data-toggle="search-close">
+    <i class="las la-times text-primary"></i>
+  </div>
+  <form action="/search">
+    <input id="search-query" name="s" type="search" placeholder="Type words &amp; hit enter" class="text-center" aria-label="search-query">
+  </form>
+</div>
+
+  
+  
+
+
+
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="text-center mb-5">
+          <h3 class="h2 mb-4 post-title">物尽其用「npx」</h3>
+          <ul class="card-meta list-inline">
+            <li class="list-inline-item">
+              <a href="#!" class="card-meta-author">
+                
+                <a href="/author/geekery/" class="card-meta-author">
+                  <img loading="lazy" src="/images/photo.jpeg" alt="不辞远">
+                  <span>不辞远</span>
+                </a>
+                
+              </a>
+            </li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item">
+              <span>13 May 2020</span>
+            </li>
+          </ul>
+        </div>
+
+        
+
+        <div class="content">
+          
+
+<p>npx 是跟随 npm\@5.2.0 版本一起发布的，安装 5.2.0 版本及之后的 npm ，会自动安装 npx。npx 可以认为是「NPM Package Executor」的缩写，它为 npm 包管理和执行提供辅助功能。</p>
+
+<p>查看 npx 版本：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx --version</code></pre></div>
+<p>如果 npm 版本低于 5.2.0 ，可以升级 npm 版本，或全局安装以使用 npx：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install -g npx</code></pre></div>
+<h2 id="调用项目安装的模块">调用项目安装的模块</h2>
+
+<p>如果项目中安装了可执行的模块，在 node_modules/.bin 目录下会有相应的指令用于执行。例如，使用 Next.js 构建的项目在 node_modules/.bin 下会有 next 命令，可以通过以下方式调用：</p>
+
+<p>命令行调用：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node node_modules/.bin/next -v</code></pre></div>
+<p>npx 调用：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx next -v</code></pre></div>
+<p><strong>npx 会自动在 node_modules/.bin 路径和环境变量 $PATH 进行执行文件定位，如果查找成功，直接执行。如果查找失败，会临时下载对应模块的运行程序到一个临时目录，使用以后再删除，以后再次执行相同的命令，会重新下载。</strong></p>
+
+<p>运行 <code>npx ls</code>，由于环境变量中有 ls 命令，因此会立即执行：</p>
+
+<p><img src="/物尽其用「npx」/npx_ls.png" alt="npx_ls" /></p>
+
+<h2 id="避免全局安装模块">避免全局安装模块</h2>
+
+<p>npx 可以避免全局安装模块，例如在某个目录下需要启动 web 服务，可以使用 npx 运行包 http-server：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx http-server</code></pre></div>
+<p>执行成功后，http-server 默认代理执行命令所在路径下的文件。退出执行，http-server 会被自动清除，下次运行时会重新下载并执行。</p>
+
+<p>前端的 CLI 工具如 create-react-app 和 vue-cli 等，在生成模板项目时，不再需要卸载旧版本的全局包，再安装最新版本：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx create-react-app demo
+npx -p @vue/cli vue create demo</code></pre></div>
+<h2 id="执行远程模块">执行远程模块</h2>
+
+<p>npx 可以从 URL 执行程序包，前提是 URL 上的远程代码必须是一个规范的 Node.js 模块，即必须包含 package.json 文件和入口脚本，并确认模块安全。比如用 Github Gist 存放的 Node.js 脚本，可以用 npx 执行，Github Gist 中的内容：</p>
+
+<p><img src="/物尽其用「npx」/gist_script.png" alt="gist_script" /></p>
+
+<p>本地执行如下 :</p>
+
+<p><img src="/物尽其用「npx」/run_gist_script.png" alt="run_gist_script" /></p>
+
+<h2 id="切换-node-js-版本">切换 Node.js 版本</h2>
+
+<p>利用 npx 可以下载模块的特点，可以指定具体版本的 Node.js 运行脚本：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx node@0.12.8 -v</code></pre></div>
+<p>上面命令会使用 0.12.8 版本的 Node.js 执行，利用 npm 下载这个版本的 Node.js，使用后再删除。某些场景下，这种切换 Node.js 版本的方式相对简洁。</p>
+
+<h2 id="常用参数">常用参数</h2>
+
+<h3 id="no-install">--no-install</h3>
+
+<p>如果想让 npx 强制使用本地模块，不下载远程模块，可以添加 &ndash;no-install 参数。如果本地不存在该模块，就会报错。</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx --no-install http-server</code></pre></div>
+<h3 id="ignore-existing">--ignore-existing</h3>
+
+<p>反过来，如果要忽略本地的同名模块，强制安装使用远程模块，可以使用 &ndash;ignore-existing 参数。比如，本地已经全局安装了 create-react-app，但还是想使用远程模块，就可以使用这个参数。</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx --ignore-existing create-react-app react-app</code></pre></div>
+<h3 id="p">-p</h3>
+
+<p><strong>-p 参数用于指定 npx 所要安装的模块，并添加到正在运行的环境变量 $PATH。</strong> 所以之前切换 Node.js 版本的命令可以写成下面这样。</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx -p node@0.12.8 node -v </code></pre></div>
+<h2 id="最后">最后</h2>
+
+<p>npx 是用于执行 npm 包（包括 npm 官方包或符合规范的远程模块）的工具，使开发者使用 CLI 工具和被托管的可执行文件更方便，让交互式调用本地二进制文件更自由，提升了项目开发管理的效率。</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="single-post-meta">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6 text-center text-md-left">
+          <ul class="post-meta-tags list-unstyled list-inline">
+            
+            <li class="list-inline-item"><a href="/tags/npx">npx</a></li>
+            
+          </ul>
+        </div>
+        <div class="col-lg-5 col-md-6 text-center text-md-right mt-4 mt-md-0">
+<ul class="social-links has-bg-color list-unstyled list-inline" style="line-height:0">
+  <li class="list-inline-item">
+    
+    <a class="resp-sharing-button__link d-block" href="https://facebook.com/sharer/sharer.php?u=%2fblog%2f%25E7%2589%25A9%25E5%25B0%25BD%25E5%2585%25B6%25E7%2594%25A8npx%2f" target="_blank"
+      rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="lab la-facebook-f text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="list-inline-item">
+    
+    <a class="resp-sharing-button__link d-block" href="https://twitter.com/intent/tweet/?text=%e7%89%a9%e5%b0%bd%e5%85%b6%e7%94%a8%e3%80%8cnpx%e3%80%8d&amp;url=%2fblog%2f%25E7%2589%25A9%25E5%25B0%25BD%25E5%2585%25B6%25E7%2594%25A8npx%2f"
+      target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="lab la-twitter text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="list-inline-item">
+    
+    <a class="resp-sharing-button__link d-block" href="https://plus.google.com/share?url=%2fblog%2f%25E7%2589%25A9%25E5%25B0%25BD%25E5%2585%25B6%25E7%2594%25A8npx%2f" target="_blank"
+      rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--google resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="lab la-google-plus-g text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="list-inline-item">
+    
+    <a class="resp-sharing-button__link d-block" href="mailto:?subject=%e7%89%a9%e5%b0%bd%e5%85%b6%e7%94%a8%e3%80%8cnpx%e3%80%8d&amp;body=%2fblog%2f%25E7%2589%25A9%25E5%25B0%25BD%25E5%2585%25B6%25E7%2594%25A8npx%2f" target="_self"
+      rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="las la-envelope text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="list-inline-item">
+    
+    <a class="resp-sharing-button__link d-block" href="whatsapp://send?text=%e7%89%a9%e5%b0%bd%e5%85%b6%e7%94%a8%e3%80%8cnpx%e3%80%8d%20%2fblog%2f%25E7%2589%25A9%25E5%25B0%25BD%25E5%2585%25B6%25E7%2594%25A8npx%2f" target="_blank"
+      rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="lab la-whatsapp text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+</ul></div>
+      </div>
+    </div>
+
+    <div class="single-post-author">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="media d-block d-sm-flex text-center text-sm-left">
+            
+            <a href="/author/geekery/"><img loading="lazy" class="img-fluid rounded-circle mr-0 mr-sm-4 mb-4" src="/images/photo.jpeg" alt="不辞远"></a>
+            <div class="media-body">
+              <p class="font-primary mb-1">Written By</p>
+              <h4><a href="/author/geekery/" class="text-dark font-weight-700">不辞远</a></h4>
+              <p class="font-primary">川北道酒徒
+志之所趋 无远弗届 穷山距海 不能限也</p>
+              <ul class="social-links list-unstyled list-inline ml-0 ml-sm-n2">
+                
+                <li class="list-inline-item"><a href="https://www.linkedin.com/in/jayden-deng-3654b1176">
+                    <i class="lab la-linkedin-in"></i>
+                  </a></li>
+                
+                <li class="list-inline-item"><a href="mailto:mailto:dqy676081195@gmail.com">
+                    <i class="lab las la-at"></i>
+                  </a></li>
+                
+                <li class="list-inline-item"><a href="https://github.com/GeekKery">
+                    <i class="lab la-github"></i>
+                  </a></li>
+                
+              </ul>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="single-post-similer">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="row mt-3">
+            <div class="col-12">
+              <h3 class="text-dark font-weight-800 mb-4 pb-2">You May Also Like</h3>
+            </div>
+            
+              
+            <div class="col-md-6">
+              <article class="card post-card">
+  
+  <div class="card-body">
+    <ul class="card-meta list-inline mb-2">
+      <li class="list-inline-item mb-2">
+        
+        <a href="/author/geekery/" class="card-meta-author">
+          
+          <img loading="lazy" src="/images/photo.jpeg" alt="不辞远">
+          
+          <span>不辞远</span>
+        </a>
+        
+      </li>
+      <li class="list-inline-item mb-2">
+        <span>19 Jan, 2021</span>
+      </li>
+      <li class="list-inline-item mb-2">
+        <ul class="card-meta-tag list-inline">
+          
+          <li class="list-inline-item"><a href="/tags/js%E7%B3%BB%E5%88%97">JS系列</a></li>
+          
+        </ul>
+      </li>
+    </ul>
+    <h3 class="mb-3">
+      <a class="post-title" href="/blog/javascriptthis-%E6%9C%BA%E5%88%B6/">JavaScript：this 机制</a>
+    </h3>
+    <p> 关于 this 如果对于有经验的 JavaScript 开发者来说，this 都是一种非常复杂的机制，那它到底有用在哪里呢？下面来解释一下为什么要使用 this：
+function identify() { return this.name.toUpperCase(); } var me = { …</p>
+
+    
+  </div>
+</article>
+            </div>
+            
+            <div class="col-md-6">
+              <article class="card post-card">
+  
+  <div class="card-body">
+    <ul class="card-meta list-inline mb-2">
+      <li class="list-inline-item mb-2">
+        
+        <a href="/author/geekery/" class="card-meta-author">
+          
+          <img loading="lazy" src="/images/photo.jpeg" alt="不辞远">
+          
+          <span>不辞远</span>
+        </a>
+        
+      </li>
+      <li class="list-inline-item mb-2">
+        <span>19 Jan, 2021</span>
+      </li>
+      <li class="list-inline-item mb-2">
+        <ul class="card-meta-tag list-inline">
+          
+          <li class="list-inline-item"><a href="/tags/js%E7%B3%BB%E5%88%97">JS系列</a></li>
+          
+        </ul>
+      </li>
+    </ul>
+    <h3 class="mb-3">
+      <a class="post-title" href="/blog/javascript%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">JavaScript：内存管理</a>
+    </h3>
+    <p> 内存的生命周期包括分配内存、使用内存和释放内存。有些语言（比如 C 语言）必须手动分配和释放内存，JavaScript 的内存分配过程是在做变量声明赋值时自动完成的。变量完成内存分配之后程序才可以使用进行读写。当程序不需要再使用某些变量时，它们占用的内存就会进行释放，腾出空间。
+内存溢出 程序的运 …</p>
+
+    
+  </div>
+</article>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <footer class="section-sm">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-5">
+        
+        
+        
+      </div>
+      <div class="col-lg-12 text-center mt-5">
+        <ul class="list-inline footer-menu mb-4">
+          
+        </ul>
+        <ul class="social-links icon-box list-unstyled list-inline font-weight-500 mb-3">
+          
+          <li class="list-inline-item text-center"><a href="https://www.linkedin.com/in/jayden-deng-3654b1176" aria-label="social-icon">
+            <i class="lab lab la-linkedin-in"></i>
+          </a></li>
+          
+          <li class="list-inline-item text-center"><a href="mailto:mailto:dqy676081195@gmail.com" aria-label="social-icon">
+            <i class="lab las la-at"></i>
+          </a></li>
+          
+          <li class="list-inline-item text-center"><a href="https://github.com/GeekKery" aria-label="social-icon">
+            <i class="lab lab la-github"></i>
+          </a></li>
+          
+        </ul>
+        
+        <p class="mb-0 font-weight-500 copyright-text content">Copyright © 2021 GeeKery</p>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+  
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+<script data-turbolinks-suppress-warning src="/js/vendor.min.f0624b71c0e0a1168641f26705354e41de243e81aefd22d0cb0627d696bd60cdd4ca5e86a2d19fc7c6be48b1adb900720cf18a3ab7d0bae096a6ec84e97fe3c7.js" integrity="sha512-8GJLccDgoRaGQfJnBTVOQd4kPoGu/SLQywYn1pa9YM3Uyl6GotGfx8a&#43;SLGtuQByDPGKOrfQuuCWpuyE6X/jxw=="></script>
+
+
+
+</body>
+
+</html>

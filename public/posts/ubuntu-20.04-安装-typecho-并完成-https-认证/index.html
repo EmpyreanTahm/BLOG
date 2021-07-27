@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Ubuntu 20.04 安装 Typecho 并完成 HTTPS 认证</title>
+
+  <meta name="author" content="GeeKery">
+  <meta name="description" content="  朝闻道 夕死可矣  ">
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <!-- CSS Plugins -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@500;600;700;800;900&amp;display=swap">
+
+
+
+
+<link rel="stylesheet" href="/css/vendor.min.baf52ea3605b317bff1a5643db187b2f7d588fa8f7f86f8563edd75fe058becd61ff13627cd610439cfd7bdb239855cd89ef10674abb20fe6843b2b2aa589c6b.css" integrity="sha512-uvUuo2BbMXv/GlZD2xh7L31Yj6j3&#43;G&#43;FY&#43;3XX&#43;BYvs1h/xNifNYQQ5z9e9sjmFXNie8QZ0q7IP5oQ7Kyqlicaw==" media="screen">
+
+</head>
+
+<body>
+
+<div class="preloader"></div>
+
+  <div class="header-height-fix"></div>
+<header class="header-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+          <a class="navbar-brand font-weight-bold mr-0" href="/">
+
+            <img loading="lazy" src="/images/logo.png" alt="GeeKery" height="40px">
+
+          </a>
+
+
+          <button class="search-toggle d-inline-block d-lg-none ml-auto mr-3" data-toggle="search" aria-label="Search Toggle">
+            <i class="las la-search"></i>
+          </button>
+
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navHeader" aria-controls="navHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="d-inline lab la-buromobelexperte"></i>
+            <i class="d-none las la-times"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navHeader">
+            <ul class="navbar-nav mx-auto">
+
+
+
+
+
+
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+
+
+
+
+
+              <li class="nav-item ">
+                <a class="nav-link" href="/author">Author</a>
+              </li>
+
+
+
+
+
+              <li class="nav-item ">
+                <a class="nav-link" href="/categories">Categories</a>
+              </li>
+
+
+
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-inline-block " href="#" role="button" data-toggle="dropdown" aria-expanded="false">Archives</a>
+                <ul class="dropdown-menu">
+
+                  <li><a class="dropdown-item " href="/categories">Category</a></li>
+
+                </ul>
+              </li>
+
+
+
+
+
+              <li class="nav-item ">
+                <a class="nav-link" href="/tags">Tags</a>
+              </li>
+
+
+
+
+
+              <li class="nav-item ">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+
+
+            </ul>
+
+
+            <div class="navbar-right d-none d-lg-inline-block">
+              <ul class="social-links list-unstyled list-inline">
+                <li class="list-inline-item ml-4 d-none d-lg-inline-block">
+                  <button class="search-toggle" data-toggle="search" aria-label="Search Toggle">
+                    <i class="las la-search"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="search-block">
+  <div data-toggle="search-close">
+    <i class="las la-times text-primary"></i>
+  </div>
+  <form action="/search">
+    <input id="search-query" name="s" type="search" placeholder="输入 &amp; 回车" class="text-center" aria-label="search-query">
+  </form>
+</div>
+
+
+
+  <section class="section-sm pb-2 page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 mx-auto text-center">
+
+
+        <h3 class="mb-3 text-dark font-weight-bold">Ubuntu 20.04 安装 Typecho 并完成 HTTPS 认证</h3>
+
+
+
+        <ul class="list-inline breadcrumb-menu">
+
+
+        <li class="list-inline-item"><a href="/">Home</a></li>
+
+
+
+        <li class="list-inline-item">/ &nbsp; <a href="/postsubuntu-20.04-%E5%AE%89%E8%A3%85-typecho-%E5%B9%B6%E5%AE%8C%E6%88%90-https-%E8%AE%A4%E8%AF%81">Postsubuntu 20.04 % e5% a e%89% e8% a3%85 typecho % e5% b9% b6% e5% a e%8 c% e6%88%90 https % e8% a e% a4% e8% a f%81</a></li>
+
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="text-center mb-5">
+          <h3 class="h2 mb-4 post-title">Ubuntu 20.04 安装 Typecho 并完成 HTTPS 认证</h3>
+          <ul class="card-meta list-inline">
+            <li class="list-inline-item">
+              <a href="#!" class="card-meta-author">
+
+                <a href="/" class="card-meta-author">
+                  <img loading="lazy" src="/" alt="GeeKery">
+                  <span>GeeKery</span>
+                </a>
+
+              </a>
+            </li>
+            <li class="list-inline-item">|</li>
+            <li class="list-inline-item">
+              <span>12 May 2020</span>
+            </li>
+          </ul>
+        </div>
+
+
+
+        <div class="content">
+          <p>本文介绍在 Ubuntu 20.04 系统中搭建 PHP、 MySQL 和 Nginx 集成环境，在此基础上安装 <a href="http://typecho.org">Typecho</a> 并获取 HTTPS 认证。</p>
+<p>首先，通过包管理器更新源并升级软件：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get update
+sudo apt-get upgrade
+</code></pre></div><h2 id="安装-php-和相关扩展">安装 PHP 和相关扩展</h2>
+<p>数据库使用 MySQL，需要在 PHP 中安装扩展 php-mysql。与 Apache 不同，Nginx 没有内置对 PHP 文件的处理支持，因此需要使用 php-fpm 来处理 PHP 文件。</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get -y install php php-mysql php-fpm
+</code></pre></div><p>注意，在执行上面的命令后，系统会自动安装 Apache2，将其卸载：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get --purge remove apache2
+</code></pre></div><h2 id="安装配置-mysql">安装配置 MySQL</h2>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get -y install mysql-server
+</code></pre></div><p>执行 <code>sudo cat /etc/mysql/debian.cnf</code> 查看数据库初始化配置，找到 user 和 password 字段：</p>
+<p><img src="/Ubuntu20.04%E5%AE%89%E8%A3%85Typecho%E5%B9%B6%E5%AE%8C%E6%88%90HTTPS%E8%AE%A4%E8%AF%81/mysql_password.png" alt="mysql_pass.png"></p>
+<p>为方便后续配置和使用 MySQL，使用密码登录 MySQL 后配置 root 用户密码：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -u debian-sys-maint -p
+</code></pre></div><p>输入密码回车完成 MySQL 认证，接着在 MySQL 交互命令行中操作：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">use mysql;
+<span style="color:#999;font-style:italic">-- 设置 MySQL 数据库 root 用户的密码
+</span><span style="color:#999;font-style:italic"></span><span style="color:#6ab825;font-weight:bold">ALTER</span> <span style="color:#6ab825;font-weight:bold">USER</span> <span style="color:#ed9d13">&#39;root&#39;</span>@<span style="color:#ed9d13">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#6ab825;font-weight:bold">WITH</span> mysql_native_password <span style="color:#6ab825;font-weight:bold">BY</span> <span style="color:#ed9d13">&#39;自定义 root 用户密码&#39;</span>;
+flush <span style="color:#6ab825;font-weight:bold">privileges</span>;
+exit
+</code></pre></div><p>执行 <code>mysql -u root -p</code> ，输入刚才设置的新密码进行登录，登录后创建名为 typecho 数据库：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">CREATE</span> <span style="color:#6ab825;font-weight:bold">DATABASE</span> typecho <span style="color:#6ab825;font-weight:bold">DEFAULT</span> <span style="color:#24909d">CHARACTER</span> <span style="color:#6ab825;font-weight:bold">SET</span> utf8mb4 <span style="color:#6ab825;font-weight:bold">COLLATE</span> utf8mb4_unicode_ci;
+</code></pre></div><h2 id="安装配置-nginx">安装配置 Nginx</h2>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get -y install nginx
+</code></pre></div><p>安装 Nginx 后，在浏览器通过 IP 地址访问服务器，可以看到「Welcome to nginx!」的欢迎页面，表明 Nginx 已成功安装并启动。<strong>将域名解析到服务器 IP 地址</strong>，然后修改 Nginx 配置：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vi /etc/nginx/sites-enabled/default
+</code></pre></div><p>配置 Nginx 基本内容：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#6ab825;font-weight:bold">server</span> {
+    <span style="color:#6ab825;font-weight:bold">server_name</span> <span style="color:#ed9d13">soupcraft.icu,</span> <span style="color:#ed9d13">www.soupcraft.icu</span>;
+    <span style="color:#6ab825;font-weight:bold">listen</span> <span style="color:#3677a9">80</span>;
+    <span style="color:#6ab825;font-weight:bold">root</span> <span style="color:#ed9d13">/var/www/html</span>;
+    <span style="color:#6ab825;font-weight:bold">index</span> <span style="color:#ed9d13">index.php</span>;
+
+    <span style="color:#6ab825;font-weight:bold">location</span> <span style="color:#ed9d13">/</span> {
+        <span style="color:#6ab825;font-weight:bold">try_files</span> <span style="color:#40ffff">$uri</span> <span style="color:#40ffff">$uri/</span> <span style="color:#ed9d13">/index.php</span><span style="color:#40ffff">$is_args$args</span>;
+    }
+
+    <span style="color:#6ab825;font-weight:bold">location</span> ~ <span style="color:#ed9d13">\.php$</span> {
+        <span style="color:#6ab825;font-weight:bold">include</span> <span style="color:#ed9d13">fastcgi.conf</span>;
+        <span style="color:#6ab825;font-weight:bold">include</span> <span style="color:#ed9d13">fastcgi_params</span>;
+        <span style="color:#6ab825;font-weight:bold">fastcgi_pass</span> <span style="color:#ed9d13">unix:/run/php/php7.4-fpm.sock</span>;
+    }
+
+}
+</code></pre></div><p>保存文件后，执行 <code>sudo service nginx restart</code> 重启 Nginx，即可通过域名访问。</p>
+<h2 id="安装-typecho">安装 Typecho</h2>
+<p>首先移动到之前 Nginx 配置的 root 属性路径下（root 属性可配置其它路径，保持一致即可）：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#24909d">cd</span> /var/www/html
+</code></pre></div><p>复制 Typecho 的<a href="http://typecho.org/download">下载页面</a>正式版的链接地址，在服务器进行压缩包下载并解压：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo wget http://typecho.org/downloads/1.1-17.10.30-release.tar.gz
+sudo tar -zxvf 1.1-17.10.30-release.tar.gz
+</code></pre></div><p>移动解压后的文件到 /var/www/html 路径下，并删除无关内容：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mv build/* ./
+rm -r build
+rm 1.1-17.10.30-release.tar.gz
+</code></pre></div><p>通过域名进入网站 /install.php 页面，填写数据库配置、网站和个人信息，提交后，出现以下页面：</p>
+<p><img src="/Ubuntu20.04%E5%AE%89%E8%A3%85Typecho%E5%B9%B6%E5%AE%8C%E6%88%90HTTPS%E8%AE%A4%E8%AF%81/database_config.png" alt="database_config.png"></p>
+<p>复制框中的数据库配置内容，按照提示粘贴保存至 config.inc.php 文件中：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#24909d">cd</span> /var/www/html
+sudo vi config.inc.php
+</code></pre></div><p>保存退出后，切回浏览器点击「创建完毕，继续安装」按钮，完成后续安装。</p>
+<h3 id="权限">权限</h3>
+<p>在安装和后续使用过程中，可能会多次出现对某个目录没有写入权限的问题：比如在管理外观时出现「此文件无法写入」的提示；scp 上传文件、插件或主题时被告知「Permission denied」等。使用 chmod 命令修改权限即可解决：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chmod -R <span style="color:#3677a9">777</span> /var/www/html/usr/
+</code></pre></div><h2 id="使用-certbot-获取-ssl-证书">使用 Certbot 获取 SSL 证书</h2>
+<p>腾讯云的免费 SSL 证书申请始终处于验证状态，方便起见，用 <a href="https://certbot.eff.org/">Certbot</a> 获取证书，选择服务软件为 Nginx，选择操作系统为 Ubuntu 20.04 之后，会自动跳转<a href="https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx">安装页面</a>，按照文档流程在服务器进行操作，由于 Ubuntu 20.04 已经预安装了 snapd，直接开始以下步骤：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo snap install --classic certbot
+sudo certbot --nginx
+</code></pre></div><p>自动更新配置后，稍加修改，完整的 /etc/nginx/sites-enabled/default 文件配置内容如下：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#6ab825;font-weight:bold">server</span> {
+    <span style="color:#6ab825;font-weight:bold">server_name</span> <span style="color:#ed9d13">soupcraft.icu,</span> <span style="color:#ed9d13">www.soupcraft.icu</span>;
+    <span style="color:#6ab825;font-weight:bold">listen</span> <span style="color:#3677a9">80</span>;
+    <span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#3677a9">301</span> <span style="color:#ed9d13">https://www.soupcraft.icu</span><span style="color:#40ffff">$request_uri</span>;
+}
+
+<span style="color:#6ab825;font-weight:bold">server</span> {
+    <span style="color:#6ab825;font-weight:bold">server_name</span>  <span style="color:#ed9d13">www.soupcraft.icu</span>;
+    <span style="color:#6ab825;font-weight:bold">root</span> <span style="color:#ed9d13">/var/www/html</span>;
+    <span style="color:#6ab825;font-weight:bold">index</span> <span style="color:#ed9d13">index.php</span>;
+
+    <span style="color:#6ab825;font-weight:bold">location</span> <span style="color:#ed9d13">/</span> {
+        <span style="color:#6ab825;font-weight:bold">try_files</span> <span style="color:#40ffff">$uri</span> <span style="color:#40ffff">$uri/</span> <span style="color:#ed9d13">/index.php</span><span style="color:#40ffff">$is_args$args</span>;
+    }
+
+    <span style="color:#6ab825;font-weight:bold">location</span> ~ <span style="color:#ed9d13">\.php$</span> {
+        <span style="color:#6ab825;font-weight:bold">include</span> <span style="color:#ed9d13">fastcgi.conf</span>;
+        <span style="color:#6ab825;font-weight:bold">include</span> <span style="color:#ed9d13">fastcgi_params</span>;
+        <span style="color:#6ab825;font-weight:bold">fastcgi_pass</span> <span style="color:#ed9d13">unix:/run/php/php7.4-fpm.sock</span>;
+    }
+    <span style="color:#6ab825;font-weight:bold">listen</span> <span style="color:#3677a9">443</span> <span style="color:#ed9d13">ssl</span>; <span style="color:#999;font-style:italic"># managed by Certbot
+</span><span style="color:#999;font-style:italic"></span>    <span style="color:#6ab825;font-weight:bold">ssl_certificate</span> <span style="color:#ed9d13">/etc/letsencrypt/live/www.soupcraft.icu/fullchain.pem</span>; <span style="color:#999;font-style:italic"># managed by Certbot
+</span><span style="color:#999;font-style:italic"></span>    <span style="color:#6ab825;font-weight:bold">ssl_certificate_key</span> <span style="color:#ed9d13">/etc/letsencrypt/live/www.soupcraft.icu/privkey.pem</span>; <span style="color:#999;font-style:italic"># managed by Certbot
+</span><span style="color:#999;font-style:italic"></span>    <span style="color:#6ab825;font-weight:bold">include</span> <span style="color:#ed9d13">/etc/letsencrypt/options-ssl-nginx.conf</span>; <span style="color:#999;font-style:italic"># managed by Certbot
+</span><span style="color:#999;font-style:italic"></span>    <span style="color:#6ab825;font-weight:bold">ssl_dhparam</span> <span style="color:#ed9d13">/etc/letsencrypt/ssl-dhparams.pem</span>; <span style="color:#999;font-style:italic"># managed by Certbot
+</span><span style="color:#999;font-style:italic"></span>}
+</code></pre></div><p>打开 80 端口的域名，会被重定向到 443 端口，安装完成~</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="single-post-meta">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6 text-center text-md-left">
+          <ul class="post-meta-tags list-unstyled list-inline">
+
+            <li class="list-inline-item"><a href="/tags/typecho">Typecho</a></li>
+
+          </ul>
+        </div>
+        <div class="col-lg-5 col-md-6 text-center text-md-right mt-4 mt-md-0">
+<ul class="social-links has-bg-color list-unstyled list-inline" style="line-height:0">
+  <li class="list-inline-item">
+
+    <a class="resp-sharing-button__link d-block" href="https://facebook.com/sharer/sharer.php?u=%2fposts%2fubuntu-20.04-%25E5%25AE%2589%25E8%25A3%2585-typecho-%25E5%25B9%25B6%25E5%25AE%258C%25E6%2588%2590-https-%25E8%25AE%25A4%25E8%25AF%2581%2f" target="_blank"
+      rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="lab la-facebook-f text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="list-inline-item">
+
+    <a class="resp-sharing-button__link d-block" href="https://twitter.com/intent/tweet/?text=Ubuntu%2020.04%20%e5%ae%89%e8%a3%85%20Typecho%20%e5%b9%b6%e5%ae%8c%e6%88%90%20HTTPS%20%e8%ae%a4%e8%af%81&amp;url=%2fposts%2fubuntu-20.04-%25E5%25AE%2589%25E8%25A3%2585-typecho-%25E5%25B9%25B6%25E5%25AE%258C%25E6%2588%2590-https-%25E8%25AE%25A4%25E8%25AF%2581%2f"
+      target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="lab la-twitter text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="list-inline-item">
+
+    <a class="resp-sharing-button__link d-block" href="https://plus.google.com/share?url=%2fposts%2fubuntu-20.04-%25E5%25AE%2589%25E8%25A3%2585-typecho-%25E5%25B9%25B6%25E5%25AE%258C%25E6%2588%2590-https-%25E8%25AE%25A4%25E8%25AF%2581%2f" target="_blank"
+      rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--google resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="lab la-google-plus-g text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="list-inline-item">
+
+    <a class="resp-sharing-button__link d-block" href="mailto:?subject=Ubuntu%2020.04%20%e5%ae%89%e8%a3%85%20Typecho%20%e5%b9%b6%e5%ae%8c%e6%88%90%20HTTPS%20%e8%ae%a4%e8%af%81&amp;body=%2fposts%2fubuntu-20.04-%25E5%25AE%2589%25E8%25A3%2585-typecho-%25E5%25B9%25B6%25E5%25AE%258C%25E6%2588%2590-https-%25E8%25AE%25A4%25E8%25AF%2581%2f" target="_self"
+      rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="las la-envelope text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+  <li class="list-inline-item">
+
+    <a class="resp-sharing-button__link d-block" href="whatsapp://send?text=Ubuntu%2020.04%20%e5%ae%89%e8%a3%85%20Typecho%20%e5%b9%b6%e5%ae%8c%e6%88%90%20HTTPS%20%e8%ae%a4%e8%af%81%20%2fposts%2fubuntu-20.04-%25E5%25AE%2589%25E8%25A3%2585-typecho-%25E5%25B9%25B6%25E5%25AE%258C%25E6%2588%2590-https-%25E8%25AE%25A4%25E8%25AF%2581%2f" target="_blank"
+      rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <i class="lab la-whatsapp text-dark"></i>
+        </div>
+      </div>
+    </a>
+  </li>
+
+</ul></div>
+      </div>
+    </div>
+
+    <div class="single-post-author">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="media d-block d-sm-flex text-center text-sm-left">
+
+            <a href="/"><img loading="lazy" class="img-fluid rounded-circle mr-0 mr-sm-4 mb-4" src="/" alt="GeeKery"></a>
+            <div class="media-body">
+              <p class="font-primary mb-1">Written By</p>
+              <h4><a href="/" class="text-dark font-weight-700">GeeKery</a></h4>
+              <p class="font-primary"></p>
+              <ul class="social-links list-unstyled list-inline ml-0 ml-sm-n2">
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="single-post-similer">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="row mt-3">
+            <div class="col-12">
+              <h3 class="text-dark font-weight-800 mb-4 pb-2">You May Also Like</h3>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <footer class="section-sm">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-5">
+
+
+
+      </div>
+      <div class="col-lg-12 text-center mt-5">
+        <ul class="list-inline footer-menu mb-4">
+
+        </ul>
+        <ul class="social-links icon-box list-unstyled list-inline font-weight-500 mb-3">
+
+          <li class="list-inline-item text-center"><a href="https://www.linkedin.com/in/jayden-deng-3654b1176" aria-label="social-icon">
+            <i class="lab lab la-linkedin-in"></i>
+          </a></li>
+
+          <li class="list-inline-item text-center"><a href="mailto:mailto:dqy676081195@gmail.com" aria-label="social-icon">
+            <i class="lab las la-at"></i>
+          </a></li>
+
+          <li class="list-inline-item text-center"><a href="https://github.com/GeeKeryK" aria-label="social-icon">
+            <i class="lab lab la-github"></i>
+          </a></li>
+
+        </ul>
+
+        <p class="mb-0 font-weight-500 copyright-text content">Copyright © 2021 GeeKery</p>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script data-turbolinks-suppress-warning src="/js/vendor.min.145a21dc1d3b6180ba4053b597f77d01206a5207dbc280de83d4151958109b94fad45e42ce423c4c4cf0cef270a67279b4db5d19f05e3eee33b3838de0028318.js" integrity="sha512-FFoh3B07YYC6QFO1l/d9ASBqUgfbwoDeg9QVGVgQm5T61F5CzkI8TEzwzvJwpnJ5tNtdGfBePu4zs4ON4AKDGA=="></script>
+
+
+
+</body>
+
+</html>

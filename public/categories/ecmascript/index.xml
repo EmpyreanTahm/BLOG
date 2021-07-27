@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ECMAScript on GeeKery</title>
+    <link>/categories/ecmascript/</link>
+    <description>Recent content in ECMAScript on GeeKery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 19 Jan 2021 18:03:44 +0800</lastBuildDate><atom:link href="/categories/ecmascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript：this 机制</title>
+      <link>/blog/javascriptthis-%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Tue, 19 Jan 2021 18:03:44 +0800</pubDate>
+      
+      <guid>/blog/javascriptthis-%E6%9C%BA%E5%88%B6/</guid>
+      <description>关于 this 如果对于有经验的 JavaScript 开发者来说，this 都是一种非常复杂的机制，那它到底有用在哪里呢？下面来解释一下为什么要使用 this：
+function identify() { return this.name.toUpperCase(); } var me = { name: &amp;#34;Kyle&amp;#34; }; var you = { name: &amp;#34;Reader&amp;#34; }; identify.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript：内存管理</title>
+      <link>/blog/javascript%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 19 Jan 2021 15:04:44 +0800</pubDate>
+      
+      <guid>/blog/javascript%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
+      <description>内存的生命周期包括分配内存、使用内存和释放内存。有些语言（比如 C 语言）必须手动分配和释放内存，JavaScript 的内存分配过程是在做变量声明赋值时自动完成的。变量完成内存分配之后程序才可以使用进行读写。当程序不需要再使用某些变量时，它们占用的内存就会进行释放，腾出空间。
+内存溢出 程序的运行需要内存，只要程序提出要求，操作系统或者运行时（Runtime）就必须供给内存。程序运行过程中申请的内存大于系统能够提供的内存，导致程序无法申请到足够的内存，这就是内存溢出（Out Of Memory）。
+内存泄漏 不再用到的内存，没有及时释放，就叫做内存泄漏（Memory Leak），内存泄漏与大小无关，并非导致程序卡顿、崩溃才能叫做内存泄漏。
+内存泄漏的堆积，会使内存占用越来越高，轻则影响系统性能，重则导致进程崩溃，尤其是持续运行的服务进程（Daemon）。
+在 Chrome 浏览器的 Performance 功能中，使用 Memory 选项可以帮助开发者查看内存占用，如果内存不是趋于平稳，而是一直上升，则可能发生了内存泄漏。在 Performance 功能中，也可以手动进行垃圾回收。</description>
+    </item>
+    
+    <item>
+      <title>JavaScript：作用域和闭包</title>
+      <link>/blog/javascript%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</link>
+      <pubDate>Mon, 18 Jan 2021 15:03:44 +0800</pubDate>
+      
+      <guid>/blog/javascript%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</guid>
+      <description>词法作用域 作用域是一套规则，这套规则用来管理引擎如何在当前的作用域以及嵌套的子作用域中根据标识符名称进行变量查找。作用域共有两种主要的工作模型。第一种是最为普遍的，被大多数编程语言所采用的词法作用域，另外一种叫做动态作用域，仍有一些编程语言在使用（比如 Bash 脚本、Perl 中的一些模式等）。JavaScript 中的作用域就是词法作用域。
+词法作用域就是定义在词法阶段的作用域。换句话说，词法作用域是由你在写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变。无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。
+欺骗词法 如果词法作用域完全由写代码期间函数所声明的位置来定义，怎样才能在运行时来“修改”（即欺骗）词法作用域呢？
+JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关键字。前者可以对一段包含一个或多个声明的“代码”字符串进行演算，并借此来修改已经存在的词法作用域（在运行时）。后者本质上是通过将一个对象的引用当作作用域来处理，将对象的属性当作作用域中的标识符来处理，从而创建了一个新的词法作用域（同样是在运行时）。
+这两个机制的副作用是引擎无法在编译时对作用域查找进行优化，因为引擎只能谨慎地认为这样的优化是无效的。使用这其中任何一个机制都将导致代码运行变慢。避免使用它们。
+动态作用域 动态作用域并不关心函数和作用域是如何声明以及在何处声明的，只关心它们从何处调用。换句话说，作用域链是基于调用栈的，而不是代码中的作用域嵌套。
+因此，如果 JavaScript 具有动态作用域，理论上，下面代码中的 foo() 在执行时将会输出 3。</description>
+    </item>
+    
+    <item>
+      <title>你真的了解 script 标签吗</title>
+      <link>/blog/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BA%86%E8%A7%A3script%E6%A0%87%E7%AD%BE%E5%90%97/</link>
+      <pubDate>Fri, 26 Jun 2020 03:35:39 +0800</pubDate>
+      
+      <guid>/blog/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BA%86%E8%A7%A3script%E6%A0%87%E7%AD%BE%E5%90%97/</guid>
+      <description>crossorigin 属性 crossorigin 值有 anonymous 和 use-credentials，空值如 crossorigin 或 crossorigin=&amp;ldquo;&amp;rdquo; 缺省为 anonymous，如果未指定此属性，CORS 将不会启用，若启用必须保证服务器已开启跨域请求允许。其他 HTML5 元素如 &amp;lt;audio&amp;gt;、&amp;lt;video&amp;gt;、&amp;lt;link&amp;gt;、&amp;lt;img&amp;gt; 等均有跨域属性。
+anonymous 值表示对此元素的 CORS 请求将不设置凭据标志；use-credentials 表示对此元素的 CORS 请求将设置凭证标志，这意味着请求将提供凭据。换句话说，就是 use-credentials 允许浏览器携带 Cookie 等凭证数据到服务器，而 anonymous 不允许。</description>
+    </item>
+    
+  </channel>
+</rss>

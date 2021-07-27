@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on GeeKery</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on GeeKery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 19 Jan 2021 18:03:44 +0800</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ECMAScript</title>
+      <link>/categories/ecmascript/</link>
+      <pubDate>Tue, 19 Jan 2021 18:03:44 +0800</pubDate>
+      
+      <guid>/categories/ecmascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网络</title>
+      <link>/categories/%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Fri, 15 Jan 2021 20:14:56 +0800</pubDate>
+      
+      <guid>/categories/%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DevOps</title>
+      <link>/categories/devops/</link>
+      <pubDate>Tue, 05 Jan 2021 04:12:59 +0800</pubDate>
+      
+      <guid>/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>随笔</title>
+      <link>/categories/%E9%9A%8F%E7%AC%94/</link>
+      <pubDate>Fri, 01 Jan 2021 04:06:39 +0800</pubDate>
+      
+      <guid>/categories/%E9%9A%8F%E7%AC%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>/categories/html/</link>
+      <pubDate>Sat, 19 Dec 2020 04:01:18 +0800</pubDate>
+      
+      <guid>/categories/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>/categories/node.js/</link>
+      <pubDate>Wed, 13 May 2020 02:12:21 +0800</pubDate>
+      
+      <guid>/categories/node.js/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
