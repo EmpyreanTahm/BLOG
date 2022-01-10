@@ -7,7 +7,7 @@ draft: false
 social:
 - icon: "la-linkedin-in"
   link: "https://www.linkedin.com/in/jayden-deng-3654b1176"
-- icon: "las la-at"
+- icon: "las la-envelope-open-text"
   link: "mailto:mailto:dqy676081195@gmail.com"
 - icon: "la-github"
   link: "https://github.com/GeekKery"

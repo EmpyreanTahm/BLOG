@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "/"
+baseURL = "https://www.soupcraft.icu/"
 title = "GeeKery | 高手分割线"
 theme = "bookworm"
 # post pagination
@@ -30,12 +30,8 @@ unsafe = true
 link = "plugins/bootstrap/bootstrap.min.css"
 [[params.plugins.css]]
 link = "plugins/line-awesome/css/line-awesome.min.css"
-# [[params.plugins.css]]
-# link = "https://fonts.googleapis.com/css2?family=Mulish:wght@500;600;700;800;900&display=swap"
 [[params.plugins.css]]
-link = "https://fonts.googleapis.com/css2?family=Long+Cang&display=swap"
-[[params.plugins.css]]
-link = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap"
+link = "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap"
 
 # JS Plugins
 [[params.plugins.js]]
@@ -53,7 +49,7 @@ link = "plugins/search/search.js"
 
 # site variables
 [params.variables]
-font_primary = "Long Cang"
+font_primary = "Noto Sans SC"
 h1 = "64px"
 h1_lg = "52px"
 h1_md = "42px"
@@ -67,7 +63,7 @@ h6 = "16px"
 white = "#ffffff"
 black = "#000000"
 dark = "#152035"
-gray = "#747577"
+gray = "#363636"
 light = "#FAFAFA"
 color_primary = "#01AD9F"
 
@@ -87,9 +83,8 @@ tabWidth = 4
 
 #################### default parameters ################################
 [params]
-customCSS = ["css/custom.css"]
 logo = "images/logo.png"
-logo_height = "40px"
+logo_width = "200px"
 favicon = "images/favicon.ico"
 # Meta data
 description = "GeeKery 高手分割线"
@@ -151,30 +146,10 @@ url = "about"
 name = "About"
 
 ############################# Footer Menu ########################
-# [[menu.footer]]
-# weight = 1
-# url = "about/"
-# name = "About"
-
-# [[menu.footer]]
-# weight = 2
-# url = "author/"
-# name = "Authors"
-
-# [[menu.footer]]
-# weight = 3
-# url = "privacy/"
-# name = "Privacy"
-
-# [[menu.footer]]
-# weight = 4
-# url = "terms-conditions/"
-# name = "Terms & Conditions"
-
-# Social Icons
-# [[params.social]]
-# url = "https://www.facebook.com/"
-# icon = "lab la-facebook-f" # https://icons8.com/line-awesome
+[[menu.footer]]
+weight = 1
+url = "https://beian.miit.gov.cn/"
+name = "蜀ICP备20010312号-1"
 
 [[params.social]]
 url = "https://www.linkedin.com/in/jayden-deng-3654b1176"
@@ -182,7 +157,7 @@ icon = "lab la-linkedin-in" # https://icons8.com/line-awesome
 
 [[params.social]]
 url = "mailto:mailto:dqy676081195@gmail.com"
-icon = "las la-at" # https://icons8.com/line-awesome
+icon = "las la-envelope-open-text" # https://icons8.com/line-awesome
 
 [[params.social]]
 url = "https://github.com/GeekKery"
