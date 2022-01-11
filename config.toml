@@ -1,6 +1,6 @@
 ######################## default configuration ####################
 baseURL = "https://www.soupcraft.icu/"
-title = "GeeKery | 高手分割线"
+title = "GeeKery | 我的个人开发"
 theme = "bookworm"
 # post pagination
 paginate = "5"
@@ -31,7 +31,7 @@ link = "plugins/bootstrap/bootstrap.min.css"
 [[params.plugins.css]]
 link = "plugins/line-awesome/css/line-awesome.min.css"
 [[params.plugins.css]]
-link = "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap"
+link = "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400&display=swap"
 
 # JS Plugins
 [[params.plugins.js]]
@@ -84,10 +84,10 @@ tabWidth = 4
 #################### default parameters ################################
 [params]
 logo = "images/logo.png"
-logo_width = "200px"
+logo_width = "180px"
 favicon = "images/favicon.ico"
 # Meta data
-description = "GeeKery 高手分割线"
+description = "GeeKery 我的个人开发"
 author = "GeeKery"
 # contact form action
 # contact_form_action = "#" # contact form works with https://formspree.io
