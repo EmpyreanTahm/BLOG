@@ -7,7 +7,7 @@ date: 2020-05-12T10:38:53+08:00
 
 ## Transfer
 
-~~博客使用 [Typecho](http://typecho.org/) 程序搭建，搭建步骤参考 [《Ubuntu 20.04 安装 Typecho 并完成 HTTPS 认证》](/posts/ubuntu-20.04-安装-typecho-并完成-https-认证/) 一文，主题使用 Chakhsu Lau 开发的 [Pinghsu](https://github.com/chakhsu/pinghsu)。~~
+~~博客使用 [Typecho](http://typecho.org/) 程序搭建，搭建步骤参考 [《Ubuntu 20.04 安装 Typecho 并完成 HTTPS 认证》](/posts/ubuntu20.04-安装-typecho-附-https-认证/) 一文，主题使用 Chakhsu Lau 开发的 [Pinghsu](https://github.com/chakhsu/pinghsu)。~~
 
 ~~由于一开始考虑到博客系统的扩展性，方便将来添加相簿、文档等功能，采用了功能强大的 Typecho 搭建。实际使用中，Typecho 的编辑器与 Typora 渲染有不兼容的地方，需要手动修改，而 Ubuntu 系统和数据库等对硬件资源较大的占用，未雨绸缪成了杞人忧天。权衡利弊，使用 [Hugo](https://gohugo.io/) 渲染文章，主题用的是 [bookworm](https://github.com/gethugothemes/bookworm)，部分样式和功能有自定义。~~
 
