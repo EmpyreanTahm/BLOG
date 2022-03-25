@@ -1,4 +1,4 @@
-baseURL = "geekkery.4everland.app/"
+baseURL = "/"
 languageCode = "zh-cn"
 title = "GeekKery ¶ £¢∞"
 theme = "hugo-theme-cactus"

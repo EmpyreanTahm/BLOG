@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-  <link rel="preload" href="/geekkery.4everland.app/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/geekkery.4everland.app/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/geekkery.4everland.app/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/geekkery.4everland.app/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
   <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> 作用域和闭包.md | GeekKery ¶ £¢∞</title>
-  <link rel = 'canonical' href = 'geekkery.4everland.app/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/'>
+  <link rel = 'canonical' href = '/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/'>
   <meta name="description" content="一鼓轻雷惊蛰后 细筛微雨落梅天">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
@@ -26,7 +26,7 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
 1function foo() { 2	console.log(a) // 3(不是 2 !) 3} 4function bar() { 5 var a = 3 6	foo() 7} 8var a = 2 9bar() 为什么会这样？因为当 foo() 无法找到 a 的变量引用时，会顺着调用栈在调用 foo() 的地方查找 a，而不是在嵌套的词法作用域链中向上查找。由于 foo() 是在 bar() 中调用的，引擎会检查 bar() 的作用域，并在其中找到值为 3 的变量 a。
 需要明确的是，事实上 JavaScript 并不具有动态作用域。它只有词法作用域，简单明了。但是 this 机制某种程度上很像动态作用域。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="geekkery.4everland.app/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/" />
+<meta property="og:url" content="/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/" />
 <meta property="article:published_time" content="2021-01-18T15:03:44+08:00" />
 <meta property="article:modified_time" content="2021-01-18T15:03:44+08:00" />
 
@@ -47,7 +47,7 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
     
   
   
-  <link rel="stylesheet" href="/geekkery.4everland.app/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+  <link rel="stylesheet" href="/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
 
   
   
@@ -59,7 +59,7 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
   
 
   
-<link rel="icon" type="image/png" href="geekkery.4everland.app/images/favicon.ico" />
+<link rel="icon" type="image/png" href="/images/favicon.ico" />
 
   
   
@@ -78,13 +78,13 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
     <span id="nav">
       <ul>
          
-        <li><a href="geekkery.4everland.app/">Home</a></li>
+        <li><a href="/">Home</a></li>
          
-        <li><a href="geekkery.4everland.app/posts">Writings</a></li>
+        <li><a href="/posts">Writings</a></li>
          
-        <li><a href="geekkery.4everland.app/tags">Tags</a></li>
+        <li><a href="/tags">Tags</a></li>
          
-        <li><a href="geekkery.4everland.app/about">About</a></li>
+        <li><a href="/about">About</a></li>
         
       </ul>
     </span>
@@ -93,14 +93,14 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
       <ul>
         
         <li>
-          <a class="icon" href=" geekkery.4everland.app/posts/%E6%B5%85%E6%9E%90-https/" aria-label="Previous">
+          <a class="icon" href=" /posts/%E6%B5%85%E6%9E%90-https/" aria-label="Previous">
             <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
           </a>
         </li>
         
         
         <li>
-          <a class="icon" href="geekkery.4everland.app/posts/%E6%B5%85%E8%B0%88-gc/" aria-label="Next">
+          <a class="icon" href="/posts/%E6%B5%85%E8%B0%88-gc/" aria-label="Next">
             <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
           </a>
         </li>
@@ -131,47 +131,47 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
   
   
   <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f" aria-label="Facebook">
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f" aria-label="Facebook">
       <i class="fab fa-facebook " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://twitter.com/share?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&text=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Twitter">
+    <a class="icon" href="https://twitter.com/share?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&text=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Twitter">
       <i class="fab fa-twitter " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Linkedin">
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Linkedin">
       <i class="fab fa-linkedin " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&is_video=false&description=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Pinterest">
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&is_video=false&description=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Pinterest">
       <i class="fab fa-pinterest " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="mailto:?subject=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md&body=Check out this article: geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f" aria-label="Email">
+    <a class="icon" href="mailto:?subject=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md&body=Check out this article: %2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f" aria-label="Email">
       <i class="fas fa-envelope " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://getpocket.com/save?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Pocket">
+    <a class="icon" href="https://getpocket.com/save?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Pocket">
       <i class="fab fa-get-pocket " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://reddit.com/submit?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="reddit">
+    <a class="icon" href="http://reddit.com/submit?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="reddit">
       <i class="fab fa-reddit " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&name=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md&description=%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%20%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e4%b8%80%e5%a5%97%e8%a7%84%e5%88%99%ef%bc%8c%e8%bf%99%e5%a5%97%e8%a7%84%e5%88%99%e7%94%a8%e6%9d%a5%e7%ae%a1%e7%90%86%e5%bc%95%e6%93%8e%e5%a6%82%e4%bd%95%e5%9c%a8%e5%bd%93%e5%89%8d%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%bb%a5%e5%8f%8a%e5%b5%8c%e5%a5%97%e7%9a%84%e5%ad%90%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%ad%e6%a0%b9%e6%8d%ae%e6%a0%87%e8%af%86%e7%ac%a6%e5%90%8d%e7%a7%b0%e8%bf%9b%e8%a1%8c%e5%8f%98%e9%87%8f%e6%9f%a5%e6%89%be%e3%80%82%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%85%b1%e6%9c%89%e4%b8%a4%e7%a7%8d%e4%b8%bb%e8%a6%81%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%a8%a1%e5%9e%8b%e3%80%82%e7%ac%ac%e4%b8%80%e7%a7%8d%e6%98%af%e6%9c%80%e4%b8%ba%e6%99%ae%e9%81%8d%e7%9a%84%ef%bc%8c%e8%a2%ab%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e6%89%80%e9%87%87%e7%94%a8%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e5%8f%a6%e5%a4%96%e4%b8%80%e7%a7%8d%e5%8f%ab%e5%81%9a%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e4%bb%8d%e6%9c%89%e4%b8%80%e4%ba%9b%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e5%9c%a8%e4%bd%bf%e7%94%a8%ef%bc%88%e6%af%94%e5%a6%82%20Bash%20%e8%84%9a%e6%9c%ac%e3%80%81Perl%20%e4%b8%ad%e7%9a%84%e4%b8%80%e4%ba%9b%e6%a8%a1%e5%bc%8f%e7%ad%89%ef%bc%89%e3%80%82JavaScript%20%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b0%b1%e6%98%af%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%0a%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b0%b1%e6%98%af%e5%ae%9a%e4%b9%89%e5%9c%a8%e8%af%8d%e6%b3%95%e9%98%b6%e6%ae%b5%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%e6%8d%a2%e5%8f%a5%e8%af%9d%e8%af%b4%ef%bc%8c%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e7%94%b1%e4%bd%a0%e5%9c%a8%e5%86%99%e4%bb%a3%e7%a0%81%e6%97%b6%e5%b0%86%e5%8f%98%e9%87%8f%e5%92%8c%e5%9d%97%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%86%99%e5%9c%a8%e5%93%aa%e9%87%8c%e6%9d%a5%e5%86%b3%e5%ae%9a%e7%9a%84%ef%bc%8c%e5%9b%a0%e6%ad%a4%e5%bd%93%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90%e5%99%a8%e5%a4%84%e7%90%86%e4%bb%a3%e7%a0%81%e6%97%b6%e4%bc%9a%e4%bf%9d%e6%8c%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%8d%e5%8f%98%e3%80%82%e6%97%a0%e8%ae%ba%e5%87%bd%e6%95%b0%e5%9c%a8%e5%93%aa%e9%87%8c%e8%a2%ab%e8%b0%83%e7%94%a8%ef%bc%8c%e4%b9%9f%e6%97%a0%e8%ae%ba%e5%ae%83%e5%a6%82%e4%bd%95%e8%a2%ab%e8%b0%83%e7%94%a8%ef%bc%8c%e5%ae%83%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%83%bd%e5%8f%aa%e7%94%b1%e5%87%bd%e6%95%b0%e8%a2%ab%e5%a3%b0%e6%98%8e%e6%97%b6%e6%89%80%e5%a4%84%e7%9a%84%e4%bd%8d%e7%bd%ae%e5%86%b3%e5%ae%9a%e3%80%82%0a%e6%ac%ba%e9%aa%97%e8%af%8d%e6%b3%95%20%e5%a6%82%e6%9e%9c%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%ae%8c%e5%85%a8%e7%94%b1%e5%86%99%e4%bb%a3%e7%a0%81%e6%9c%9f%e9%97%b4%e5%87%bd%e6%95%b0%e6%89%80%e5%a3%b0%e6%98%8e%e7%9a%84%e4%bd%8d%e7%bd%ae%e6%9d%a5%e5%ae%9a%e4%b9%89%ef%bc%8c%e6%80%8e%e6%a0%b7%e6%89%8d%e8%83%bd%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%e6%9d%a5%e2%80%9c%e4%bf%ae%e6%94%b9%e2%80%9d%ef%bc%88%e5%8d%b3%e6%ac%ba%e9%aa%97%ef%bc%89%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%91%a2%ef%bc%9f%0aJavaScript%20%e4%b8%ad%e6%9c%89%e4%b8%a4%e7%a7%8d%e6%9c%ba%e5%88%b6%e6%9d%a5%e5%ae%9e%e7%8e%b0%e8%bf%99%e4%b8%aa%e7%9b%ae%e7%9a%84%ef%bc%9aeval%28..%29%20%e5%87%bd%e6%95%b0%e5%92%8c%20with%20%e5%85%b3%e9%94%ae%e5%ad%97%e3%80%82%e5%89%8d%e8%80%85%e5%8f%af%e4%bb%a5%e5%af%b9%e4%b8%80%e6%ae%b5%e5%8c%85%e5%90%ab%e4%b8%80%e4%b8%aa%e6%88%96%e5%a4%9a%e4%b8%aa%e5%a3%b0%e6%98%8e%e7%9a%84%e2%80%9c%e4%bb%a3%e7%a0%81%e2%80%9d%e5%ad%97%e7%ac%a6%e4%b8%b2%e8%bf%9b%e8%a1%8c%e6%bc%94%e7%ae%97%ef%bc%8c%e5%b9%b6%e5%80%9f%e6%ad%a4%e6%9d%a5%e4%bf%ae%e6%94%b9%e5%b7%b2%e7%bb%8f%e5%ad%98%e5%9c%a8%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%88%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%ef%bc%89%e3%80%82%e5%90%8e%e8%80%85%e6%9c%ac%e8%b4%a8%e4%b8%8a%e6%98%af%e9%80%9a%e8%bf%87%e5%b0%86%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%9a%84%e5%bc%95%e7%94%a8%e5%bd%93%e4%bd%9c%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%9d%a5%e5%a4%84%e7%90%86%ef%bc%8c%e5%b0%86%e5%af%b9%e8%b1%a1%e7%9a%84%e5%b1%9e%e6%80%a7%e5%bd%93%e4%bd%9c%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%ad%e7%9a%84%e6%a0%87%e8%af%86%e7%ac%a6%e6%9d%a5%e5%a4%84%e7%90%86%ef%bc%8c%e4%bb%8e%e8%80%8c%e5%88%9b%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e6%96%b0%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%88%e5%90%8c%e6%a0%b7%e6%98%af%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%ef%bc%89%e3%80%82%0a%e8%bf%99%e4%b8%a4%e4%b8%aa%e6%9c%ba%e5%88%b6%e7%9a%84%e5%89%af%e4%bd%9c%e7%94%a8%e6%98%af%e5%bc%95%e6%93%8e%e6%97%a0%e6%b3%95%e5%9c%a8%e7%bc%96%e8%af%91%e6%97%b6%e5%af%b9%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%9f%a5%e6%89%be%e8%bf%9b%e8%a1%8c%e4%bc%98%e5%8c%96%ef%bc%8c%e5%9b%a0%e4%b8%ba%e5%bc%95%e6%93%8e%e5%8f%aa%e8%83%bd%e8%b0%a8%e6%85%8e%e5%9c%b0%e8%ae%a4%e4%b8%ba%e8%bf%99%e6%a0%b7%e7%9a%84%e4%bc%98%e5%8c%96%e6%98%af%e6%97%a0%e6%95%88%e7%9a%84%e3%80%82%e4%bd%bf%e7%94%a8%e8%bf%99%e5%85%b6%e4%b8%ad%e4%bb%bb%e4%bd%95%e4%b8%80%e4%b8%aa%e6%9c%ba%e5%88%b6%e9%83%bd%e5%b0%86%e5%af%bc%e8%87%b4%e4%bb%a3%e7%a0%81%e8%bf%90%e8%a1%8c%e5%8f%98%e6%85%a2%e3%80%82%e9%81%bf%e5%85%8d%e4%bd%bf%e7%94%a8%e5%ae%83%e4%bb%ac%e3%80%82%0a%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%20%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b9%b6%e4%b8%8d%e5%85%b3%e5%bf%83%e5%87%bd%e6%95%b0%e5%92%8c%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e5%a6%82%e4%bd%95%e5%a3%b0%e6%98%8e%e4%bb%a5%e5%8f%8a%e5%9c%a8%e4%bd%95%e5%a4%84%e5%a3%b0%e6%98%8e%e7%9a%84%ef%bc%8c%e5%8f%aa%e5%85%b3%e5%bf%83%e5%ae%83%e4%bb%ac%e4%bb%8e%e4%bd%95%e5%a4%84%e8%b0%83%e7%94%a8%e3%80%82%e6%8d%a2%e5%8f%a5%e8%af%9d%e8%af%b4%ef%bc%8c%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be%e6%98%af%e5%9f%ba%e4%ba%8e%e8%b0%83%e7%94%a8%e6%a0%88%e7%9a%84%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b5%8c%e5%a5%97%e3%80%82%0a%e5%9b%a0%e6%ad%a4%ef%bc%8c%e5%a6%82%e6%9e%9c%20JavaScript%20%e5%85%b7%e6%9c%89%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e7%90%86%e8%ae%ba%e4%b8%8a%ef%bc%8c%e4%b8%8b%e9%9d%a2%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%9a%84%20foo%28%29%20%e5%9c%a8%e6%89%a7%e8%a1%8c%e6%97%b6%e5%b0%86%e4%bc%9a%e8%be%93%e5%87%ba%203%e3%80%82%0a1function%20foo%28%29%20%7b%202%09console.log%28a%29%20%2f%2f%203%28%e4%b8%8d%e6%98%af%202%20%21%29%203%7d%204function%20bar%28%29%20%7b%205%20var%20a%20%3d%203%206%09foo%28%29%207%7d%208var%20a%20%3d%202%209bar%28%29%20%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bc%9a%e8%bf%99%e6%a0%b7%ef%bc%9f%e5%9b%a0%e4%b8%ba%e5%bd%93%20foo%28%29%20%e6%97%a0%e6%b3%95%e6%89%be%e5%88%b0%20a%20%e7%9a%84%e5%8f%98%e9%87%8f%e5%bc%95%e7%94%a8%e6%97%b6%ef%bc%8c%e4%bc%9a%e9%a1%ba%e7%9d%80%e8%b0%83%e7%94%a8%e6%a0%88%e5%9c%a8%e8%b0%83%e7%94%a8%20foo%28%29%20%e7%9a%84%e5%9c%b0%e6%96%b9%e6%9f%a5%e6%89%be%20a%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e5%9c%a8%e5%b5%8c%e5%a5%97%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be%e4%b8%ad%e5%90%91%e4%b8%8a%e6%9f%a5%e6%89%be%e3%80%82%e7%94%b1%e4%ba%8e%20foo%28%29%20%e6%98%af%e5%9c%a8%20bar%28%29%20%e4%b8%ad%e8%b0%83%e7%94%a8%e7%9a%84%ef%bc%8c%e5%bc%95%e6%93%8e%e4%bc%9a%e6%a3%80%e6%9f%a5%20bar%28%29%20%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e5%b9%b6%e5%9c%a8%e5%85%b6%e4%b8%ad%e6%89%be%e5%88%b0%e5%80%bc%e4%b8%ba%203%20%e7%9a%84%e5%8f%98%e9%87%8f%20a%e3%80%82%0a%e9%9c%80%e8%a6%81%e6%98%8e%e7%a1%ae%e7%9a%84%e6%98%af%ef%bc%8c%e4%ba%8b%e5%ae%9e%e4%b8%8a%20JavaScript%20%e5%b9%b6%e4%b8%8d%e5%85%b7%e6%9c%89%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%e5%ae%83%e5%8f%aa%e6%9c%89%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e7%ae%80%e5%8d%95%e6%98%8e%e4%ba%86%e3%80%82%e4%bd%86%e6%98%af%20this%20%e6%9c%ba%e5%88%b6%e6%9f%90%e7%a7%8d%e7%a8%8b%e5%ba%a6%e4%b8%8a%e5%be%88%e5%83%8f%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&name=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md&description=%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%20%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e4%b8%80%e5%a5%97%e8%a7%84%e5%88%99%ef%bc%8c%e8%bf%99%e5%a5%97%e8%a7%84%e5%88%99%e7%94%a8%e6%9d%a5%e7%ae%a1%e7%90%86%e5%bc%95%e6%93%8e%e5%a6%82%e4%bd%95%e5%9c%a8%e5%bd%93%e5%89%8d%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%bb%a5%e5%8f%8a%e5%b5%8c%e5%a5%97%e7%9a%84%e5%ad%90%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%ad%e6%a0%b9%e6%8d%ae%e6%a0%87%e8%af%86%e7%ac%a6%e5%90%8d%e7%a7%b0%e8%bf%9b%e8%a1%8c%e5%8f%98%e9%87%8f%e6%9f%a5%e6%89%be%e3%80%82%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%85%b1%e6%9c%89%e4%b8%a4%e7%a7%8d%e4%b8%bb%e8%a6%81%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%a8%a1%e5%9e%8b%e3%80%82%e7%ac%ac%e4%b8%80%e7%a7%8d%e6%98%af%e6%9c%80%e4%b8%ba%e6%99%ae%e9%81%8d%e7%9a%84%ef%bc%8c%e8%a2%ab%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e6%89%80%e9%87%87%e7%94%a8%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e5%8f%a6%e5%a4%96%e4%b8%80%e7%a7%8d%e5%8f%ab%e5%81%9a%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e4%bb%8d%e6%9c%89%e4%b8%80%e4%ba%9b%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e5%9c%a8%e4%bd%bf%e7%94%a8%ef%bc%88%e6%af%94%e5%a6%82%20Bash%20%e8%84%9a%e6%9c%ac%e3%80%81Perl%20%e4%b8%ad%e7%9a%84%e4%b8%80%e4%ba%9b%e6%a8%a1%e5%bc%8f%e7%ad%89%ef%bc%89%e3%80%82JavaScript%20%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b0%b1%e6%98%af%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%0a%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b0%b1%e6%98%af%e5%ae%9a%e4%b9%89%e5%9c%a8%e8%af%8d%e6%b3%95%e9%98%b6%e6%ae%b5%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%e6%8d%a2%e5%8f%a5%e8%af%9d%e8%af%b4%ef%bc%8c%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e7%94%b1%e4%bd%a0%e5%9c%a8%e5%86%99%e4%bb%a3%e7%a0%81%e6%97%b6%e5%b0%86%e5%8f%98%e9%87%8f%e5%92%8c%e5%9d%97%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%86%99%e5%9c%a8%e5%93%aa%e9%87%8c%e6%9d%a5%e5%86%b3%e5%ae%9a%e7%9a%84%ef%bc%8c%e5%9b%a0%e6%ad%a4%e5%bd%93%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90%e5%99%a8%e5%a4%84%e7%90%86%e4%bb%a3%e7%a0%81%e6%97%b6%e4%bc%9a%e4%bf%9d%e6%8c%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%8d%e5%8f%98%e3%80%82%e6%97%a0%e8%ae%ba%e5%87%bd%e6%95%b0%e5%9c%a8%e5%93%aa%e9%87%8c%e8%a2%ab%e8%b0%83%e7%94%a8%ef%bc%8c%e4%b9%9f%e6%97%a0%e8%ae%ba%e5%ae%83%e5%a6%82%e4%bd%95%e8%a2%ab%e8%b0%83%e7%94%a8%ef%bc%8c%e5%ae%83%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%83%bd%e5%8f%aa%e7%94%b1%e5%87%bd%e6%95%b0%e8%a2%ab%e5%a3%b0%e6%98%8e%e6%97%b6%e6%89%80%e5%a4%84%e7%9a%84%e4%bd%8d%e7%bd%ae%e5%86%b3%e5%ae%9a%e3%80%82%0a%e6%ac%ba%e9%aa%97%e8%af%8d%e6%b3%95%20%e5%a6%82%e6%9e%9c%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%ae%8c%e5%85%a8%e7%94%b1%e5%86%99%e4%bb%a3%e7%a0%81%e6%9c%9f%e9%97%b4%e5%87%bd%e6%95%b0%e6%89%80%e5%a3%b0%e6%98%8e%e7%9a%84%e4%bd%8d%e7%bd%ae%e6%9d%a5%e5%ae%9a%e4%b9%89%ef%bc%8c%e6%80%8e%e6%a0%b7%e6%89%8d%e8%83%bd%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%e6%9d%a5%e2%80%9c%e4%bf%ae%e6%94%b9%e2%80%9d%ef%bc%88%e5%8d%b3%e6%ac%ba%e9%aa%97%ef%bc%89%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%91%a2%ef%bc%9f%0aJavaScript%20%e4%b8%ad%e6%9c%89%e4%b8%a4%e7%a7%8d%e6%9c%ba%e5%88%b6%e6%9d%a5%e5%ae%9e%e7%8e%b0%e8%bf%99%e4%b8%aa%e7%9b%ae%e7%9a%84%ef%bc%9aeval%28..%29%20%e5%87%bd%e6%95%b0%e5%92%8c%20with%20%e5%85%b3%e9%94%ae%e5%ad%97%e3%80%82%e5%89%8d%e8%80%85%e5%8f%af%e4%bb%a5%e5%af%b9%e4%b8%80%e6%ae%b5%e5%8c%85%e5%90%ab%e4%b8%80%e4%b8%aa%e6%88%96%e5%a4%9a%e4%b8%aa%e5%a3%b0%e6%98%8e%e7%9a%84%e2%80%9c%e4%bb%a3%e7%a0%81%e2%80%9d%e5%ad%97%e7%ac%a6%e4%b8%b2%e8%bf%9b%e8%a1%8c%e6%bc%94%e7%ae%97%ef%bc%8c%e5%b9%b6%e5%80%9f%e6%ad%a4%e6%9d%a5%e4%bf%ae%e6%94%b9%e5%b7%b2%e7%bb%8f%e5%ad%98%e5%9c%a8%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%88%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%ef%bc%89%e3%80%82%e5%90%8e%e8%80%85%e6%9c%ac%e8%b4%a8%e4%b8%8a%e6%98%af%e9%80%9a%e8%bf%87%e5%b0%86%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%9a%84%e5%bc%95%e7%94%a8%e5%bd%93%e4%bd%9c%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%9d%a5%e5%a4%84%e7%90%86%ef%bc%8c%e5%b0%86%e5%af%b9%e8%b1%a1%e7%9a%84%e5%b1%9e%e6%80%a7%e5%bd%93%e4%bd%9c%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%ad%e7%9a%84%e6%a0%87%e8%af%86%e7%ac%a6%e6%9d%a5%e5%a4%84%e7%90%86%ef%bc%8c%e4%bb%8e%e8%80%8c%e5%88%9b%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e6%96%b0%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%88%e5%90%8c%e6%a0%b7%e6%98%af%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%ef%bc%89%e3%80%82%0a%e8%bf%99%e4%b8%a4%e4%b8%aa%e6%9c%ba%e5%88%b6%e7%9a%84%e5%89%af%e4%bd%9c%e7%94%a8%e6%98%af%e5%bc%95%e6%93%8e%e6%97%a0%e6%b3%95%e5%9c%a8%e7%bc%96%e8%af%91%e6%97%b6%e5%af%b9%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%9f%a5%e6%89%be%e8%bf%9b%e8%a1%8c%e4%bc%98%e5%8c%96%ef%bc%8c%e5%9b%a0%e4%b8%ba%e5%bc%95%e6%93%8e%e5%8f%aa%e8%83%bd%e8%b0%a8%e6%85%8e%e5%9c%b0%e8%ae%a4%e4%b8%ba%e8%bf%99%e6%a0%b7%e7%9a%84%e4%bc%98%e5%8c%96%e6%98%af%e6%97%a0%e6%95%88%e7%9a%84%e3%80%82%e4%bd%bf%e7%94%a8%e8%bf%99%e5%85%b6%e4%b8%ad%e4%bb%bb%e4%bd%95%e4%b8%80%e4%b8%aa%e6%9c%ba%e5%88%b6%e9%83%bd%e5%b0%86%e5%af%bc%e8%87%b4%e4%bb%a3%e7%a0%81%e8%bf%90%e8%a1%8c%e5%8f%98%e6%85%a2%e3%80%82%e9%81%bf%e5%85%8d%e4%bd%bf%e7%94%a8%e5%ae%83%e4%bb%ac%e3%80%82%0a%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%20%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b9%b6%e4%b8%8d%e5%85%b3%e5%bf%83%e5%87%bd%e6%95%b0%e5%92%8c%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e5%a6%82%e4%bd%95%e5%a3%b0%e6%98%8e%e4%bb%a5%e5%8f%8a%e5%9c%a8%e4%bd%95%e5%a4%84%e5%a3%b0%e6%98%8e%e7%9a%84%ef%bc%8c%e5%8f%aa%e5%85%b3%e5%bf%83%e5%ae%83%e4%bb%ac%e4%bb%8e%e4%bd%95%e5%a4%84%e8%b0%83%e7%94%a8%e3%80%82%e6%8d%a2%e5%8f%a5%e8%af%9d%e8%af%b4%ef%bc%8c%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be%e6%98%af%e5%9f%ba%e4%ba%8e%e8%b0%83%e7%94%a8%e6%a0%88%e7%9a%84%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b5%8c%e5%a5%97%e3%80%82%0a%e5%9b%a0%e6%ad%a4%ef%bc%8c%e5%a6%82%e6%9e%9c%20JavaScript%20%e5%85%b7%e6%9c%89%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e7%90%86%e8%ae%ba%e4%b8%8a%ef%bc%8c%e4%b8%8b%e9%9d%a2%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%9a%84%20foo%28%29%20%e5%9c%a8%e6%89%a7%e8%a1%8c%e6%97%b6%e5%b0%86%e4%bc%9a%e8%be%93%e5%87%ba%203%e3%80%82%0a1function%20foo%28%29%20%7b%202%09console.log%28a%29%20%2f%2f%203%28%e4%b8%8d%e6%98%af%202%20%21%29%203%7d%204function%20bar%28%29%20%7b%205%20var%20a%20%3d%203%206%09foo%28%29%207%7d%208var%20a%20%3d%202%209bar%28%29%20%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bc%9a%e8%bf%99%e6%a0%b7%ef%bc%9f%e5%9b%a0%e4%b8%ba%e5%bd%93%20foo%28%29%20%e6%97%a0%e6%b3%95%e6%89%be%e5%88%b0%20a%20%e7%9a%84%e5%8f%98%e9%87%8f%e5%bc%95%e7%94%a8%e6%97%b6%ef%bc%8c%e4%bc%9a%e9%a1%ba%e7%9d%80%e8%b0%83%e7%94%a8%e6%a0%88%e5%9c%a8%e8%b0%83%e7%94%a8%20foo%28%29%20%e7%9a%84%e5%9c%b0%e6%96%b9%e6%9f%a5%e6%89%be%20a%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e5%9c%a8%e5%b5%8c%e5%a5%97%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be%e4%b8%ad%e5%90%91%e4%b8%8a%e6%9f%a5%e6%89%be%e3%80%82%e7%94%b1%e4%ba%8e%20foo%28%29%20%e6%98%af%e5%9c%a8%20bar%28%29%20%e4%b8%ad%e8%b0%83%e7%94%a8%e7%9a%84%ef%bc%8c%e5%bc%95%e6%93%8e%e4%bc%9a%e6%a3%80%e6%9f%a5%20bar%28%29%20%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e5%b9%b6%e5%9c%a8%e5%85%b6%e4%b8%ad%e6%89%be%e5%88%b0%e5%80%bc%e4%b8%ba%203%20%e7%9a%84%e5%8f%98%e9%87%8f%20a%e3%80%82%0a%e9%9c%80%e8%a6%81%e6%98%8e%e7%a1%ae%e7%9a%84%e6%98%af%ef%bc%8c%e4%ba%8b%e5%ae%9e%e4%b8%8a%20JavaScript%20%e5%b9%b6%e4%b8%8d%e5%85%b7%e6%9c%89%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%e5%ae%83%e5%8f%aa%e6%9c%89%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e7%ae%80%e5%8d%95%e6%98%8e%e4%ba%86%e3%80%82%e4%bd%86%e6%98%af%20this%20%e6%9c%ba%e5%88%b6%e6%9f%90%e7%a7%8d%e7%a8%8b%e5%ba%a6%e4%b8%8a%e5%be%88%e5%83%8f%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82" aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&t=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Hacker News">
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&t=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Hacker News">
       <i class="fab fa-hacker-news " aria-hidden="true"></i>
     </a>
   </li>
@@ -233,7 +233,7 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
             <i class="fas fa-tag"></i>
             
             
-            <a class="tag-link" href="/geekkery.4everland.app/tags/javascript" rel="tag">JavaScript</a>
+            <a class="tag-link" href="/tags/javascript" rel="tag">JavaScript</a>
             
         </div>
         
@@ -433,13 +433,13 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="geekkery.4everland.app/">Home</a></li>
+          <li><a href="/">Home</a></li>
          
-          <li><a href="geekkery.4everland.app/posts">Writings</a></li>
+          <li><a href="/posts">Writings</a></li>
          
-          <li><a href="geekkery.4everland.app/tags">Tags</a></li>
+          <li><a href="/tags">Tags</a></li>
          
-          <li><a href="geekkery.4everland.app/about">About</a></li>
+          <li><a href="/about">About</a></li>
         
       </ul>
     </div>
@@ -479,47 +479,47 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
   
   
   <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f" aria-label="Facebook">
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f" aria-label="Facebook">
       <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://twitter.com/share?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&text=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Twitter">
+    <a class="icon" href="https://twitter.com/share?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&text=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Twitter">
       <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Linkedin">
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Linkedin">
       <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&is_video=false&description=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Pinterest">
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&is_video=false&description=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Pinterest">
       <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="mailto:?subject=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md&body=Check out this article: geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f" aria-label="Email">
+    <a class="icon" href="mailto:?subject=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md&body=Check out this article: %2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f" aria-label="Email">
       <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://getpocket.com/save?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Pocket">
+    <a class="icon" href="https://getpocket.com/save?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Pocket">
       <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://reddit.com/submit?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="reddit">
+    <a class="icon" href="http://reddit.com/submit?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&title=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="reddit">
       <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&name=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md&description=%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%20%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e4%b8%80%e5%a5%97%e8%a7%84%e5%88%99%ef%bc%8c%e8%bf%99%e5%a5%97%e8%a7%84%e5%88%99%e7%94%a8%e6%9d%a5%e7%ae%a1%e7%90%86%e5%bc%95%e6%93%8e%e5%a6%82%e4%bd%95%e5%9c%a8%e5%bd%93%e5%89%8d%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%bb%a5%e5%8f%8a%e5%b5%8c%e5%a5%97%e7%9a%84%e5%ad%90%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%ad%e6%a0%b9%e6%8d%ae%e6%a0%87%e8%af%86%e7%ac%a6%e5%90%8d%e7%a7%b0%e8%bf%9b%e8%a1%8c%e5%8f%98%e9%87%8f%e6%9f%a5%e6%89%be%e3%80%82%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%85%b1%e6%9c%89%e4%b8%a4%e7%a7%8d%e4%b8%bb%e8%a6%81%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%a8%a1%e5%9e%8b%e3%80%82%e7%ac%ac%e4%b8%80%e7%a7%8d%e6%98%af%e6%9c%80%e4%b8%ba%e6%99%ae%e9%81%8d%e7%9a%84%ef%bc%8c%e8%a2%ab%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e6%89%80%e9%87%87%e7%94%a8%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e5%8f%a6%e5%a4%96%e4%b8%80%e7%a7%8d%e5%8f%ab%e5%81%9a%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e4%bb%8d%e6%9c%89%e4%b8%80%e4%ba%9b%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e5%9c%a8%e4%bd%bf%e7%94%a8%ef%bc%88%e6%af%94%e5%a6%82%20Bash%20%e8%84%9a%e6%9c%ac%e3%80%81Perl%20%e4%b8%ad%e7%9a%84%e4%b8%80%e4%ba%9b%e6%a8%a1%e5%bc%8f%e7%ad%89%ef%bc%89%e3%80%82JavaScript%20%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b0%b1%e6%98%af%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%0a%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b0%b1%e6%98%af%e5%ae%9a%e4%b9%89%e5%9c%a8%e8%af%8d%e6%b3%95%e9%98%b6%e6%ae%b5%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%e6%8d%a2%e5%8f%a5%e8%af%9d%e8%af%b4%ef%bc%8c%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e7%94%b1%e4%bd%a0%e5%9c%a8%e5%86%99%e4%bb%a3%e7%a0%81%e6%97%b6%e5%b0%86%e5%8f%98%e9%87%8f%e5%92%8c%e5%9d%97%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%86%99%e5%9c%a8%e5%93%aa%e9%87%8c%e6%9d%a5%e5%86%b3%e5%ae%9a%e7%9a%84%ef%bc%8c%e5%9b%a0%e6%ad%a4%e5%bd%93%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90%e5%99%a8%e5%a4%84%e7%90%86%e4%bb%a3%e7%a0%81%e6%97%b6%e4%bc%9a%e4%bf%9d%e6%8c%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%8d%e5%8f%98%e3%80%82%e6%97%a0%e8%ae%ba%e5%87%bd%e6%95%b0%e5%9c%a8%e5%93%aa%e9%87%8c%e8%a2%ab%e8%b0%83%e7%94%a8%ef%bc%8c%e4%b9%9f%e6%97%a0%e8%ae%ba%e5%ae%83%e5%a6%82%e4%bd%95%e8%a2%ab%e8%b0%83%e7%94%a8%ef%bc%8c%e5%ae%83%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%83%bd%e5%8f%aa%e7%94%b1%e5%87%bd%e6%95%b0%e8%a2%ab%e5%a3%b0%e6%98%8e%e6%97%b6%e6%89%80%e5%a4%84%e7%9a%84%e4%bd%8d%e7%bd%ae%e5%86%b3%e5%ae%9a%e3%80%82%0a%e6%ac%ba%e9%aa%97%e8%af%8d%e6%b3%95%20%e5%a6%82%e6%9e%9c%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%ae%8c%e5%85%a8%e7%94%b1%e5%86%99%e4%bb%a3%e7%a0%81%e6%9c%9f%e9%97%b4%e5%87%bd%e6%95%b0%e6%89%80%e5%a3%b0%e6%98%8e%e7%9a%84%e4%bd%8d%e7%bd%ae%e6%9d%a5%e5%ae%9a%e4%b9%89%ef%bc%8c%e6%80%8e%e6%a0%b7%e6%89%8d%e8%83%bd%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%e6%9d%a5%e2%80%9c%e4%bf%ae%e6%94%b9%e2%80%9d%ef%bc%88%e5%8d%b3%e6%ac%ba%e9%aa%97%ef%bc%89%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%91%a2%ef%bc%9f%0aJavaScript%20%e4%b8%ad%e6%9c%89%e4%b8%a4%e7%a7%8d%e6%9c%ba%e5%88%b6%e6%9d%a5%e5%ae%9e%e7%8e%b0%e8%bf%99%e4%b8%aa%e7%9b%ae%e7%9a%84%ef%bc%9aeval%28..%29%20%e5%87%bd%e6%95%b0%e5%92%8c%20with%20%e5%85%b3%e9%94%ae%e5%ad%97%e3%80%82%e5%89%8d%e8%80%85%e5%8f%af%e4%bb%a5%e5%af%b9%e4%b8%80%e6%ae%b5%e5%8c%85%e5%90%ab%e4%b8%80%e4%b8%aa%e6%88%96%e5%a4%9a%e4%b8%aa%e5%a3%b0%e6%98%8e%e7%9a%84%e2%80%9c%e4%bb%a3%e7%a0%81%e2%80%9d%e5%ad%97%e7%ac%a6%e4%b8%b2%e8%bf%9b%e8%a1%8c%e6%bc%94%e7%ae%97%ef%bc%8c%e5%b9%b6%e5%80%9f%e6%ad%a4%e6%9d%a5%e4%bf%ae%e6%94%b9%e5%b7%b2%e7%bb%8f%e5%ad%98%e5%9c%a8%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%88%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%ef%bc%89%e3%80%82%e5%90%8e%e8%80%85%e6%9c%ac%e8%b4%a8%e4%b8%8a%e6%98%af%e9%80%9a%e8%bf%87%e5%b0%86%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%9a%84%e5%bc%95%e7%94%a8%e5%bd%93%e4%bd%9c%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%9d%a5%e5%a4%84%e7%90%86%ef%bc%8c%e5%b0%86%e5%af%b9%e8%b1%a1%e7%9a%84%e5%b1%9e%e6%80%a7%e5%bd%93%e4%bd%9c%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%ad%e7%9a%84%e6%a0%87%e8%af%86%e7%ac%a6%e6%9d%a5%e5%a4%84%e7%90%86%ef%bc%8c%e4%bb%8e%e8%80%8c%e5%88%9b%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e6%96%b0%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%88%e5%90%8c%e6%a0%b7%e6%98%af%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%ef%bc%89%e3%80%82%0a%e8%bf%99%e4%b8%a4%e4%b8%aa%e6%9c%ba%e5%88%b6%e7%9a%84%e5%89%af%e4%bd%9c%e7%94%a8%e6%98%af%e5%bc%95%e6%93%8e%e6%97%a0%e6%b3%95%e5%9c%a8%e7%bc%96%e8%af%91%e6%97%b6%e5%af%b9%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%9f%a5%e6%89%be%e8%bf%9b%e8%a1%8c%e4%bc%98%e5%8c%96%ef%bc%8c%e5%9b%a0%e4%b8%ba%e5%bc%95%e6%93%8e%e5%8f%aa%e8%83%bd%e8%b0%a8%e6%85%8e%e5%9c%b0%e8%ae%a4%e4%b8%ba%e8%bf%99%e6%a0%b7%e7%9a%84%e4%bc%98%e5%8c%96%e6%98%af%e6%97%a0%e6%95%88%e7%9a%84%e3%80%82%e4%bd%bf%e7%94%a8%e8%bf%99%e5%85%b6%e4%b8%ad%e4%bb%bb%e4%bd%95%e4%b8%80%e4%b8%aa%e6%9c%ba%e5%88%b6%e9%83%bd%e5%b0%86%e5%af%bc%e8%87%b4%e4%bb%a3%e7%a0%81%e8%bf%90%e8%a1%8c%e5%8f%98%e6%85%a2%e3%80%82%e9%81%bf%e5%85%8d%e4%bd%bf%e7%94%a8%e5%ae%83%e4%bb%ac%e3%80%82%0a%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%20%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b9%b6%e4%b8%8d%e5%85%b3%e5%bf%83%e5%87%bd%e6%95%b0%e5%92%8c%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e5%a6%82%e4%bd%95%e5%a3%b0%e6%98%8e%e4%bb%a5%e5%8f%8a%e5%9c%a8%e4%bd%95%e5%a4%84%e5%a3%b0%e6%98%8e%e7%9a%84%ef%bc%8c%e5%8f%aa%e5%85%b3%e5%bf%83%e5%ae%83%e4%bb%ac%e4%bb%8e%e4%bd%95%e5%a4%84%e8%b0%83%e7%94%a8%e3%80%82%e6%8d%a2%e5%8f%a5%e8%af%9d%e8%af%b4%ef%bc%8c%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be%e6%98%af%e5%9f%ba%e4%ba%8e%e8%b0%83%e7%94%a8%e6%a0%88%e7%9a%84%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b5%8c%e5%a5%97%e3%80%82%0a%e5%9b%a0%e6%ad%a4%ef%bc%8c%e5%a6%82%e6%9e%9c%20JavaScript%20%e5%85%b7%e6%9c%89%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e7%90%86%e8%ae%ba%e4%b8%8a%ef%bc%8c%e4%b8%8b%e9%9d%a2%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%9a%84%20foo%28%29%20%e5%9c%a8%e6%89%a7%e8%a1%8c%e6%97%b6%e5%b0%86%e4%bc%9a%e8%be%93%e5%87%ba%203%e3%80%82%0a1function%20foo%28%29%20%7b%202%09console.log%28a%29%20%2f%2f%203%28%e4%b8%8d%e6%98%af%202%20%21%29%203%7d%204function%20bar%28%29%20%7b%205%20var%20a%20%3d%203%206%09foo%28%29%207%7d%208var%20a%20%3d%202%209bar%28%29%20%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bc%9a%e8%bf%99%e6%a0%b7%ef%bc%9f%e5%9b%a0%e4%b8%ba%e5%bd%93%20foo%28%29%20%e6%97%a0%e6%b3%95%e6%89%be%e5%88%b0%20a%20%e7%9a%84%e5%8f%98%e9%87%8f%e5%bc%95%e7%94%a8%e6%97%b6%ef%bc%8c%e4%bc%9a%e9%a1%ba%e7%9d%80%e8%b0%83%e7%94%a8%e6%a0%88%e5%9c%a8%e8%b0%83%e7%94%a8%20foo%28%29%20%e7%9a%84%e5%9c%b0%e6%96%b9%e6%9f%a5%e6%89%be%20a%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e5%9c%a8%e5%b5%8c%e5%a5%97%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be%e4%b8%ad%e5%90%91%e4%b8%8a%e6%9f%a5%e6%89%be%e3%80%82%e7%94%b1%e4%ba%8e%20foo%28%29%20%e6%98%af%e5%9c%a8%20bar%28%29%20%e4%b8%ad%e8%b0%83%e7%94%a8%e7%9a%84%ef%bc%8c%e5%bc%95%e6%93%8e%e4%bc%9a%e6%a3%80%e6%9f%a5%20bar%28%29%20%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e5%b9%b6%e5%9c%a8%e5%85%b6%e4%b8%ad%e6%89%be%e5%88%b0%e5%80%bc%e4%b8%ba%203%20%e7%9a%84%e5%8f%98%e9%87%8f%20a%e3%80%82%0a%e9%9c%80%e8%a6%81%e6%98%8e%e7%a1%ae%e7%9a%84%e6%98%af%ef%bc%8c%e4%ba%8b%e5%ae%9e%e4%b8%8a%20JavaScript%20%e5%b9%b6%e4%b8%8d%e5%85%b7%e6%9c%89%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%e5%ae%83%e5%8f%aa%e6%9c%89%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e7%ae%80%e5%8d%95%e6%98%8e%e4%ba%86%e3%80%82%e4%bd%86%e6%98%af%20this%20%e6%9c%ba%e5%88%b6%e6%9f%90%e7%a7%8d%e7%a8%8b%e5%ba%a6%e4%b8%8a%e5%be%88%e5%83%8f%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&name=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md&description=%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%20%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e4%b8%80%e5%a5%97%e8%a7%84%e5%88%99%ef%bc%8c%e8%bf%99%e5%a5%97%e8%a7%84%e5%88%99%e7%94%a8%e6%9d%a5%e7%ae%a1%e7%90%86%e5%bc%95%e6%93%8e%e5%a6%82%e4%bd%95%e5%9c%a8%e5%bd%93%e5%89%8d%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%bb%a5%e5%8f%8a%e5%b5%8c%e5%a5%97%e7%9a%84%e5%ad%90%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%ad%e6%a0%b9%e6%8d%ae%e6%a0%87%e8%af%86%e7%ac%a6%e5%90%8d%e7%a7%b0%e8%bf%9b%e8%a1%8c%e5%8f%98%e9%87%8f%e6%9f%a5%e6%89%be%e3%80%82%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%85%b1%e6%9c%89%e4%b8%a4%e7%a7%8d%e4%b8%bb%e8%a6%81%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%a8%a1%e5%9e%8b%e3%80%82%e7%ac%ac%e4%b8%80%e7%a7%8d%e6%98%af%e6%9c%80%e4%b8%ba%e6%99%ae%e9%81%8d%e7%9a%84%ef%bc%8c%e8%a2%ab%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e6%89%80%e9%87%87%e7%94%a8%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e5%8f%a6%e5%a4%96%e4%b8%80%e7%a7%8d%e5%8f%ab%e5%81%9a%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e4%bb%8d%e6%9c%89%e4%b8%80%e4%ba%9b%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e5%9c%a8%e4%bd%bf%e7%94%a8%ef%bc%88%e6%af%94%e5%a6%82%20Bash%20%e8%84%9a%e6%9c%ac%e3%80%81Perl%20%e4%b8%ad%e7%9a%84%e4%b8%80%e4%ba%9b%e6%a8%a1%e5%bc%8f%e7%ad%89%ef%bc%89%e3%80%82JavaScript%20%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b0%b1%e6%98%af%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%0a%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b0%b1%e6%98%af%e5%ae%9a%e4%b9%89%e5%9c%a8%e8%af%8d%e6%b3%95%e9%98%b6%e6%ae%b5%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%e6%8d%a2%e5%8f%a5%e8%af%9d%e8%af%b4%ef%bc%8c%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e7%94%b1%e4%bd%a0%e5%9c%a8%e5%86%99%e4%bb%a3%e7%a0%81%e6%97%b6%e5%b0%86%e5%8f%98%e9%87%8f%e5%92%8c%e5%9d%97%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%86%99%e5%9c%a8%e5%93%aa%e9%87%8c%e6%9d%a5%e5%86%b3%e5%ae%9a%e7%9a%84%ef%bc%8c%e5%9b%a0%e6%ad%a4%e5%bd%93%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90%e5%99%a8%e5%a4%84%e7%90%86%e4%bb%a3%e7%a0%81%e6%97%b6%e4%bc%9a%e4%bf%9d%e6%8c%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%8d%e5%8f%98%e3%80%82%e6%97%a0%e8%ae%ba%e5%87%bd%e6%95%b0%e5%9c%a8%e5%93%aa%e9%87%8c%e8%a2%ab%e8%b0%83%e7%94%a8%ef%bc%8c%e4%b9%9f%e6%97%a0%e8%ae%ba%e5%ae%83%e5%a6%82%e4%bd%95%e8%a2%ab%e8%b0%83%e7%94%a8%ef%bc%8c%e5%ae%83%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%83%bd%e5%8f%aa%e7%94%b1%e5%87%bd%e6%95%b0%e8%a2%ab%e5%a3%b0%e6%98%8e%e6%97%b6%e6%89%80%e5%a4%84%e7%9a%84%e4%bd%8d%e7%bd%ae%e5%86%b3%e5%ae%9a%e3%80%82%0a%e6%ac%ba%e9%aa%97%e8%af%8d%e6%b3%95%20%e5%a6%82%e6%9e%9c%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%ae%8c%e5%85%a8%e7%94%b1%e5%86%99%e4%bb%a3%e7%a0%81%e6%9c%9f%e9%97%b4%e5%87%bd%e6%95%b0%e6%89%80%e5%a3%b0%e6%98%8e%e7%9a%84%e4%bd%8d%e7%bd%ae%e6%9d%a5%e5%ae%9a%e4%b9%89%ef%bc%8c%e6%80%8e%e6%a0%b7%e6%89%8d%e8%83%bd%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%e6%9d%a5%e2%80%9c%e4%bf%ae%e6%94%b9%e2%80%9d%ef%bc%88%e5%8d%b3%e6%ac%ba%e9%aa%97%ef%bc%89%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%91%a2%ef%bc%9f%0aJavaScript%20%e4%b8%ad%e6%9c%89%e4%b8%a4%e7%a7%8d%e6%9c%ba%e5%88%b6%e6%9d%a5%e5%ae%9e%e7%8e%b0%e8%bf%99%e4%b8%aa%e7%9b%ae%e7%9a%84%ef%bc%9aeval%28..%29%20%e5%87%bd%e6%95%b0%e5%92%8c%20with%20%e5%85%b3%e9%94%ae%e5%ad%97%e3%80%82%e5%89%8d%e8%80%85%e5%8f%af%e4%bb%a5%e5%af%b9%e4%b8%80%e6%ae%b5%e5%8c%85%e5%90%ab%e4%b8%80%e4%b8%aa%e6%88%96%e5%a4%9a%e4%b8%aa%e5%a3%b0%e6%98%8e%e7%9a%84%e2%80%9c%e4%bb%a3%e7%a0%81%e2%80%9d%e5%ad%97%e7%ac%a6%e4%b8%b2%e8%bf%9b%e8%a1%8c%e6%bc%94%e7%ae%97%ef%bc%8c%e5%b9%b6%e5%80%9f%e6%ad%a4%e6%9d%a5%e4%bf%ae%e6%94%b9%e5%b7%b2%e7%bb%8f%e5%ad%98%e5%9c%a8%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%88%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%ef%bc%89%e3%80%82%e5%90%8e%e8%80%85%e6%9c%ac%e8%b4%a8%e4%b8%8a%e6%98%af%e9%80%9a%e8%bf%87%e5%b0%86%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%9a%84%e5%bc%95%e7%94%a8%e5%bd%93%e4%bd%9c%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%9d%a5%e5%a4%84%e7%90%86%ef%bc%8c%e5%b0%86%e5%af%b9%e8%b1%a1%e7%9a%84%e5%b1%9e%e6%80%a7%e5%bd%93%e4%bd%9c%e4%bd%9c%e7%94%a8%e5%9f%9f%e4%b8%ad%e7%9a%84%e6%a0%87%e8%af%86%e7%ac%a6%e6%9d%a5%e5%a4%84%e7%90%86%ef%bc%8c%e4%bb%8e%e8%80%8c%e5%88%9b%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e6%96%b0%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%88%e5%90%8c%e6%a0%b7%e6%98%af%e5%9c%a8%e8%bf%90%e8%a1%8c%e6%97%b6%ef%bc%89%e3%80%82%0a%e8%bf%99%e4%b8%a4%e4%b8%aa%e6%9c%ba%e5%88%b6%e7%9a%84%e5%89%af%e4%bd%9c%e7%94%a8%e6%98%af%e5%bc%95%e6%93%8e%e6%97%a0%e6%b3%95%e5%9c%a8%e7%bc%96%e8%af%91%e6%97%b6%e5%af%b9%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%9f%a5%e6%89%be%e8%bf%9b%e8%a1%8c%e4%bc%98%e5%8c%96%ef%bc%8c%e5%9b%a0%e4%b8%ba%e5%bc%95%e6%93%8e%e5%8f%aa%e8%83%bd%e8%b0%a8%e6%85%8e%e5%9c%b0%e8%ae%a4%e4%b8%ba%e8%bf%99%e6%a0%b7%e7%9a%84%e4%bc%98%e5%8c%96%e6%98%af%e6%97%a0%e6%95%88%e7%9a%84%e3%80%82%e4%bd%bf%e7%94%a8%e8%bf%99%e5%85%b6%e4%b8%ad%e4%bb%bb%e4%bd%95%e4%b8%80%e4%b8%aa%e6%9c%ba%e5%88%b6%e9%83%bd%e5%b0%86%e5%af%bc%e8%87%b4%e4%bb%a3%e7%a0%81%e8%bf%90%e8%a1%8c%e5%8f%98%e6%85%a2%e3%80%82%e9%81%bf%e5%85%8d%e4%bd%bf%e7%94%a8%e5%ae%83%e4%bb%ac%e3%80%82%0a%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%20%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b9%b6%e4%b8%8d%e5%85%b3%e5%bf%83%e5%87%bd%e6%95%b0%e5%92%8c%e4%bd%9c%e7%94%a8%e5%9f%9f%e6%98%af%e5%a6%82%e4%bd%95%e5%a3%b0%e6%98%8e%e4%bb%a5%e5%8f%8a%e5%9c%a8%e4%bd%95%e5%a4%84%e5%a3%b0%e6%98%8e%e7%9a%84%ef%bc%8c%e5%8f%aa%e5%85%b3%e5%bf%83%e5%ae%83%e4%bb%ac%e4%bb%8e%e4%bd%95%e5%a4%84%e8%b0%83%e7%94%a8%e3%80%82%e6%8d%a2%e5%8f%a5%e8%af%9d%e8%af%b4%ef%bc%8c%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be%e6%98%af%e5%9f%ba%e4%ba%8e%e8%b0%83%e7%94%a8%e6%a0%88%e7%9a%84%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%b5%8c%e5%a5%97%e3%80%82%0a%e5%9b%a0%e6%ad%a4%ef%bc%8c%e5%a6%82%e6%9e%9c%20JavaScript%20%e5%85%b7%e6%9c%89%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e7%90%86%e8%ae%ba%e4%b8%8a%ef%bc%8c%e4%b8%8b%e9%9d%a2%e4%bb%a3%e7%a0%81%e4%b8%ad%e7%9a%84%20foo%28%29%20%e5%9c%a8%e6%89%a7%e8%a1%8c%e6%97%b6%e5%b0%86%e4%bc%9a%e8%be%93%e5%87%ba%203%e3%80%82%0a1function%20foo%28%29%20%7b%202%09console.log%28a%29%20%2f%2f%203%28%e4%b8%8d%e6%98%af%202%20%21%29%203%7d%204function%20bar%28%29%20%7b%205%20var%20a%20%3d%203%206%09foo%28%29%207%7d%208var%20a%20%3d%202%209bar%28%29%20%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bc%9a%e8%bf%99%e6%a0%b7%ef%bc%9f%e5%9b%a0%e4%b8%ba%e5%bd%93%20foo%28%29%20%e6%97%a0%e6%b3%95%e6%89%be%e5%88%b0%20a%20%e7%9a%84%e5%8f%98%e9%87%8f%e5%bc%95%e7%94%a8%e6%97%b6%ef%bc%8c%e4%bc%9a%e9%a1%ba%e7%9d%80%e8%b0%83%e7%94%a8%e6%a0%88%e5%9c%a8%e8%b0%83%e7%94%a8%20foo%28%29%20%e7%9a%84%e5%9c%b0%e6%96%b9%e6%9f%a5%e6%89%be%20a%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e5%9c%a8%e5%b5%8c%e5%a5%97%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%e9%93%be%e4%b8%ad%e5%90%91%e4%b8%8a%e6%9f%a5%e6%89%be%e3%80%82%e7%94%b1%e4%ba%8e%20foo%28%29%20%e6%98%af%e5%9c%a8%20bar%28%29%20%e4%b8%ad%e8%b0%83%e7%94%a8%e7%9a%84%ef%bc%8c%e5%bc%95%e6%93%8e%e4%bc%9a%e6%a3%80%e6%9f%a5%20bar%28%29%20%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e5%b9%b6%e5%9c%a8%e5%85%b6%e4%b8%ad%e6%89%be%e5%88%b0%e5%80%bc%e4%b8%ba%203%20%e7%9a%84%e5%8f%98%e9%87%8f%20a%e3%80%82%0a%e9%9c%80%e8%a6%81%e6%98%8e%e7%a1%ae%e7%9a%84%e6%98%af%ef%bc%8c%e4%ba%8b%e5%ae%9e%e4%b8%8a%20JavaScript%20%e5%b9%b6%e4%b8%8d%e5%85%b7%e6%9c%89%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82%e5%ae%83%e5%8f%aa%e6%9c%89%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f%ef%bc%8c%e7%ae%80%e5%8d%95%e6%98%8e%e4%ba%86%e3%80%82%e4%bd%86%e6%98%af%20this%20%e6%9c%ba%e5%88%b6%e6%9f%90%e7%a7%8d%e7%a8%8b%e5%ba%a6%e4%b8%8a%e5%be%88%e5%83%8f%e5%8a%a8%e6%80%81%e4%bd%9c%e7%94%a8%e5%9f%9f%e3%80%82" aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=geekkery.4everland.app%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&t=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Hacker News">
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=%2fposts%2f%25E4%25BD%259C%25E7%2594%25A8%25E5%259F%259F%25E5%2592%258C%25E9%2597%25AD%25E5%258C%2585%2f&t=%e4%bd%9c%e7%94%a8%e5%9f%9f%e5%92%8c%e9%97%ad%e5%8c%85.md" aria-label="Hacker News">
       <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
     </a>
   </li>
@@ -553,13 +553,13 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
     <nav>
       <ul>
          
-        <li><a href="geekkery.4everland.app/">Home</a></li>
+        <li><a href="/">Home</a></li>
          
-        <li><a href="geekkery.4everland.app/posts">Writings</a></li>
+        <li><a href="/posts">Writings</a></li>
          
-        <li><a href="geekkery.4everland.app/tags">Tags</a></li>
+        <li><a href="/tags">Tags</a></li>
          
-        <li><a href="geekkery.4everland.app/about">About</a></li>
+        <li><a href="/about">About</a></li>
         
       </ul>
     </nav>
@@ -570,11 +570,11 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
   </div>
 </body>
 
-<link rel="stylesheet" href=/geekkery.4everland.app/lib/font-awesome/css/all.min.css>
-<script src=/geekkery.4everland.app/lib/jquery/jquery.min.js></script>
-<script src=/geekkery.4everland.app/js/main.js></script>
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
 
-<script src=/geekkery.4everland.app/js/code-copy.js></script>
+<script src=/js/code-copy.js></script>
 
 
 

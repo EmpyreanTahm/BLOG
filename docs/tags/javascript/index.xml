@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on GeekKery ¶ £¢∞</title>
-    <link>geekkery.4everland.app/tags/javascript/</link>
+    <link>/tags/javascript/</link>
     <description>Recent content in JavaScript on GeekKery ¶ £¢∞</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Tue, 19 Jan 2021 18:03:44 +0800</lastBuildDate><atom:link href="geekkery.4everland.app/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jan 2021 18:03:44 +0800</lastBuildDate><atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>this 机制</title>
-      <link>geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/</link>
+      <link>/posts/this-%E6%9C%BA%E5%88%B6/</link>
       <pubDate>Tue, 19 Jan 2021 18:03:44 +0800</pubDate>
       
-      <guid>geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/</guid>
+      <guid>/posts/this-%E6%9C%BA%E5%88%B6/</guid>
       <description>关于 this 如果对于有经验的 JavaScript 开发者来说，this 都是一种非常复杂的机制，那它到底有用在哪里呢？下面来解释一下为什么要使用 this：
 1function identify() { 2 return this.name.toUpperCase(); 3} 4 5var me = { 6 name: &amp;#34;Kyle&amp;#34; 7}; 8var you = { 9 name: &amp;#34;Reader&amp;#34; 10}; 11identify.call(me); // Kyle 12identify.call(you); // Reader 这段代码可以在不同的上下文对象（me 和 you）中重复使用函数 identify，不用针对每个对象编写不同版本的函数。如果不使用 this，那就需要给 identify 显式传入一个上下文对象。
 1function identify(context) { 2 return context.name.toUpperCase(); 3} 4 5var me = { 6 name: &amp;#34;Kyle&amp;#34; 7}; 8var you = { 9 name: &amp;#34;Reader&amp;#34; 10}; 11identify(me); // Kyle 12identify(you); // Reader this 提供了一种更优雅的方式来隐式”传递“一个对象引用，因此可以将 API 设计得更加简洁并且易于复用。随着使用模式越来越复杂，显式传递上下文对象会让代码变得越来越混乱，使用 this 则不会这样。</description>
@@ -21,10 +21,10 @@
     
     <item>
       <title>浅谈 GC</title>
-      <link>geekkery.4everland.app/posts/%E6%B5%85%E8%B0%88-gc/</link>
+      <link>/posts/%E6%B5%85%E8%B0%88-gc/</link>
       <pubDate>Tue, 19 Jan 2021 15:04:44 +0800</pubDate>
       
-      <guid>geekkery.4everland.app/posts/%E6%B5%85%E8%B0%88-gc/</guid>
+      <guid>/posts/%E6%B5%85%E8%B0%88-gc/</guid>
       <description>内存的生命周期包括分配内存、使用内存和释放内存。有些语言（比如 C 语言）必须手动分配和释放内存，JavaScript 的内存分配过程是在做变量声明赋值时自动完成的。变量完成内存分配之后程序才可以使用进行读写。当程序不需要再使用某些变量时，它们占用的内存就会进行释放，腾出空间。
 内存溢出 程序的运行需要内存，只要程序提出要求，操作系统或者运行时（Runtime）就必须供给内存。程序运行过程中申请的内存大于系统能够提供的内存，导致程序无法申请到足够的内存，这就是内存溢出（Out Of Memory）。
 内存泄漏 不再用到的内存，没有及时释放，就叫做内存泄漏（Memory Leak），内存泄漏与大小无关，并非导致程序卡顿、崩溃才能叫做内存泄漏。
@@ -36,10 +36,10 @@ Node.js 提供了 process.memoryUsage 方法，process.memoryUsage 返回一个�
     
     <item>
       <title>作用域和闭包.md</title>
-      <link>geekkery.4everland.app/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</link>
+      <link>/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</link>
       <pubDate>Mon, 18 Jan 2021 15:03:44 +0800</pubDate>
       
-      <guid>geekkery.4everland.app/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</guid>
+      <guid>/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</guid>
       <description>词法作用域 作用域是一套规则，这套规则用来管理引擎如何在当前的作用域以及嵌套的子作用域中根据标识符名称进行变量查找。作用域共有两种主要的工作模型。第一种是最为普遍的，被大多数编程语言所采用的词法作用域，另外一种叫做动态作用域，仍有一些编程语言在使用（比如 Bash 脚本、Perl 中的一些模式等）。JavaScript 中的作用域就是词法作用域。
 词法作用域就是定义在词法阶段的作用域。换句话说，词法作用域是由你在写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变。无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。
 欺骗词法 如果词法作用域完全由写代码期间函数所声明的位置来定义，怎样才能在运行时来“修改”（即欺骗）词法作用域呢？

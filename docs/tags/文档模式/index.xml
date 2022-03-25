@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>文档模式 on GeekKery ¶ £¢∞</title>
-    <link>geekkery.4everland.app/tags/%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</link>
+    <link>/tags/%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 文档模式 on GeekKery ¶ £¢∞</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Sat, 19 Dec 2020 04:01:18 +0800</lastBuildDate><atom:link href="geekkery.4everland.app/tags/%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Dec 2020 04:01:18 +0800</lastBuildDate><atom:link href="/tags/%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>简谈文档模式</title>
-      <link>geekkery.4everland.app/posts/%E7%AE%80%E8%B0%88%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</link>
+      <link>/posts/%E7%AE%80%E8%B0%88%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 19 Dec 2020 04:01:18 +0800</pubDate>
       
-      <guid>geekkery.4everland.app/posts/%E7%AE%80%E8%B0%88%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>/posts/%E7%AE%80%E8%B0%88%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</guid>
       <description>HTML5 文档的第一行就是 &amp;lt;!DOCTYPE html&amp;gt; 用于文档声明。首先，这不是 HTML 标签，DOCTYPE 意为文档类型，这段代码用于文档类型声明。其次，文档类型声明应尽量在第一行，之前不能有任何注释或标签，若浏览器在第一行读取不到文档类型声明时，会认为文档类型声明不存在，导致声明无效（主要是 IE9 或更早期的浏览器）。
 有哪些文档模式 目前浏览器的排版引擎有三种模式：怪异模式、准标准模式以及标准模式。怪异模式下，排版会模拟 Navigator4 和 IE5 的非标准模式行为，怪异模式的影响主要是 CSS 渲染，IE 中会影响 JavaScript 对浏览器窗口宽高值的计算方式。标准模式下，行为即为 HTML 与 CSS 规范描述的行为。在准标准模式下，只有少数的怪异行为被实现。
 计出无奈 网景的 Navigator 和 微软的 IE，由于初期规范的缺乏，两家浏览器按照各自的方式渲染页面。后来，W3C 创立网络标准，浏览器厂商逐渐向标准靠拢，在这个时间节点上，要保证既有网站能正常运行，就不能放弃之前的渲染方式。
