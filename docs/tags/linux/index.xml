@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on GeekKery ¶ £¢∞</title>
-    <link>https://geekkery.github.io/tags/linux/</link>
+    <link>geekkery.4everland.app/tags/linux/</link>
     <description>Recent content in Linux on GeekKery ¶ £¢∞</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Tue, 05 Jan 2021 04:12:59 +0800</lastBuildDate><atom:link href="https://geekkery.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jan 2021 04:12:59 +0800</lastBuildDate><atom:link href="geekkery.4everland.app/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>常用的一些命令行</title>
-      <link>https://geekkery.github.io/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <link>geekkery.4everland.app/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
       <pubDate>Tue, 05 Jan 2021 04:12:59 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <guid>geekkery.4everland.app/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
       <description>Mac OS 持久化别名指定 在终端中执行的 alias 命令指定的别名仅本次登录有效，若需使别名永久生效，可以执行 vi ~/.bashrc，在文件末尾中添加行：
 1ub2=&amp;#39;ssh ubuntu@139.155.86.169&amp;#39; 保存退出后，使用 source 命令刷新环境变量后即可使用自定义的 ub2 命令：
 1source ~/.bashrc 如果系统使用的是 zsh，编辑配置 ~/.zshrc 即可，终端执行 echo $0 可查看当前使用的 shell 类型。

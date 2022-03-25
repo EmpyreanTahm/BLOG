@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/geekkery.4everland.app/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/geekkery.4everland.app/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/geekkery.4everland.app/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/geekkery.4everland.app/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
   <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> this 机制 | GeekKery ¶ £¢∞</title>
-  <link rel = 'canonical' href = 'https://geekkery.github.io/posts/this-%E6%9C%BA%E5%88%B6/'>
+  <link rel = 'canonical' href = 'geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/'>
   <meta name="description" content="一鼓轻雷惊蛰后 细筛微雨落梅天">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
@@ -20,7 +20,7 @@
 1function identify() { 2 return this.name.toUpperCase(); 3} 4 5var me = { 6 name: &#34;Kyle&#34; 7}; 8var you = { 9 name: &#34;Reader&#34; 10}; 11identify.call(me); // Kyle 12identify.call(you); // Reader 这段代码可以在不同的上下文对象（me 和 you）中重复使用函数 identify，不用针对每个对象编写不同版本的函数。如果不使用 this，那就需要给 identify 显式传入一个上下文对象。
 1function identify(context) { 2 return context.name.toUpperCase(); 3} 4 5var me = { 6 name: &#34;Kyle&#34; 7}; 8var you = { 9 name: &#34;Reader&#34; 10}; 11identify(me); // Kyle 12identify(you); // Reader this 提供了一种更优雅的方式来隐式”传递“一个对象引用，因此可以将 API 设计得更加简洁并且易于复用。随着使用模式越来越复杂，显式传递上下文对象会让代码变得越来越混乱，使用 this 则不会这样。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://geekkery.github.io/posts/this-%E6%9C%BA%E5%88%B6/" />
+<meta property="og:url" content="geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/" />
 <meta property="article:published_time" content="2021-01-19T18:03:44+08:00" />
 <meta property="article:modified_time" content="2021-01-19T18:03:44+08:00" />
 
@@ -35,7 +35,7 @@
     
   
   
-  <link rel="stylesheet" href="https://geekkery.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+  <link rel="stylesheet" href="/geekkery.4everland.app/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
 
   
   
@@ -47,7 +47,7 @@
   
 
   
-<link rel="icon" type="image/png" href="https://geekkery.github.io/images/favicon.ico" />
+<link rel="icon" type="image/png" href="geekkery.4everland.app/images/favicon.ico" />
 
   
   
@@ -66,13 +66,13 @@
     <span id="nav">
       <ul>
          
-        <li><a href="/">Home</a></li>
+        <li><a href="geekkery.4everland.app/">Home</a></li>
          
-        <li><a href="/posts">Writings</a></li>
+        <li><a href="geekkery.4everland.app/posts">Writings</a></li>
          
-        <li><a href="/tags">Tags</a></li>
+        <li><a href="geekkery.4everland.app/tags">Tags</a></li>
          
-        <li><a href="/about">About</a></li>
+        <li><a href="geekkery.4everland.app/about">About</a></li>
         
       </ul>
     </span>
@@ -81,7 +81,7 @@
       <ul>
         
         <li>
-          <a class="icon" href=" https://geekkery.github.io/posts/%E6%B5%85%E8%B0%88-gc/" aria-label="Previous">
+          <a class="icon" href=" geekkery.4everland.app/posts/%E6%B5%85%E8%B0%88-gc/" aria-label="Previous">
             <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
           </a>
         </li>
@@ -113,47 +113,47 @@
   
   
   <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f" aria-label="Facebook">
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f" aria-label="Facebook">
       <i class="fab fa-facebook " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&text=this%20%e6%9c%ba%e5%88%b6" aria-label="Twitter">
+    <a class="icon" href="https://twitter.com/share?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&text=this%20%e6%9c%ba%e5%88%b6" aria-label="Twitter">
       <i class="fab fa-twitter " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="Linkedin">
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="Linkedin">
       <i class="fab fa-linkedin " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&is_video=false&description=this%20%e6%9c%ba%e5%88%b6" aria-label="Pinterest">
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&is_video=false&description=this%20%e6%9c%ba%e5%88%b6" aria-label="Pinterest">
       <i class="fab fa-pinterest " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="mailto:?subject=this%20%e6%9c%ba%e5%88%b6&body=Check out this article: https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f" aria-label="Email">
+    <a class="icon" href="mailto:?subject=this%20%e6%9c%ba%e5%88%b6&body=Check out this article: geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f" aria-label="Email">
       <i class="fas fa-envelope " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="Pocket">
+    <a class="icon" href="https://getpocket.com/save?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="Pocket">
       <i class="fab fa-get-pocket " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="reddit">
+    <a class="icon" href="http://reddit.com/submit?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="reddit">
       <i class="fab fa-reddit " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&name=this%20%e6%9c%ba%e5%88%b6&description=%e5%85%b3%e4%ba%8e%20this%20%e5%a6%82%e6%9e%9c%e5%af%b9%e4%ba%8e%e6%9c%89%e7%bb%8f%e9%aa%8c%e7%9a%84%20JavaScript%20%e5%bc%80%e5%8f%91%e8%80%85%e6%9d%a5%e8%af%b4%ef%bc%8cthis%20%e9%83%bd%e6%98%af%e4%b8%80%e7%a7%8d%e9%9d%9e%e5%b8%b8%e5%a4%8d%e6%9d%82%e7%9a%84%e6%9c%ba%e5%88%b6%ef%bc%8c%e9%82%a3%e5%ae%83%e5%88%b0%e5%ba%95%e6%9c%89%e7%94%a8%e5%9c%a8%e5%93%aa%e9%87%8c%e5%91%a2%ef%bc%9f%e4%b8%8b%e9%9d%a2%e6%9d%a5%e8%a7%a3%e9%87%8a%e4%b8%80%e4%b8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%20this%ef%bc%9a%0a1function%20identify%28%29%20%7b%202%20return%20this.name.toUpperCase%28%29%3b%203%7d%204%205var%20me%20%3d%20%7b%206%20name%3a%20%26%2334%3bKyle%26%2334%3b%207%7d%3b%208var%20you%20%3d%20%7b%209%20name%3a%20%26%2334%3bReader%26%2334%3b%2010%7d%3b%2011identify.call%28me%29%3b%20%2f%2f%20Kyle%2012identify.call%28you%29%3b%20%2f%2f%20Reader%20%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%8f%af%e4%bb%a5%e5%9c%a8%e4%b8%8d%e5%90%8c%e7%9a%84%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%ef%bc%88me%20%e5%92%8c%20you%ef%bc%89%e4%b8%ad%e9%87%8d%e5%a4%8d%e4%bd%bf%e7%94%a8%e5%87%bd%e6%95%b0%20identify%ef%bc%8c%e4%b8%8d%e7%94%a8%e9%92%88%e5%af%b9%e6%af%8f%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%bc%96%e5%86%99%e4%b8%8d%e5%90%8c%e7%89%88%e6%9c%ac%e7%9a%84%e5%87%bd%e6%95%b0%e3%80%82%e5%a6%82%e6%9e%9c%e4%b8%8d%e4%bd%bf%e7%94%a8%20this%ef%bc%8c%e9%82%a3%e5%b0%b1%e9%9c%80%e8%a6%81%e7%bb%99%20identify%20%e6%98%be%e5%bc%8f%e4%bc%a0%e5%85%a5%e4%b8%80%e4%b8%aa%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%e3%80%82%0a1function%20identify%28context%29%20%7b%202%20return%20context.name.toUpperCase%28%29%3b%203%7d%204%205var%20me%20%3d%20%7b%206%20name%3a%20%26%2334%3bKyle%26%2334%3b%207%7d%3b%208var%20you%20%3d%20%7b%209%20name%3a%20%26%2334%3bReader%26%2334%3b%2010%7d%3b%2011identify%28me%29%3b%20%2f%2f%20Kyle%2012identify%28you%29%3b%20%2f%2f%20Reader%20this%20%e6%8f%90%e4%be%9b%e4%ba%86%e4%b8%80%e7%a7%8d%e6%9b%b4%e4%bc%98%e9%9b%85%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9d%a5%e9%9a%90%e5%bc%8f%e2%80%9d%e4%bc%a0%e9%80%92%e2%80%9c%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e5%bc%95%e7%94%a8%ef%bc%8c%e5%9b%a0%e6%ad%a4%e5%8f%af%e4%bb%a5%e5%b0%86%20API%20%e8%ae%be%e8%ae%a1%e5%be%97%e6%9b%b4%e5%8a%a0%e7%ae%80%e6%b4%81%e5%b9%b6%e4%b8%94%e6%98%93%e4%ba%8e%e5%a4%8d%e7%94%a8%e3%80%82%e9%9a%8f%e7%9d%80%e4%bd%bf%e7%94%a8%e6%a8%a1%e5%bc%8f%e8%b6%8a%e6%9d%a5%e8%b6%8a%e5%a4%8d%e6%9d%82%ef%bc%8c%e6%98%be%e5%bc%8f%e4%bc%a0%e9%80%92%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%e4%bc%9a%e8%ae%a9%e4%bb%a3%e7%a0%81%e5%8f%98%e5%be%97%e8%b6%8a%e6%9d%a5%e8%b6%8a%e6%b7%b7%e4%b9%b1%ef%bc%8c%e4%bd%bf%e7%94%a8%20this%20%e5%88%99%e4%b8%8d%e4%bc%9a%e8%bf%99%e6%a0%b7%e3%80%82" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&name=this%20%e6%9c%ba%e5%88%b6&description=%e5%85%b3%e4%ba%8e%20this%20%e5%a6%82%e6%9e%9c%e5%af%b9%e4%ba%8e%e6%9c%89%e7%bb%8f%e9%aa%8c%e7%9a%84%20JavaScript%20%e5%bc%80%e5%8f%91%e8%80%85%e6%9d%a5%e8%af%b4%ef%bc%8cthis%20%e9%83%bd%e6%98%af%e4%b8%80%e7%a7%8d%e9%9d%9e%e5%b8%b8%e5%a4%8d%e6%9d%82%e7%9a%84%e6%9c%ba%e5%88%b6%ef%bc%8c%e9%82%a3%e5%ae%83%e5%88%b0%e5%ba%95%e6%9c%89%e7%94%a8%e5%9c%a8%e5%93%aa%e9%87%8c%e5%91%a2%ef%bc%9f%e4%b8%8b%e9%9d%a2%e6%9d%a5%e8%a7%a3%e9%87%8a%e4%b8%80%e4%b8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%20this%ef%bc%9a%0a1function%20identify%28%29%20%7b%202%20return%20this.name.toUpperCase%28%29%3b%203%7d%204%205var%20me%20%3d%20%7b%206%20name%3a%20%26%2334%3bKyle%26%2334%3b%207%7d%3b%208var%20you%20%3d%20%7b%209%20name%3a%20%26%2334%3bReader%26%2334%3b%2010%7d%3b%2011identify.call%28me%29%3b%20%2f%2f%20Kyle%2012identify.call%28you%29%3b%20%2f%2f%20Reader%20%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%8f%af%e4%bb%a5%e5%9c%a8%e4%b8%8d%e5%90%8c%e7%9a%84%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%ef%bc%88me%20%e5%92%8c%20you%ef%bc%89%e4%b8%ad%e9%87%8d%e5%a4%8d%e4%bd%bf%e7%94%a8%e5%87%bd%e6%95%b0%20identify%ef%bc%8c%e4%b8%8d%e7%94%a8%e9%92%88%e5%af%b9%e6%af%8f%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%bc%96%e5%86%99%e4%b8%8d%e5%90%8c%e7%89%88%e6%9c%ac%e7%9a%84%e5%87%bd%e6%95%b0%e3%80%82%e5%a6%82%e6%9e%9c%e4%b8%8d%e4%bd%bf%e7%94%a8%20this%ef%bc%8c%e9%82%a3%e5%b0%b1%e9%9c%80%e8%a6%81%e7%bb%99%20identify%20%e6%98%be%e5%bc%8f%e4%bc%a0%e5%85%a5%e4%b8%80%e4%b8%aa%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%e3%80%82%0a1function%20identify%28context%29%20%7b%202%20return%20context.name.toUpperCase%28%29%3b%203%7d%204%205var%20me%20%3d%20%7b%206%20name%3a%20%26%2334%3bKyle%26%2334%3b%207%7d%3b%208var%20you%20%3d%20%7b%209%20name%3a%20%26%2334%3bReader%26%2334%3b%2010%7d%3b%2011identify%28me%29%3b%20%2f%2f%20Kyle%2012identify%28you%29%3b%20%2f%2f%20Reader%20this%20%e6%8f%90%e4%be%9b%e4%ba%86%e4%b8%80%e7%a7%8d%e6%9b%b4%e4%bc%98%e9%9b%85%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9d%a5%e9%9a%90%e5%bc%8f%e2%80%9d%e4%bc%a0%e9%80%92%e2%80%9c%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e5%bc%95%e7%94%a8%ef%bc%8c%e5%9b%a0%e6%ad%a4%e5%8f%af%e4%bb%a5%e5%b0%86%20API%20%e8%ae%be%e8%ae%a1%e5%be%97%e6%9b%b4%e5%8a%a0%e7%ae%80%e6%b4%81%e5%b9%b6%e4%b8%94%e6%98%93%e4%ba%8e%e5%a4%8d%e7%94%a8%e3%80%82%e9%9a%8f%e7%9d%80%e4%bd%bf%e7%94%a8%e6%a8%a1%e5%bc%8f%e8%b6%8a%e6%9d%a5%e8%b6%8a%e5%a4%8d%e6%9d%82%ef%bc%8c%e6%98%be%e5%bc%8f%e4%bc%a0%e9%80%92%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%e4%bc%9a%e8%ae%a9%e4%bb%a3%e7%a0%81%e5%8f%98%e5%be%97%e8%b6%8a%e6%9d%a5%e8%b6%8a%e6%b7%b7%e4%b9%b1%ef%bc%8c%e4%bd%bf%e7%94%a8%20this%20%e5%88%99%e4%b8%8d%e4%bc%9a%e8%bf%99%e6%a0%b7%e3%80%82" aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&t=this%20%e6%9c%ba%e5%88%b6" aria-label="Hacker News">
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&t=this%20%e6%9c%ba%e5%88%b6" aria-label="Hacker News">
       <i class="fab fa-hacker-news " aria-hidden="true"></i>
     </a>
   </li>
@@ -215,7 +215,7 @@
             <i class="fas fa-tag"></i>
             
             
-            <a class="tag-link" href="/tags/javascript" rel="tag">JavaScript</a>
+            <a class="tag-link" href="/geekkery.4everland.app/tags/javascript" rel="tag">JavaScript</a>
             
         </div>
         
@@ -461,13 +461,13 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/">Home</a></li>
+          <li><a href="geekkery.4everland.app/">Home</a></li>
          
-          <li><a href="/posts">Writings</a></li>
+          <li><a href="geekkery.4everland.app/posts">Writings</a></li>
          
-          <li><a href="/tags">Tags</a></li>
+          <li><a href="geekkery.4everland.app/tags">Tags</a></li>
          
-          <li><a href="/about">About</a></li>
+          <li><a href="geekkery.4everland.app/about">About</a></li>
         
       </ul>
     </div>
@@ -507,47 +507,47 @@
   
   
   <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f" aria-label="Facebook">
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f" aria-label="Facebook">
       <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&text=this%20%e6%9c%ba%e5%88%b6" aria-label="Twitter">
+    <a class="icon" href="https://twitter.com/share?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&text=this%20%e6%9c%ba%e5%88%b6" aria-label="Twitter">
       <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="Linkedin">
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="Linkedin">
       <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&is_video=false&description=this%20%e6%9c%ba%e5%88%b6" aria-label="Pinterest">
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&is_video=false&description=this%20%e6%9c%ba%e5%88%b6" aria-label="Pinterest">
       <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="mailto:?subject=this%20%e6%9c%ba%e5%88%b6&body=Check out this article: https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f" aria-label="Email">
+    <a class="icon" href="mailto:?subject=this%20%e6%9c%ba%e5%88%b6&body=Check out this article: geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f" aria-label="Email">
       <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="Pocket">
+    <a class="icon" href="https://getpocket.com/save?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="Pocket">
       <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="reddit">
+    <a class="icon" href="http://reddit.com/submit?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&title=this%20%e6%9c%ba%e5%88%b6" aria-label="reddit">
       <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&name=this%20%e6%9c%ba%e5%88%b6&description=%e5%85%b3%e4%ba%8e%20this%20%e5%a6%82%e6%9e%9c%e5%af%b9%e4%ba%8e%e6%9c%89%e7%bb%8f%e9%aa%8c%e7%9a%84%20JavaScript%20%e5%bc%80%e5%8f%91%e8%80%85%e6%9d%a5%e8%af%b4%ef%bc%8cthis%20%e9%83%bd%e6%98%af%e4%b8%80%e7%a7%8d%e9%9d%9e%e5%b8%b8%e5%a4%8d%e6%9d%82%e7%9a%84%e6%9c%ba%e5%88%b6%ef%bc%8c%e9%82%a3%e5%ae%83%e5%88%b0%e5%ba%95%e6%9c%89%e7%94%a8%e5%9c%a8%e5%93%aa%e9%87%8c%e5%91%a2%ef%bc%9f%e4%b8%8b%e9%9d%a2%e6%9d%a5%e8%a7%a3%e9%87%8a%e4%b8%80%e4%b8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%20this%ef%bc%9a%0a1function%20identify%28%29%20%7b%202%20return%20this.name.toUpperCase%28%29%3b%203%7d%204%205var%20me%20%3d%20%7b%206%20name%3a%20%26%2334%3bKyle%26%2334%3b%207%7d%3b%208var%20you%20%3d%20%7b%209%20name%3a%20%26%2334%3bReader%26%2334%3b%2010%7d%3b%2011identify.call%28me%29%3b%20%2f%2f%20Kyle%2012identify.call%28you%29%3b%20%2f%2f%20Reader%20%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%8f%af%e4%bb%a5%e5%9c%a8%e4%b8%8d%e5%90%8c%e7%9a%84%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%ef%bc%88me%20%e5%92%8c%20you%ef%bc%89%e4%b8%ad%e9%87%8d%e5%a4%8d%e4%bd%bf%e7%94%a8%e5%87%bd%e6%95%b0%20identify%ef%bc%8c%e4%b8%8d%e7%94%a8%e9%92%88%e5%af%b9%e6%af%8f%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%bc%96%e5%86%99%e4%b8%8d%e5%90%8c%e7%89%88%e6%9c%ac%e7%9a%84%e5%87%bd%e6%95%b0%e3%80%82%e5%a6%82%e6%9e%9c%e4%b8%8d%e4%bd%bf%e7%94%a8%20this%ef%bc%8c%e9%82%a3%e5%b0%b1%e9%9c%80%e8%a6%81%e7%bb%99%20identify%20%e6%98%be%e5%bc%8f%e4%bc%a0%e5%85%a5%e4%b8%80%e4%b8%aa%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%e3%80%82%0a1function%20identify%28context%29%20%7b%202%20return%20context.name.toUpperCase%28%29%3b%203%7d%204%205var%20me%20%3d%20%7b%206%20name%3a%20%26%2334%3bKyle%26%2334%3b%207%7d%3b%208var%20you%20%3d%20%7b%209%20name%3a%20%26%2334%3bReader%26%2334%3b%2010%7d%3b%2011identify%28me%29%3b%20%2f%2f%20Kyle%2012identify%28you%29%3b%20%2f%2f%20Reader%20this%20%e6%8f%90%e4%be%9b%e4%ba%86%e4%b8%80%e7%a7%8d%e6%9b%b4%e4%bc%98%e9%9b%85%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9d%a5%e9%9a%90%e5%bc%8f%e2%80%9d%e4%bc%a0%e9%80%92%e2%80%9c%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e5%bc%95%e7%94%a8%ef%bc%8c%e5%9b%a0%e6%ad%a4%e5%8f%af%e4%bb%a5%e5%b0%86%20API%20%e8%ae%be%e8%ae%a1%e5%be%97%e6%9b%b4%e5%8a%a0%e7%ae%80%e6%b4%81%e5%b9%b6%e4%b8%94%e6%98%93%e4%ba%8e%e5%a4%8d%e7%94%a8%e3%80%82%e9%9a%8f%e7%9d%80%e4%bd%bf%e7%94%a8%e6%a8%a1%e5%bc%8f%e8%b6%8a%e6%9d%a5%e8%b6%8a%e5%a4%8d%e6%9d%82%ef%bc%8c%e6%98%be%e5%bc%8f%e4%bc%a0%e9%80%92%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%e4%bc%9a%e8%ae%a9%e4%bb%a3%e7%a0%81%e5%8f%98%e5%be%97%e8%b6%8a%e6%9d%a5%e8%b6%8a%e6%b7%b7%e4%b9%b1%ef%bc%8c%e4%bd%bf%e7%94%a8%20this%20%e5%88%99%e4%b8%8d%e4%bc%9a%e8%bf%99%e6%a0%b7%e3%80%82" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&name=this%20%e6%9c%ba%e5%88%b6&description=%e5%85%b3%e4%ba%8e%20this%20%e5%a6%82%e6%9e%9c%e5%af%b9%e4%ba%8e%e6%9c%89%e7%bb%8f%e9%aa%8c%e7%9a%84%20JavaScript%20%e5%bc%80%e5%8f%91%e8%80%85%e6%9d%a5%e8%af%b4%ef%bc%8cthis%20%e9%83%bd%e6%98%af%e4%b8%80%e7%a7%8d%e9%9d%9e%e5%b8%b8%e5%a4%8d%e6%9d%82%e7%9a%84%e6%9c%ba%e5%88%b6%ef%bc%8c%e9%82%a3%e5%ae%83%e5%88%b0%e5%ba%95%e6%9c%89%e7%94%a8%e5%9c%a8%e5%93%aa%e9%87%8c%e5%91%a2%ef%bc%9f%e4%b8%8b%e9%9d%a2%e6%9d%a5%e8%a7%a3%e9%87%8a%e4%b8%80%e4%b8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%20this%ef%bc%9a%0a1function%20identify%28%29%20%7b%202%20return%20this.name.toUpperCase%28%29%3b%203%7d%204%205var%20me%20%3d%20%7b%206%20name%3a%20%26%2334%3bKyle%26%2334%3b%207%7d%3b%208var%20you%20%3d%20%7b%209%20name%3a%20%26%2334%3bReader%26%2334%3b%2010%7d%3b%2011identify.call%28me%29%3b%20%2f%2f%20Kyle%2012identify.call%28you%29%3b%20%2f%2f%20Reader%20%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%8f%af%e4%bb%a5%e5%9c%a8%e4%b8%8d%e5%90%8c%e7%9a%84%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%ef%bc%88me%20%e5%92%8c%20you%ef%bc%89%e4%b8%ad%e9%87%8d%e5%a4%8d%e4%bd%bf%e7%94%a8%e5%87%bd%e6%95%b0%20identify%ef%bc%8c%e4%b8%8d%e7%94%a8%e9%92%88%e5%af%b9%e6%af%8f%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%bc%96%e5%86%99%e4%b8%8d%e5%90%8c%e7%89%88%e6%9c%ac%e7%9a%84%e5%87%bd%e6%95%b0%e3%80%82%e5%a6%82%e6%9e%9c%e4%b8%8d%e4%bd%bf%e7%94%a8%20this%ef%bc%8c%e9%82%a3%e5%b0%b1%e9%9c%80%e8%a6%81%e7%bb%99%20identify%20%e6%98%be%e5%bc%8f%e4%bc%a0%e5%85%a5%e4%b8%80%e4%b8%aa%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%e3%80%82%0a1function%20identify%28context%29%20%7b%202%20return%20context.name.toUpperCase%28%29%3b%203%7d%204%205var%20me%20%3d%20%7b%206%20name%3a%20%26%2334%3bKyle%26%2334%3b%207%7d%3b%208var%20you%20%3d%20%7b%209%20name%3a%20%26%2334%3bReader%26%2334%3b%2010%7d%3b%2011identify%28me%29%3b%20%2f%2f%20Kyle%2012identify%28you%29%3b%20%2f%2f%20Reader%20this%20%e6%8f%90%e4%be%9b%e4%ba%86%e4%b8%80%e7%a7%8d%e6%9b%b4%e4%bc%98%e9%9b%85%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9d%a5%e9%9a%90%e5%bc%8f%e2%80%9d%e4%bc%a0%e9%80%92%e2%80%9c%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e5%bc%95%e7%94%a8%ef%bc%8c%e5%9b%a0%e6%ad%a4%e5%8f%af%e4%bb%a5%e5%b0%86%20API%20%e8%ae%be%e8%ae%a1%e5%be%97%e6%9b%b4%e5%8a%a0%e7%ae%80%e6%b4%81%e5%b9%b6%e4%b8%94%e6%98%93%e4%ba%8e%e5%a4%8d%e7%94%a8%e3%80%82%e9%9a%8f%e7%9d%80%e4%bd%bf%e7%94%a8%e6%a8%a1%e5%bc%8f%e8%b6%8a%e6%9d%a5%e8%b6%8a%e5%a4%8d%e6%9d%82%ef%bc%8c%e6%98%be%e5%bc%8f%e4%bc%a0%e9%80%92%e4%b8%8a%e4%b8%8b%e6%96%87%e5%af%b9%e8%b1%a1%e4%bc%9a%e8%ae%a9%e4%bb%a3%e7%a0%81%e5%8f%98%e5%be%97%e8%b6%8a%e6%9d%a5%e8%b6%8a%e6%b7%b7%e4%b9%b1%ef%bc%8c%e4%bd%bf%e7%94%a8%20this%20%e5%88%99%e4%b8%8d%e4%bc%9a%e8%bf%99%e6%a0%b7%e3%80%82" aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgeekkery.github.io%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&t=this%20%e6%9c%ba%e5%88%b6" aria-label="Hacker News">
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=geekkery.4everland.app%2fposts%2fthis-%25E6%259C%25BA%25E5%2588%25B6%2f&t=this%20%e6%9c%ba%e5%88%b6" aria-label="Hacker News">
       <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
     </a>
   </li>
@@ -581,13 +581,13 @@
     <nav>
       <ul>
          
-        <li><a href="/">Home</a></li>
+        <li><a href="geekkery.4everland.app/">Home</a></li>
          
-        <li><a href="/posts">Writings</a></li>
+        <li><a href="geekkery.4everland.app/posts">Writings</a></li>
          
-        <li><a href="/tags">Tags</a></li>
+        <li><a href="geekkery.4everland.app/tags">Tags</a></li>
          
-        <li><a href="/about">About</a></li>
+        <li><a href="geekkery.4everland.app/about">About</a></li>
         
       </ul>
     </nav>
@@ -598,11 +598,11 @@
   </div>
 </body>
 
-<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
-<script src=/lib/jquery/jquery.min.js></script>
-<script src=/js/main.js></script>
+<link rel="stylesheet" href=/geekkery.4everland.app/lib/font-awesome/css/all.min.css>
+<script src=/geekkery.4everland.app/lib/jquery/jquery.min.js></script>
+<script src=/geekkery.4everland.app/js/main.js></script>
 
-<script src=/js/code-copy.js></script>
+<script src=/geekkery.4everland.app/js/code-copy.js></script>
 
 
 

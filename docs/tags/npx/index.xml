@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>npx on GeekKery ¶ £¢∞</title>
-    <link>https://geekkery.github.io/tags/npx/</link>
+    <link>geekkery.4everland.app/tags/npx/</link>
     <description>Recent content in npx on GeekKery ¶ £¢∞</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Wed, 13 May 2020 02:12:21 +0800</lastBuildDate><atom:link href="https://geekkery.github.io/tags/npx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 May 2020 02:12:21 +0800</lastBuildDate><atom:link href="geekkery.4everland.app/tags/npx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>物尽其用「npx」</title>
-      <link>https://geekkery.github.io/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</link>
+      <link>geekkery.4everland.app/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</link>
       <pubDate>Wed, 13 May 2020 02:12:21 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</guid>
+      <guid>geekkery.4everland.app/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</guid>
       <description>npx 是跟随 npm@5.2.0 版本一起发布的，安装 5.2.0 版本及之后的 npm ，会自动安装 npx。npx 可以认为是「NPM Package Executor」的缩写，它为 npm 包管理和执行提供辅助功能。
 查看 npx 版本：
 1npx --version 如果 npm 版本低于 5.2.0 ，可以升级 npm 版本，或全局安装以使用 npx：

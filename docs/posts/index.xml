@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on GeekKery ¶ £¢∞</title>
-    <link>https://geekkery.github.io/posts/</link>
+    <link>geekkery.4everland.app/posts/</link>
     <description>Recent content in Posts on GeekKery ¶ £¢∞</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Tue, 19 Jan 2021 18:03:44 +0800</lastBuildDate><atom:link href="https://geekkery.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jan 2021 18:03:44 +0800</lastBuildDate><atom:link href="geekkery.4everland.app/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>this 机制</title>
-      <link>https://geekkery.github.io/posts/this-%E6%9C%BA%E5%88%B6/</link>
+      <link>geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/</link>
       <pubDate>Tue, 19 Jan 2021 18:03:44 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/this-%E6%9C%BA%E5%88%B6/</guid>
+      <guid>geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/</guid>
       <description>关于 this 如果对于有经验的 JavaScript 开发者来说，this 都是一种非常复杂的机制，那它到底有用在哪里呢？下面来解释一下为什么要使用 this：
 1function identify() { 2 return this.name.toUpperCase(); 3} 4 5var me = { 6 name: &amp;#34;Kyle&amp;#34; 7}; 8var you = { 9 name: &amp;#34;Reader&amp;#34; 10}; 11identify.call(me); // Kyle 12identify.call(you); // Reader 这段代码可以在不同的上下文对象（me 和 you）中重复使用函数 identify，不用针对每个对象编写不同版本的函数。如果不使用 this，那就需要给 identify 显式传入一个上下文对象。
 1function identify(context) { 2 return context.name.toUpperCase(); 3} 4 5var me = { 6 name: &amp;#34;Kyle&amp;#34; 7}; 8var you = { 9 name: &amp;#34;Reader&amp;#34; 10}; 11identify(me); // Kyle 12identify(you); // Reader this 提供了一种更优雅的方式来隐式”传递“一个对象引用，因此可以将 API 设计得更加简洁并且易于复用。随着使用模式越来越复杂，显式传递上下文对象会让代码变得越来越混乱，使用 this 则不会这样。</description>
@@ -21,10 +21,10 @@
     
     <item>
       <title>浅谈 GC</title>
-      <link>https://geekkery.github.io/posts/%E6%B5%85%E8%B0%88-gc/</link>
+      <link>geekkery.4everland.app/posts/%E6%B5%85%E8%B0%88-gc/</link>
       <pubDate>Tue, 19 Jan 2021 15:04:44 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E6%B5%85%E8%B0%88-gc/</guid>
+      <guid>geekkery.4everland.app/posts/%E6%B5%85%E8%B0%88-gc/</guid>
       <description>内存的生命周期包括分配内存、使用内存和释放内存。有些语言（比如 C 语言）必须手动分配和释放内存，JavaScript 的内存分配过程是在做变量声明赋值时自动完成的。变量完成内存分配之后程序才可以使用进行读写。当程序不需要再使用某些变量时，它们占用的内存就会进行释放，腾出空间。
 内存溢出 程序的运行需要内存，只要程序提出要求，操作系统或者运行时（Runtime）就必须供给内存。程序运行过程中申请的内存大于系统能够提供的内存，导致程序无法申请到足够的内存，这就是内存溢出（Out Of Memory）。
 内存泄漏 不再用到的内存，没有及时释放，就叫做内存泄漏（Memory Leak），内存泄漏与大小无关，并非导致程序卡顿、崩溃才能叫做内存泄漏。
@@ -36,10 +36,10 @@ Node.js 提供了 process.memoryUsage 方法，process.memoryUsage 返回一个�
     
     <item>
       <title>作用域和闭包.md</title>
-      <link>https://geekkery.github.io/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</link>
+      <link>geekkery.4everland.app/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</link>
       <pubDate>Mon, 18 Jan 2021 15:03:44 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</guid>
+      <guid>geekkery.4everland.app/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</guid>
       <description>词法作用域 作用域是一套规则，这套规则用来管理引擎如何在当前的作用域以及嵌套的子作用域中根据标识符名称进行变量查找。作用域共有两种主要的工作模型。第一种是最为普遍的，被大多数编程语言所采用的词法作用域，另外一种叫做动态作用域，仍有一些编程语言在使用（比如 Bash 脚本、Perl 中的一些模式等）。JavaScript 中的作用域就是词法作用域。
 词法作用域就是定义在词法阶段的作用域。换句话说，词法作用域是由你在写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变。无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。
 欺骗词法 如果词法作用域完全由写代码期间函数所声明的位置来定义，怎样才能在运行时来“修改”（即欺骗）词法作用域呢？
@@ -53,10 +53,10 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
     
     <item>
       <title>浅析 HTTPS</title>
-      <link>https://geekkery.github.io/posts/%E6%B5%85%E6%9E%90-https/</link>
+      <link>geekkery.4everland.app/posts/%E6%B5%85%E6%9E%90-https/</link>
       <pubDate>Fri, 15 Jan 2021 20:14:56 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E6%B5%85%E6%9E%90-https/</guid>
+      <guid>geekkery.4everland.app/posts/%E6%B5%85%E6%9E%90-https/</guid>
       <description>HTTP 的缺点 HTTP 具有相当优秀的和方便的一面，简单、灵活、易于扩展是它显著的特点。然而 HTTP 并非只有好的一面，事物皆具有两面性，它也有不足之处。
 明文通信 HTTP 本身不具备加密的功能，无法做到对通信整体进行加密。按 TCP/IP 协议族的工作机制，通信内容在所有的通信线路上都有可能遭到窥视。窃听相同段上的通信并非难事。只需要收集在互联网上流动的数据包，然后使用抓包或嗅探器工具对收集来的数据包进行解析即可。
 不验证通信方的身份 HTTP 协议中的请求和响应不会对通信方进行确认，任何人都可以发起请求。服务器只要接收到请求，并且发送端的 IP 地址和端口号没有被 Web 服务器设定限制访问，不管对方是谁都会返回一个响应，这样会存在以下隐患：无法确定请求的目标服务器是否是按真实意图返回响应的那台服务器，有可能是已伪装的 Web 服务器；无法确定响应返回的客户端是否是按真实意图接收响应的那个客户端，有可能是已伪装的客户端；无法确定正在通信的对方是否具备访问权限；无法判定请求是来自何方、出自谁手；即使是无意义的请求也会照单全收，无法阻止海量请求下的 DoS 攻击
@@ -67,10 +67,10 @@ SSL 技术最初是由网景公司率先倡导的，开发过 SSL3.0 之前的�
     
     <item>
       <title>HTTP 缓存机制</title>
-      <link>https://geekkery.github.io/posts/http-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</link>
+      <link>geekkery.4everland.app/posts/http-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</link>
       <pubDate>Sat, 09 Jan 2021 12:26:02 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/http-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</guid>
+      <guid>geekkery.4everland.app/posts/http-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</guid>
       <description>HTTP 缓存通过资源复用，可以减轻服务器负担，显著提高网站和应用程序的性能。HTTP 缓存主要有客户端缓存和代理缓存，其它还包括网关缓存、CDN、反向代理缓存和负载均衡器等部署在服务器上的缓存方式。HTTP 缓存主要存储 GET 响应。
 以 Chrome 为例，打开新标签页后调出 DevTools，将功能切至 NetWork，首次访问 Google 搜索页面，能看到请求：
 ctrl + r 刷新页面，可看到请求：
@@ -85,10 +85,10 @@ Cache-Control 为弥补 Expires 的缺点，HTTP/1.1 新增了 Cache-Control 通
     
     <item>
       <title>常用的一些命令行</title>
-      <link>https://geekkery.github.io/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <link>geekkery.4everland.app/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
       <pubDate>Tue, 05 Jan 2021 04:12:59 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <guid>geekkery.4everland.app/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
       <description>Mac OS 持久化别名指定 在终端中执行的 alias 命令指定的别名仅本次登录有效，若需使别名永久生效，可以执行 vi ~/.bashrc，在文件末尾中添加行：
 1ub2=&amp;#39;ssh ubuntu@139.155.86.169&amp;#39; 保存退出后，使用 source 命令刷新环境变量后即可使用自定义的 ub2 命令：
 1source ~/.bashrc 如果系统使用的是 zsh，编辑配置 ~/.zshrc 即可，终端执行 echo $0 可查看当前使用的 shell 类型。
@@ -100,10 +100,10 @@ Linux 拷贝命令 cp、rcp 和 scp cp Linux cp 命令语法：
     
     <item>
       <title>叹流年</title>
-      <link>https://geekkery.github.io/posts/%E5%8F%B9%E6%B5%81%E5%B9%B4/</link>
+      <link>geekkery.4everland.app/posts/%E5%8F%B9%E6%B5%81%E5%B9%B4/</link>
       <pubDate>Fri, 01 Jan 2021 04:06:39 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E5%8F%B9%E6%B5%81%E5%B9%B4/</guid>
+      <guid>geekkery.4everland.app/posts/%E5%8F%B9%E6%B5%81%E5%B9%B4/</guid>
       <description>2021 年 1 月 1 日 昨日夜，辗转反侧，难以入眠，遂相邀叙旧，与约酒肆。唯李兄至。恰新旧交替，聚者甚多，宾客盈门，不逢时，门口落座，饮至翌年，谈古说今，甚欢。
 酒后难舍，蓉城街头，阔步高谈，行至天明。东谈西说，过眼云烟，唯二三事，言犹在耳。
 卜数只偶，故地重游。负笈求学，于兹三载，东劳西燕，距此又两年有余。昔日同窗，各自文采风流，为余所钦，今关山阻隔，天涯沦落，忾然叹息。
@@ -116,10 +116,10 @@ Linux 拷贝命令 cp、rcp 和 scp cp Linux cp 命令语法：
     
     <item>
       <title>简谈文档模式</title>
-      <link>https://geekkery.github.io/posts/%E7%AE%80%E8%B0%88%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</link>
+      <link>geekkery.4everland.app/posts/%E7%AE%80%E8%B0%88%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 19 Dec 2020 04:01:18 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E7%AE%80%E8%B0%88%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>geekkery.4everland.app/posts/%E7%AE%80%E8%B0%88%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/</guid>
       <description>HTML5 文档的第一行就是 &amp;lt;!DOCTYPE html&amp;gt; 用于文档声明。首先，这不是 HTML 标签，DOCTYPE 意为文档类型，这段代码用于文档类型声明。其次，文档类型声明应尽量在第一行，之前不能有任何注释或标签，若浏览器在第一行读取不到文档类型声明时，会认为文档类型声明不存在，导致声明无效（主要是 IE9 或更早期的浏览器）。
 有哪些文档模式 目前浏览器的排版引擎有三种模式：怪异模式、准标准模式以及标准模式。怪异模式下，排版会模拟 Navigator4 和 IE5 的非标准模式行为，怪异模式的影响主要是 CSS 渲染，IE 中会影响 JavaScript 对浏览器窗口宽高值的计算方式。标准模式下，行为即为 HTML 与 CSS 规范描述的行为。在准标准模式下，只有少数的怪异行为被实现。
 计出无奈 网景的 Navigator 和 微软的 IE，由于初期规范的缺乏，两家浏览器按照各自的方式渲染页面。后来，W3C 创立网络标准，浏览器厂商逐渐向标准靠拢，在这个时间节点上，要保证既有网站能正常运行，就不能放弃之前的渲染方式。
@@ -131,10 +131,10 @@ Linux 拷贝命令 cp、rcp 和 scp cp Linux cp 命令语法：
     
     <item>
       <title>&lt;script&gt; 标签</title>
-      <link>https://geekkery.github.io/posts/script-%E6%A0%87%E7%AD%BE/</link>
+      <link>geekkery.4everland.app/posts/script-%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Fri, 26 Jun 2020 03:35:39 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/script-%E6%A0%87%E7%AD%BE/</guid>
+      <guid>geekkery.4everland.app/posts/script-%E6%A0%87%E7%AD%BE/</guid>
       <description>crossorigin 属性 crossorigin 值有 anonymous 和 use-credentials，空值如 crossorigin 或 crossorigin=&amp;quot;&amp;quot; 缺省为 anonymous，如果未指定此属性，CORS 将不会启用，若启用必须保证服务器已开启跨域请求允许。其他 HTML5 元素如 &amp;lt;audio&amp;gt;、&amp;lt;video&amp;gt;、&amp;lt;link&amp;gt;、&amp;lt;img&amp;gt; 等均有跨域属性。
 anonymous 值表示对此元素的 CORS 请求将不设置凭据标志；use-credentials 表示对此元素的 CORS 请求将设置凭证标志，这意味着请求将提供凭据。换句话说，就是 use-credentials 允许浏览器携带 Cookie 等凭证数据到服务器，而 anonymous 不允许。
 请求 CDN 等内容可指定为 anonymous，在获取需要用户凭证的内容如 manifest 时，属性就必须(即使同源也要设置）设置为 use-credentials，Google 搜索首页的案例如下：
@@ -144,10 +144,10 @@ integrity 值共两个部分：第一部分指定哈希值的生成算法（目�
     
     <item>
       <title>物尽其用「npx」</title>
-      <link>https://geekkery.github.io/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</link>
+      <link>geekkery.4everland.app/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</link>
       <pubDate>Wed, 13 May 2020 02:12:21 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</guid>
+      <guid>geekkery.4everland.app/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</guid>
       <description>npx 是跟随 npm@5.2.0 版本一起发布的，安装 5.2.0 版本及之后的 npm ，会自动安装 npx。npx 可以认为是「NPM Package Executor」的缩写，它为 npm 包管理和执行提供辅助功能。
 查看 npx 版本：
 1npx --version 如果 npm 版本低于 5.2.0 ，可以升级 npm 版本，或全局安装以使用 npx：
@@ -162,10 +162,10 @@ integrity 值共两个部分：第一部分指定哈希值的生成算法（目�
     
     <item>
       <title>Ubuntu20.04 安装 Typecho (附 HTTPS 认证)</title>
-      <link>https://geekkery.github.io/posts/ubuntu20.04-%E5%AE%89%E8%A3%85-typecho-%E9%99%84-https-%E8%AE%A4%E8%AF%81/</link>
+      <link>geekkery.4everland.app/posts/ubuntu20.04-%E5%AE%89%E8%A3%85-typecho-%E9%99%84-https-%E8%AE%A4%E8%AF%81/</link>
       <pubDate>Tue, 12 May 2020 10:26:06 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/ubuntu20.04-%E5%AE%89%E8%A3%85-typecho-%E9%99%84-https-%E8%AE%A4%E8%AF%81/</guid>
+      <guid>geekkery.4everland.app/posts/ubuntu20.04-%E5%AE%89%E8%A3%85-typecho-%E9%99%84-https-%E8%AE%A4%E8%AF%81/</guid>
       <description>本文介绍在 Ubuntu20.04 系统中搭建 PHP、 MySQL 和 Nginx 集成环境，在此基础上安装 Typecho 并获取 HTTPS 认证。
 首先，通过包管理器更新源并升级软件：
 1sudo apt-get update 2sudo apt-get upgrade 安装 PHP 和相关扩展 数据库使用 MySQL，需要在 PHP 中安装扩展 php-mysql。与 Apache 不同，Nginx 没有内置对 PHP 文件的处理支持，因此需要使用 php-fpm 来处理 PHP 文件。

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>安全 on GeekKery ¶ £¢∞</title>
-    <link>https://geekkery.github.io/tags/%E5%AE%89%E5%85%A8/</link>
+    <link>geekkery.4everland.app/tags/%E5%AE%89%E5%85%A8/</link>
     <description>Recent content in 安全 on GeekKery ¶ £¢∞</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Fri, 15 Jan 2021 20:14:56 +0800</lastBuildDate><atom:link href="https://geekkery.github.io/tags/%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Jan 2021 20:14:56 +0800</lastBuildDate><atom:link href="geekkery.4everland.app/tags/%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>浅析 HTTPS</title>
-      <link>https://geekkery.github.io/posts/%E6%B5%85%E6%9E%90-https/</link>
+      <link>geekkery.4everland.app/posts/%E6%B5%85%E6%9E%90-https/</link>
       <pubDate>Fri, 15 Jan 2021 20:14:56 +0800</pubDate>
       
-      <guid>https://geekkery.github.io/posts/%E6%B5%85%E6%9E%90-https/</guid>
+      <guid>geekkery.4everland.app/posts/%E6%B5%85%E6%9E%90-https/</guid>
       <description>HTTP 的缺点 HTTP 具有相当优秀的和方便的一面，简单、灵活、易于扩展是它显著的特点。然而 HTTP 并非只有好的一面，事物皆具有两面性，它也有不足之处。
 明文通信 HTTP 本身不具备加密的功能，无法做到对通信整体进行加密。按 TCP/IP 协议族的工作机制，通信内容在所有的通信线路上都有可能遭到窥视。窃听相同段上的通信并非难事。只需要收集在互联网上流动的数据包，然后使用抓包或嗅探器工具对收集来的数据包进行解析即可。
 不验证通信方的身份 HTTP 协议中的请求和响应不会对通信方进行确认，任何人都可以发起请求。服务器只要接收到请求，并且发送端的 IP 地址和端口号没有被 Web 服务器设定限制访问，不管对方是谁都会返回一个响应，这样会存在以下隐患：无法确定请求的目标服务器是否是按真实意图返回响应的那台服务器，有可能是已伪装的 Web 服务器；无法确定响应返回的客户端是否是按真实意图接收响应的那个客户端，有可能是已伪装的客户端；无法确定正在通信的对方是否具备访问权限；无法判定请求是来自何方、出自谁手；即使是无意义的请求也会照单全收，无法阻止海量请求下的 DoS 攻击
