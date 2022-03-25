@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>npx on GeekKery ¶ £¢∞</title>
+    <link>https://geekkery.github.io/tags/npx/</link>
+    <description>Recent content in npx on GeekKery ¶ £¢∞</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>GeekKery</copyright>
+    <lastBuildDate>Wed, 13 May 2020 02:12:21 +0800</lastBuildDate><atom:link href="https://geekkery.github.io/tags/npx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>物尽其用「npx」</title>
+      <link>https://geekkery.github.io/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</link>
+      <pubDate>Wed, 13 May 2020 02:12:21 +0800</pubDate>
+      
+      <guid>https://geekkery.github.io/posts/%E7%89%A9%E5%B0%BD%E5%85%B6%E7%94%A8npx/</guid>
+      <description>npx 是跟随 npm@5.2.0 版本一起发布的，安装 5.2.0 版本及之后的 npm ，会自动安装 npx。npx 可以认为是「NPM Package Executor」的缩写，它为 npm 包管理和执行提供辅助功能。
+查看 npx 版本：
+1npx --version 如果 npm 版本低于 5.2.0 ，可以升级 npm 版本，或全局安装以使用 npx：
+1npm install -g npx 调用项目安装的模块 如果项目中安装了可执行的模块，在 node_modules/.bin 目录下会有相应的指令用于执行。例如，使用 Next.js 构建的项目在 node_modules/.bin 下会有 next 命令，可以通过以下方式调用：
+命令行调用：
+1node node_modules/.bin/next -v npx 调用：
+1npx next -v npx 会自动在 node_modules/.bin 路径和环境变量 $PATH 进行执行文件定位，如果查找成功，直接执行。如果查找失败，会临时下载对应模块的运行程序到一个临时目录，使用以后再删除，以后再次执行相同的命令，会重新下载。
+运行 npx ls，由于环境变量中有 ls 命令，因此会立即执行：
+避免全局安装模块 npx 可以避免全局安装模块，例如在某个目录下需要启动 web 服务，可以使用 npx 运行包 http-server：
+1npx http-server 执行成功后，http-server 默认代理执行命令所在路径下的文件。退出执行，http-server 会被自动清除，下次运行时会重新下载并执行。</description>
+    </item>
+    
+  </channel>
+</rss>
