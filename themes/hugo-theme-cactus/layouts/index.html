@@ -1,10 +1,10 @@
 {{ define "main" }}
   <section id="about">
     <p>
-      <span class="type-panel" style="white-space: pre-wrap;">
-      {{ if isset .Site.Params "description" }}
-          {{ .Site.Params.description | $.Page.RenderString }}
-      {{ end }}
+      <span class="typed">
+<!--      {{ if isset .Site.Params "description" }}-->
+<!--          {{ .Site.Params.description | $.Page.RenderString }}-->
+<!--      {{ end }}-->
       </span>
     </p>
   {{ if isset .Site.Params "social" }}

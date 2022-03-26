@@ -35,7 +35,7 @@ Node.js 提供了 process.memoryUsage 方法，process.memoryUsage 返回一个�
     </item>
     
     <item>
-      <title>作用域和闭包.md</title>
+      <title>作用域和闭包</title>
       <link>/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/</link>
       <pubDate>Mon, 18 Jan 2021 15:03:44 +0800</pubDate>
       

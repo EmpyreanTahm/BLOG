@@ -46,7 +46,7 @@ rss = true # generate rss feed. default value is false
 #googleAnalyticsAsync = true # use asynchronous tracking. Synchronous tracking by default
 showAllPostsArchive = true # default
 # Home page settings
-description = "一鼓轻雷惊蛰后 细筛微雨落梅天"
+description = "一鼓轻雷惊蛰后 ^1000 细筛微雨落梅天"
 mainSection = "posts" # your main section
 mainSectionTitle = "Writings"
 showAllPostsOnHomePage = true # default

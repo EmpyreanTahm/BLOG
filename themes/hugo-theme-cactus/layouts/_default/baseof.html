@@ -17,12 +17,15 @@
 <link rel="stylesheet" href={{ "lib/font-awesome/css/all.min.css" | relURL }}>
 <script src={{ "lib/jquery/jquery.min.js" | relURL }}></script>
 <script src={{ "js/main.js" | relURL }}></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src={{ "lib/typed.js" | relURL }}></script>
 <script>
-  new Typed('.type-panel', {
-    strings: ['{{ .Site.Params.description | $.Page.RenderString }}'],
-    fadeOut: true,
-    typeSpeed: 120,
-  });
+    new Typed('.typed', {
+      strings: ['{{ .Site.Params.description | $.Page.RenderString }}'],
+      fadeOut: true,
+      typeSpeed: 120,
+    });
+    setTimeout(function (){
+      $('.typed').css('white-space','pre-line')
+    },1000)
 </script>
 </html>
