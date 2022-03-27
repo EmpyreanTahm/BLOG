@@ -20,7 +20,7 @@
 <script src={{ "lib/typed.js" | relURL }}></script>
 <script>
     new Typed('.typed', {
-      strings: ['{{ .Site.Params.description | $.Page.RenderString }}'],
+      strings: ['{{ .Site.Params.typedContent | $.Page.RenderString }}'],
       fadeOut: true,
       typeSpeed: 120,
     });
