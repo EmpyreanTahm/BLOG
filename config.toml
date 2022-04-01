@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://geekkery.4everland.app/"
 languageCode = "zh-cn"
 title = "GeekKery"
 theme = "hugo-theme-cactus"
@@ -47,7 +47,7 @@ rss = true # generate rss feed. default value is false
 showAllPostsArchive = true # default
 # Home page settings
 description = "GeekKery | Jayden 的个人博客 | web 前端技术文章"
-typedContent = "一鼓轻雷惊蛰后 ^1000 细筛微雨落梅天"
+typedContent = "念过眼 光阴难再得 ^1000 想前欢 尽成陈迹 ^1000 登临恨无语 把阑干暗拍"
 mainSection = "posts" # your main section
 mainSectionTitle = "Writings"
 showAllPostsOnHomePage = true # default

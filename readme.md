@@ -12,24 +12,3 @@ date: 2020-05-12T10:38:53+08:00
 ~~考虑到系统的扩展性，方便将来添加功能，采用功能完备的 Typecho 搭建。实际使用中，Typecho 的编辑器与 Typora 有部分不兼容，需要手动修改，Ubuntu 系统和数据库等软件对硬件资源较大的占用。权衡利弊，使用 [Hugo](https://gohugo.io/) 渲染文章，主题用的是 [bookworm](https://github.com/gethugothemes/bookworm)，部分样式和功能有自定义。~~
 
 迁移至 [4everland](https://4everland.org)。由于链接跳转问题，主题改用 [cactus](https://github.com/monkeyWzr/hugo-theme-cactus)，部分样式和功能有自定义。
-
-## Links
-
-- [桃园](https://www.taoweng.site/)
-- [咀嚼之味](https://jerryzou.com/all-articles/)
-- [xyhthink](https://www.xyhthink.com/archives/)
-- [Li Mei](https://limeii.github.io/tag/)
-- [Hello Alili](https://alili.tech/)
-- [AlienZhou](https://www.alienzhou.com/)
-- [OG-Liu's Blog](https://ogliu.com/)
-- [ZJX 的小破站](https://zzzjx0912.github.io/)
-
-## Plan
-
-- Event Loop
-- Vue 源码系列
-- Diff 算法
-- 安全
-- 模块化进程
-- TCP/IP
-- 算法
