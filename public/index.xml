@@ -167,10 +167,7 @@ integrity 值共两个部分：第一部分指定哈希值的生成算法（目�
       
       <guid>https://geekkery.4everland.app/about/</guid>
       <description>行远自迩，登高自卑。以歌咏志，凭文载道。
-Transfer 博客使用 Typecho 程序搭建，搭建步骤参考 《Ubuntu20.04 安装 Typecho (附 HTTPS 认证)》 一文，主题使用 Chakhsu Lau 开发的 Pinghsu。
-考虑到系统的扩展性，方便将来添加功能，采用功能完备的 Typecho 搭建。实际使用中，Typecho 的编辑器与 Typora 有部分不兼容，需要手动修改，Ubuntu 系统和数据库等软件对硬件资源较大的占用。权衡利弊，使用 Hugo 渲染文章，主题用的是 bookworm，部分样式和功能有自定义。
-迁移至 4everland。由于链接跳转问题，主题改用 cactus，部分样式和功能有自定义。
-Links  桃园 咀嚼之味 xyhthink Li Mei Hello Alili AlienZhou OG-Liu&amp;rsquo;s Blog ZJX 的小破站  Plan  Event Loop Vue 源码系列 Diff 算法 安全 模块化进程 TCP/IP 算法  </description>
+Transfer  博客使用 Typecho 程序搭建，搭建步骤参考 《Ubuntu20.04 安装 Typecho (附 HTTPS 认证)》 一文，主题使用 Chakhsu Lau 开发的 Pinghsu。 考虑到系统的扩展性，方便将来添加功能，采用功能完备的 Typecho 搭建。实际使用中，Typecho 的编辑器与 Typora 有部分不兼容，需要手动修改，Ubuntu 系统和数据库等软件对硬件资源较大的占用。权衡利弊，使用 Hugo 渲染文章，主题用的是 bookworm，部分样式和功能有自定义。 迁移至 4everland。由于链接跳转问题，主题改用 cactus，部分样式和功能有自定义。  Links  Hello Alili OG-Liu&amp;rsquo;s Blog 桃园 咀嚼之味 ZJX 的小破站 xyhthink Li Mei AlienZhou  Plan  04.17 Event Loop 04.24 安全 05.01 模块化进程  </description>
     </item>
     
     <item>

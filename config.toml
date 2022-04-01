@@ -41,18 +41,18 @@ style = "dracula"
 tabWidth = 4
 
 [params]
-colortheme = "dark" # dark, light, white, or classic
+colortheme = "classic" # dark, light, white, or classic
 rss = true # generate rss feed. default value is false
 #googleAnalyticsAsync = true # use asynchronous tracking. Synchronous tracking by default
 showAllPostsArchive = true # default
 # Home page settings
 description = "GeekKery | Jayden 的个人博客 | web 前端技术文章"
-typedContent = "念过眼 光阴难再得 ^1000 想前欢 尽成陈迹 ^1000 登临恨无语 把阑干暗拍"
+typedContent = "念过眼 光阴难再得^1000\n想前欢 尽成陈迹^1000\n登临恨无语 把阑干暗拍"
 mainSection = "posts" # your main section
 mainSectionTitle = "Writings"
 showAllPostsOnHomePage = true # default
-postsOnHomePage = 5 # this option will be ignored if showAllPostsOnHomePage is set to true
-tagsOverview = true # show tags overview by default.
+postsOnHomePage = 7 # this option will be ignored if showAllPostsOnHomePage is set to true
+tagsOverview = false # show tags overview by default.
 showProjectsList = false # show projects list by default (if projects data file exists).
 projectsUrl = "https://github.com/geekkery" # title link for projects list
 # https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference

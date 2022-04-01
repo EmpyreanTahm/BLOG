@@ -19,13 +19,15 @@
 <script src={{ "js/main.js" | relURL }}></script>
 <script src={{ "lib/typed.js" | relURL }}></script>
 <script>
-    new Typed('.typed', {
-      strings: ['{{ .Site.Params.typedContent | $.Page.RenderString }}'],
-      fadeOut: true,
-      typeSpeed: 120,
-    });
-    setTimeout(function (){
-      $('.typed').css('white-space','pre-line')
-    },1000)
+   if(document.querySelector('.typed')){
+     new Typed('.typed', {
+       strings: ['{{ .Site.Params.typedContent | $.Page.RenderString }}'],
+       fadeOut: true,
+       typeSpeed: 120,
+     });
+     setTimeout(function (){
+       $('.typed').css('white-space','pre-line')
+     },800)
+   }
 </script>
 </html>

@@ -32,7 +32,7 @@
     
   
   
-  <link rel="stylesheet" href="https://geekkery.4everland.app/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg==">
+  <link rel="stylesheet" href="https://geekkery.4everland.app/css/styles.4c2b9aa1d874d6766f554b2d404e8fd62ab4761f51ee9b3f358d12e81e7fa43a1b4378db995bc1926bbe5ed98c060be5e7bd4f2470504cf94f22b4b3a74e62b6.css" integrity="sha512-TCuaodh01nZvVUstQE6P1iq0dh9R7ps/NY0S6B5/pDobQ3jbmVvBkmu&#43;XtmMBgvl571PJHBQTPlPIrSzp05itg==">
 
   
   
@@ -127,29 +127,6 @@
 
   <section id="writing">
     <span class="h1"><a href="https://geekkery.4everland.app/posts">Writings</a></span>
-    
-    <span class="h2">Topics</span>
-    <span class="widget tagcloud">
-      
-      
-      <a style="font-size: 1.3333333333333333rem;" href="https://geekkery.4everland.app/tags/http/">HTTP</a>
-      
-      <a style="font-size: 1.75rem;" href="https://geekkery.4everland.app/tags/javascript/">JavaScript</a>
-      
-      <a style="font-size: 0.9166666666666666rem;" href="https://geekkery.4everland.app/tags/linux/">Linux</a>
-      
-      <a style="font-size: 0.9166666666666666rem;" href="https://geekkery.4everland.app/tags/npx/">npx</a>
-      
-      <a style="font-size: 0.9166666666666666rem;" href="https://geekkery.4everland.app/tags/typecho/">Typecho</a>
-      
-      <a style="font-size: 0.9166666666666666rem;" href="https://geekkery.4everland.app/tags/%E5%AE%89%E5%85%A8/">安全</a>
-      
-      <a style="font-size: 0.9166666666666666rem;" href="https://geekkery.4everland.app/tags/%E6%96%87%E6%A1%A3%E6%A8%A1%E5%BC%8F/">文档模式</a>
-      
-      <a style="font-size: 0.9166666666666666rem;" href="https://geekkery.4everland.app/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
-      
-    </span>
-    <span class="h2">Most recent</span>
     
 
     
@@ -266,13 +243,15 @@
 <script src=/js/main.js></script>
 <script src=/lib/typed.js></script>
 <script>
-    new Typed('.typed', {
-      strings: ['念过眼 光阴难再得 ^1000 想前欢 尽成陈迹 ^1000 登临恨无语 把阑干暗拍'],
-      fadeOut: true,
-      typeSpeed: 120,
-    });
-    setTimeout(function (){
-      $('.typed').css('white-space','pre-line')
-    },1000)
+   if(document.querySelector('.typed')){
+     new Typed('.typed', {
+       strings: ['念过眼 光阴难再得^1000\n想前欢 尽成陈迹^1000\n登临恨无语 把阑干暗拍'],
+       fadeOut: true,
+       typeSpeed: 120,
+     });
+     setTimeout(function (){
+       $('.typed').css('white-space','pre-line')
+     },800)
+   }
 </script>
 </html>
