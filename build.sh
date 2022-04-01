@@ -1,4 +1,4 @@
-hugo
+hugo -d docs
 git add -A
 read -p "Enter commit message, please: " commitMessage
 git commit -m "$commitMessage"
