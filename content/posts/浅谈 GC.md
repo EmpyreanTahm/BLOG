@@ -1,7 +1,7 @@
 ---
 title: "浅谈 GC"
 author: "GeekKery"
-date: 2021-01-19T15:04:44+08:00
+date: 2021-02-19T15:04:44+08:00
 tags: ["JavaScript"]
 ---
 
@@ -33,11 +33,11 @@ console.log(process.memoryUsage())
 // }
 ```
 
-> - rss（resident set size）：所有内存占用，包括指令区和堆栈。
-> - heapTotal：”堆“占用的内存，包括用到的和没用到的。
-> - heapUsed：用到的堆的部分。
-> - external： V8 引擎内部的 C++ 对象占用的内存。
-> - arrayBuffers：分配给 ArrayBuffers 和 SharedArrayBuffers 的内存，包括所有 Node.js 缓冲区
+> - rss（resident set size）：所有内存占用，包括指令区和堆栈；
+> - heapTotal：”堆“占用的内存，包括用到的和没用到的；
+> - heapUsed：用到的堆的部分；
+> - external： V8 引擎内部的 C++ 对象占用的内存；
+> - arrayBuffers：分配给 ArrayBuffers 和 SharedArrayBuffers 的内存，包括所有 Node.js 缓冲区。
 
 ## 垃圾回收机制
 

@@ -21,9 +21,3 @@ date: 2020-05-12T10:38:53+08:00
 - [xyhthink](https://www.xyhthink.com/archives/)
 - [Li Mei](https://limeii.github.io/tag/)
 - [AlienZhou](https://www.alienzhou.com/)
-
-## Plan
-
-- 04.17 Event Loop
-- 04.24 安全
-- 05.01 模块化进程

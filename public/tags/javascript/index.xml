@@ -7,22 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Tue, 19 Jan 2021 18:03:44 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>this 机制</title>
-      <link>https://geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/</link>
-      <pubDate>Tue, 19 Jan 2021 18:03:44 +0800</pubDate>
-      
-      <guid>https://geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/</guid>
-      <description>关于 this 如果对于有经验的 JavaScript 开发者来说，this 都是一种非常复杂的机制，那它到底有用在哪里呢？下面来解释一下为什么要使用 this：
-1function identify() { 2 return this.name.toUpperCase(); 3} 4 5var me = { 6 name: &amp;#34;Kyle&amp;#34; 7}; 8var you = { 9 name: &amp;#34;Reader&amp;#34; 10}; 11identify.call(me); // Kyle 12identify.call(you); // Reader 这段代码可以在不同的上下文对象（me 和 you）中重复使用函数 identify，不用针对每个对象编写不同版本的函数。如果不使用 this，那就需要给 identify 显式传入一个上下文对象。
-1function identify(context) { 2 return context.name.toUpperCase(); 3} 4 5var me = { 6 name: &amp;#34;Kyle&amp;#34; 7}; 8var you = { 9 name: &amp;#34;Reader&amp;#34; 10}; 11identify(me); // Kyle 12identify(you); // Reader this 提供了一种更优雅的方式来隐式”传递“一个对象引用，因此可以将 API 设计得更加简洁并且易于复用。随着使用模式越来越复杂，显式传递上下文对象会让代码变得越来越混乱，使用 this 则不会这样。</description>
-    </item>
-    
+    <lastBuildDate>Fri, 19 Feb 2021 15:04:44 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>浅谈 GC</title>
       <link>https://geekkery.4everland.app/posts/%E6%B5%85%E8%B0%88-gc/</link>
-      <pubDate>Tue, 19 Jan 2021 15:04:44 +0800</pubDate>
+      <pubDate>Fri, 19 Feb 2021 15:04:44 +0800</pubDate>
       
       <guid>https://geekkery.4everland.app/posts/%E6%B5%85%E8%B0%88-gc/</guid>
       <description>内存的生命周期包括分配内存、使用内存和释放内存。有些语言（比如 C 语言）必须手动分配和释放内存，JavaScript 的内存分配过程是在做变量声明赋值时自动完成的。变量完成内存分配之后程序才可以使用进行读写。当程序不需要再使用某些变量时，它们占用的内存就会进行释放，腾出空间。
@@ -31,7 +20,18 @@
 内存泄漏的堆积，会使内存占用越来越高，轻则影响系统性能，重则导致进程崩溃，尤其是持续运行的服务进程（Daemon）。
 在 Chrome 浏览器的 Performance 功能中，使用 Memory 选项可以帮助开发者查看内存占用，如果内存不是趋于平稳，而是一直上升，则可能发生了内存泄漏。在 Performance 功能中，也可以手动进行垃圾回收。
 Node.js 提供了 process.memoryUsage 方法，process.memoryUsage 返回一个对象，包含了 Node.js 进程的内存占用信息，该对象包含四个字段，单位是字节。判断内存泄漏，以 heapUsed 字段为准。
-1console.log(process.memoryUsage()) 2// Prints: 3// { 4// rss: 4935680, 5// heapTotal: 1826816, 6// heapUsed: 650472, 7// external: 49879, 8// arrayBuffers: 9386 9// }   rss（resident set size）：所有内存占用，包括指令区和堆栈。 heapTotal：”堆“占用的内存，包括用到的和没用到的。 heapUsed：用到的堆的部分。 external： V8 引擎内部的 C++ 对象占用的内存。 arrayBuffers：分配给 ArrayBuffers 和 SharedArrayBuffers 的内存，包括所有 Node.js 缓冲区   垃圾回收机制 释放内存需要判定哪些变量是需要被回收的，对于像 JavaScript 这样的高级语言来说，内存释放过程是由垃圾回收器自动完成的，垃圾回收器会按照固定的时间间隔，周期性地找出不再继续使用的变量，然后释放其占用的内存。JavaScript 用于确定可回收内存的方法主要有两种：引用计数与标记清除。无论哪种回收机制，全局变量的生命周期直至浏览器卸载页面才会结束，也就是说全局变量不会被当成垃圾回收。</description>
+1 2 3 4 5 6 7 8 9  console.log(process.memoryUsage()) // Prints: // { // rss: 4935680, // heapTotal: 1826816, // heapUsed: 650472, // external: 49879, // arrayBuffers: 9386 // }     rss（resident set size）：所有内存占用，包括指令区和堆栈； heapTotal：”堆“占用的内存，包括用到的和没用到的； heapUsed：用到的堆的部分； external： V8 引擎内部的 C++ 对象占用的内存； arrayBuffers：分配给 ArrayBuffers 和 SharedArrayBuffers 的内存，包括所有 Node.</description>
+    </item>
+    
+    <item>
+      <title>this 机制</title>
+      <link>https://geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Tue, 19 Jan 2021 18:03:44 +0800</pubDate>
+      
+      <guid>https://geekkery.4everland.app/posts/this-%E6%9C%BA%E5%88%B6/</guid>
+      <description>关于 this 如果对于有经验的 JavaScript 开发者来说，this 都是一种非常复杂的机制，那它到底有用在哪里呢？下面来解释一下为什么要使用 this：
+1 2 3 4 5 6 7 8 9 10 11 12  function identify() { return this.name.toUpperCase(); } var me = { name: &amp;#34;Kyle&amp;#34; }; var you = { name: &amp;#34;Reader&amp;#34; }; identify.call(me); // Kyle identify.call(you); // Reader   这段代码可以在不同的上下文对象（me 和 you）中重复使用函数 identify，不用针对每个对象编写不同版本的函数。如果不使用 this，那就需要给 identify 显式传入一个上下文对象。
+1 2 3 4 5 6 7 8 9 10 11 12  function identify(context) { return context.</description>
     </item>
     
     <item>
@@ -47,8 +47,7 @@ JavaScript 中有两种机制来实现这个目的：eval(..) 函数和 with 关
 这两个机制的副作用是引擎无法在编译时对作用域查找进行优化，因为引擎只能谨慎地认为这样的优化是无效的。使用这其中任何一个机制都将导致代码运行变慢。避免使用它们。
 动态作用域 动态作用域并不关心函数和作用域是如何声明以及在何处声明的，只关心它们从何处调用。换句话说，作用域链是基于调用栈的，而不是代码中的作用域嵌套。
 因此，如果 JavaScript 具有动态作用域，理论上，下面代码中的 foo() 在执行时将会输出 3。
-1function foo() { 2	console.log(a) // 3(不是 2 !) 3} 4function bar() { 5 var a = 3 6	foo() 7} 8var a = 2 9bar() 为什么会这样？因为当 foo() 无法找到 a 的变量引用时，会顺着调用栈在调用 foo() 的地方查找 a，而不是在嵌套的词法作用域链中向上查找。由于 foo() 是在 bar() 中调用的，引擎会检查 bar() 的作用域，并在其中找到值为 3 的变量 a。
-需要明确的是，事实上 JavaScript 并不具有动态作用域。它只有词法作用域，简单明了。但是 this 机制某种程度上很像动态作用域。</description>
+1 2 3 4 5 6 7 8 9  function foo() { console.log(a) // 3(不是 2 !) } function bar() { var a = 3 foo() } var a = 2 bar()   为什么会这样？因为当 foo() 无法找到 a 的变量引用时，会顺着调用栈在调用 foo() 的地方查找 a，而不是在嵌套的词法作用域链中向上查找。由于 foo() 是在 bar() 中调用的，引擎会检查 bar() 的作用域，并在其中找到值为 3 的变量 a。</description>
     </item>
     
   </channel>

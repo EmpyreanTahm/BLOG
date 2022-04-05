@@ -16,10 +16,9 @@
       <guid>https://geekkery.4everland.app/posts/ubuntu20.04-%E5%AE%89%E8%A3%85-typecho-%E9%99%84-https-%E8%AE%A4%E8%AF%81/</guid>
       <description>本文介绍在 Ubuntu20.04 系统中搭建 PHP、 MySQL 和 Nginx 集成环境，在此基础上安装 Typecho 并获取 HTTPS 认证。
 首先，通过包管理器更新源并升级软件：
-1sudo apt-get update 2sudo apt-get upgrade 安装 PHP 和相关扩展 数据库使用 MySQL，需要在 PHP 中安装扩展 php-mysql。与 Apache 不同，Nginx 没有内置对 PHP 文件的处理支持，因此需要使用 php-fpm 来处理 PHP 文件。
-1sudo apt-get -y install php php-mysql php-fpm 注意，在执行上面的命令后，系统会自动安装 Apache2，将其卸载：
-1sudo apt-get --purge remove apache2 安装配置 MySQL 1sudo apt-get -y install mysql-server 执行 sudo cat /etc/mysql/debian.cnf 查看数据库初始化配置，找到 user 和 password 字段：
-为方便后续配置和使用 MySQL，使用密码登录 MySQL 后配置 root 用户密码：</description>
+1 2  sudo apt-get update sudo apt-get upgrade   安装 PHP 和相关扩展 数据库使用 MySQL，需要在 PHP 中安装扩展 php-mysql。与 Apache 不同，Nginx 没有内置对 PHP 文件的处理支持，因此需要使用 php-fpm 来处理 PHP 文件。
+1  sudo apt-get -y install php php-mysql php-fpm   注意，在执行上面的命令后，系统会自动安装 Apache2，将其卸载：
+1  sudo apt-get --purge remove apache2   安装配置 MySQL 1  sudo apt-get -y install mysql-server   执行 sudo cat /etc/mysql/debian.</description>
     </item>
     
   </channel>

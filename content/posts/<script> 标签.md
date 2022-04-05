@@ -32,7 +32,7 @@ integrity 值共两个部分：第一部分指定哈希值的生成算法（目�
 
 type 属性用于代替旧有非标准属性 language，用以表示代码块中脚本语言的 MIME 类型。type 属性支持的 MIME 类型有：text\/javascript、text\/ecmascript、application\/javascript 和 application\/ecmascript。HTML5 中的缺省值为 text\/javascript。
 
-若 MIME 类型不是上述支持的类型，则元素所包含内容会被当做数据块而不被执行。当 type 属性值为 module 时，代码会被当做 ES6+ 模块，此时代码中方可出现 import 和 export 关键字。
+若 MIME 类型不是上述支持的类型，则元素所包含内容会被当做数据块而不被执行。当 type 属性值为 module 时，代码会被当做 ESM 模块，此时代码中方可出现 import 和 export 关键字。
 
 ## nomodule 属性
 

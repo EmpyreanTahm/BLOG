@@ -102,10 +102,9 @@ Ajax 和 Fetch 中的 Get 请求通常会被用作等幂操作，前面讨论的
 ### 用户行为
 用户行为对浏览器缓存的影响有以下几种（仅讨论 Memory Cache 和 Disk Cache）：
 
-- Tab 输入 URI 回车：先检测强缓存是否有效，有效则从 Disk Cache 获取资源；强缓存无效则发送请求协商，若协商缓存有效服务器返回 304 状态码，浏览器依旧从 Disk Cache 获取资源；协商缓存也无效时，服务器会返回资源内容主体。
-- 普通刷新：首先查看 Memory Cache 是否有效，有效直接从 Memory Cache 获取资源；无效则按「Tab 输入 URI 回车」步骤执行。
-- 强制刷新：浏览器不使用任何本地缓存而直接发送请求，头部带有 `Cache-Control: no-cache` 和 `Pragma: no-cache`，并且**不会在请求中携带协商缓存字段**。
-- DevTools 选中 Disable Cache：效果与「强制刷新」一样
+- Tab 输入 URL 回车：先检测强缓存是否有效，有效则从 Disk Cache 获取资源；强缓存无效则发送请求协商，若协商缓存有效服务器返回 304 状态码，浏览器依旧从 Disk Cache 获取资源；协商缓存也无效时，服务器会返回资源内容主体；
+- 普通刷新：首先查看 Memory Cache 是否有效，有效直接从 Memory Cache 获取资源；无效则按「Tab 输入 URL 回车」步骤执行；
+- 强制刷新：**浏览器不使用任何本地缓存而直接发送请求，请求头部将携带 `Cache-Control: no-cache` 和 `Pragma: no-cache`，并且不会在请求中携带协商缓存字段**。DevTools 选中 Disable Cache 的效果与强制刷新一样。
 
 以上使用强制刷新，只是代表浏览器不使用任何本地缓存，但代理缓存依旧可能生效。
 

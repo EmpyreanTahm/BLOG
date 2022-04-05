@@ -13,7 +13,7 @@ npx 是跟随 npm\@5.2.0 版本一起发布的，安装 5.2.0 版本及之后的
 npx --version
 ```
 
-如果 npm 版本低于 5.2.0 ，可以升级 npm 版本，或全局安装以使用 npx：
+如果 npm 版本低于 5.2.0 ，可以使用 n 模块升级 Node.js 版本，或全局安装以使用 npx：
 
 ```bash
 npm install -g npx
@@ -79,17 +79,17 @@ npx node@0.12.8 -v
 
 ## 常用参数
 
-### \--no-install
+### -\-no-install
 
-如果想让 npx 强制使用本地模块，不下载远程模块，可以添加 --no-install 参数。如果本地不存在该模块，就会报错。
+如果想让 npx 强制使用本地模块，不下载远程模块，可以添加 -\-no-install 参数。如果本地不存在该模块，就会报错。
 
 ```bash
 npx --no-install http-server
 ```
 
-### \--ignore-existing
+### -\-ignore-existing
 
-反过来，如果要忽略本地的同名模块，强制安装使用远程模块，可以使用 --ignore-existing 参数。比如，本地已经全局安装了 create-react-app，但还是想使用远程模块，就可以使用这个参数。
+反过来，如果要忽略本地的同名模块，强制安装使用远程模块，可以使用 -\-ignore-existing 参数。比如，本地已经全局安装了 create-react-app，但还是想使用远程模块，就可以使用这个参数。
 
 ```bash
 npx --ignore-existing create-react-app react-app

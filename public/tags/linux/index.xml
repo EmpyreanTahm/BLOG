@@ -15,12 +15,11 @@
       
       <guid>https://geekkery.4everland.app/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
       <description>Mac OS 持久化别名指定 在终端中执行的 alias 命令指定的别名仅本次登录有效，若需使别名永久生效，可以执行 vi ~/.bashrc，在文件末尾中添加行：
-1ub2=&amp;#39;ssh ubuntu@139.155.86.169&amp;#39; 保存退出后，使用 source 命令刷新环境变量后即可使用自定义的 ub2 命令：
-1source ~/.bashrc 如果系统使用的是 zsh，编辑配置 ~/.zshrc 即可，终端执行 echo $0 可查看当前使用的 shell 类型。
+1  ub2=&amp;#39;ssh ubuntu@139.155.86.169&amp;#39;   保存退出后，使用 source 命令刷新环境变量后即可使用自定义的 ub2 命令：
+1  source ~/.bashrc   如果系统使用的是 zsh，编辑配置 ~/.zshrc 即可，终端执行 echo $0 可查看当前使用的 shell 类型。
 Linux 拷贝命令 cp、rcp 和 scp cp Linux cp 命令语法：
-1cp [options] source destination 2 3cp [options] source... directory [options] 参数说明：
- -d：复制时保留链接 -p：除复制文件的内容外，还保留源文件或目录的属性，包括所有者、所属组、权限与修改时间也复制到新文件中 -r：若给出的源文件是一个目录，将复制该目录下所有的子目录和文件 -a：通常在复制目录时使用，表示保留链接、文件属性，并复制目录下的所有内容。作用等于 -dpR 参数组合  Linux cp 命令使用实例：
-1cp index.html dir 2 3cp –r dir newdir scp rcp 通过 RSH（Remote Shell）来执行远程命令，不够安全，现已被 scp 取代。scp 是「secure copy」的缩写，是 Linux 系统下基于 SSH（Secure Shell） 登录进行安全地远程文件拷贝命令，scp 命令语法：</description>
+1 2 3  cp [options] source destination cp [options] source... directory   [options] 参数说明：
+ -d：复制时保留链接 -p：除复制文件的内容外，还保留源文件或目录的属性，包括所有者、所属组、权限与修改时间也复制到新文件中 -r：若给出的源文件是一个目录，将复制该目录下所有的子目录和文件 -a：通常在复制目录时使用，表示保留链接、文件属性，并复制目录下的所有内容。作用等于 -dpR 参数组合  Linux cp 命令使用实例：</description>
     </item>
     
   </channel>
