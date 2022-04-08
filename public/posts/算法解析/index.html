@@ -179,6 +179,12 @@
         <li><a href="#解答">解答</a></li>
       </ul>
     </li>
+    <li><a href="#两数相加中等">两数相加（中等）</a>
+      <ul>
+        <li><a href="#题目描述-1">题目描述</a></li>
+        <li><a href="#解答-1">解答</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -204,7 +210,7 @@
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          2 minute read
+          3 minute read
         </div>
         
         
@@ -324,6 +330,117 @@
 
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="两数相加中等">两数相加（中等）</h2>
+<h3 id="题目描述-1">题目描述</h3>
+<p>给你两个非空的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p>示例 1：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">输入：l1 = [2,4,3], l2 = [5,6,4]
+输出：[7,0,8]
+解释：342 + 465 = 807.
+</code></pre></td></tr></table>
+</div>
+</div><p>示例 2：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">输入：l1 = [0], l2 = [0]
+输出：[0]
+</code></pre></td></tr></table>
+</div>
+</div><p>示例 3：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+输出：[8,9,9,9,0,0,0,1]
+</code></pre></td></tr></table>
+</div>
+</div><p>提示：</p>
+<ul>
+<li>每个链表中的节点数在范围 [1, 100] 内</li>
+<li>0 &lt;= Node.val &lt;= 9</li>
+<li>题目数据保证列表表示的数字不含前导零</li>
+</ul>
+<h3 id="解答-1">解答</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * Definition for singly-linked list.
+</span><span style="color:#6272a4"> * function ListNode(val, next) {
+</span><span style="color:#6272a4"> *     this.val = (val===undefined ? 0 : val)
+</span><span style="color:#6272a4"> *     this.next = (next===undefined ? null : next)
+</span><span style="color:#6272a4"> * }
+</span><span style="color:#6272a4"> */</span>
+<span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * @param {ListNode} l1
+</span><span style="color:#6272a4"> * @param {ListNode} l2
+</span><span style="color:#6272a4"> * @return {ListNode}
+</span><span style="color:#6272a4"> */</span>
+<span style="color:#ff79c6">const</span> addTwoNumbers <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(l1, l2) {
+  <span style="color:#8be9fd;font-style:italic">let</span> head <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ListNode()
+  <span style="color:#8be9fd;font-style:italic">let</span> carry <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+  <span style="color:#ff79c6">const</span> linkList <span style="color:#ff79c6">=</span> head
+  <span style="color:#ff79c6">while</span> (l1 <span style="color:#ff79c6">||</span> l2) {
+    <span style="color:#ff79c6">const</span> sum <span style="color:#ff79c6">=</span> (l1 <span style="color:#ff79c6">?</span> l1.val <span style="color:#ff79c6">:</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">+</span> (l2 <span style="color:#ff79c6">?</span> l2.val <span style="color:#ff79c6">:</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">+</span> carry
+    head.next <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ListNode(sum <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">10</span>)
+    carry <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.floor(sum <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">10</span>)
+    head <span style="color:#ff79c6">=</span> head.next
+    l1 <span style="color:#ff79c6">=</span> l1 <span style="color:#ff79c6">?</span> l1.next <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>
+    l2 <span style="color:#ff79c6">=</span> l2 <span style="color:#ff79c6">?</span> l2.next <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>
+  }
+  <span style="color:#ff79c6">if</span> (carry <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>) {
+    head.next <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ListNode(carry)
+  }
+  <span style="color:#ff79c6">return</span> linkList.next
+}
+</code></pre></td></tr></table>
+</div>
 </div>
     </div>
   </article>
@@ -361,6 +478,12 @@
       <ul>
         <li><a href="#题目描述">题目描述</a></li>
         <li><a href="#解答">解答</a></li>
+      </ul>
+    </li>
+    <li><a href="#两数相加中等">两数相加（中等）</a>
+      <ul>
+        <li><a href="#题目描述-1">题目描述</a></li>
+        <li><a href="#解答-1">解答</a></li>
       </ul>
     </li>
   </ul>
