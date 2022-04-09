@@ -185,6 +185,17 @@
         <li><a href="#解答-1">解答</a></li>
       </ul>
     </li>
+    <li><a href="#无重复字符的最长子串中等">无重复字符的最长子串（中等）</a>
+      <ul>
+        <li><a href="#题目描述-2">题目描述</a></li>
+        <li><a href="#解答-2">解答</a></li>
+      </ul>
+    </li>
+    <li><a href="#最长回文子串">最长回文子串</a>
+      <ul>
+        <li><a href="#题目描述-3">题目描述</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -210,7 +221,7 @@
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          3 minute read
+          6 minute read
         </div>
         
         
@@ -429,8 +440,8 @@
   <span style="color:#ff79c6">while</span> (l1 <span style="color:#ff79c6">||</span> l2) {
     <span style="color:#ff79c6">const</span> sum <span style="color:#ff79c6">=</span> (l1 <span style="color:#ff79c6">?</span> l1.val <span style="color:#ff79c6">:</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">+</span> (l2 <span style="color:#ff79c6">?</span> l2.val <span style="color:#ff79c6">:</span> <span style="color:#bd93f9">0</span>) <span style="color:#ff79c6">+</span> carry
     head.next <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ListNode(sum <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">10</span>)
-    carry <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.floor(sum <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">10</span>)
     head <span style="color:#ff79c6">=</span> head.next
+    carry <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.floor(sum <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">10</span>)
     l1 <span style="color:#ff79c6">=</span> l1 <span style="color:#ff79c6">?</span> l1.next <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>
     l2 <span style="color:#ff79c6">=</span> l2 <span style="color:#ff79c6">?</span> l2.next <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>
   }
@@ -441,7 +452,165 @@
 }
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="无重复字符的最长子串中等">无重复字符的最长子串（中等）</h2>
+<h3 id="题目描述-2">题目描述</h3>
+<p>给定一个字符串 s ，请你找出其中不含有重复字符的最长子串的长度。</p>
+<p>示例 1:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">输入: s = &#34;abcabcbb&#34;
+输出: 3 
+解释: 因为无重复字符的最长子串是 &#34;abc&#34;，所以其长度为 3。
+</code></pre></td></tr></table>
 </div>
+</div><p>示例 2:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">输入: s = &#34;bbbbb&#34;
+输出: 1
+解释: 因为无重复字符的最长子串是 &#34;b&#34;，所以其长度为 1。
+</code></pre></td></tr></table>
+</div>
+</div><p>示例 3:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">输入: s = &#34;pwwkew&#34;
+输出: 3
+解释: 因为无重复字符的最长子串是 &#34;wke&#34;，所以其长度为 3。
+            请注意，你的答案必须是子串的长度，&#34;pwke&#34; 是一个子序列，不是子串。
+</code></pre></td></tr></table>
+</div>
+</div><p>提示：</p>
+<ul>
+<li>0 &lt;= s.length &lt;= 5 * 104</li>
+<li>s 由英文字母、数字、符号和空格组成</li>
+</ul>
+<h3 id="解答-2">解答</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">/**
+</span><span style="color:#6272a4"> * @param {string} s
+</span><span style="color:#6272a4"> * @return {number}
+</span><span style="color:#6272a4"> */</span>
+ <span style="color:#6272a4">// 双层 for 循环
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> lengthOfLongestSubstring <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(s) {
+  <span style="color:#8be9fd;font-style:italic">let</span> maxLength <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> s.length; i<span style="color:#ff79c6">++</span>) {
+    <span style="color:#8be9fd;font-style:italic">let</span> tempStr <span style="color:#ff79c6">=</span> s[i]
+    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> j <span style="color:#ff79c6">=</span> i <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>; j <span style="color:#ff79c6">&lt;</span> s.length; j<span style="color:#ff79c6">++</span>) {
+      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>tempStr.includes(s[j])) {
+        tempStr <span style="color:#ff79c6">+=</span> s[j]
+      }<span style="color:#ff79c6">else</span>{
+      	<span style="color:#ff79c6">break</span>
+      }
+    }
+    <span style="color:#ff79c6">if</span> (tempStr.length <span style="color:#ff79c6">&gt;</span> maxLength) {
+      maxLength <span style="color:#ff79c6">=</span> tempStr.length
+    }
+  }
+  <span style="color:#ff79c6">return</span> maxLength
+}
+<span style="color:#6272a4">// 巧用队列
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> lengthOfLongestSubstring <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(s) {
+  <span style="color:#8be9fd;font-style:italic">let</span> arr <span style="color:#ff79c6">=</span> []
+  <span style="color:#8be9fd;font-style:italic">let</span> max <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> <span style="color:#ff79c6">char</span> <span style="color:#ff79c6">of</span> s) {
+    <span style="color:#ff79c6">while</span> (arr.includes(<span style="color:#ff79c6">char</span>)) {
+      arr.shift()
+    }
+    arr.push(<span style="color:#ff79c6">char</span>)
+    max <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.max(max, arr.length)
+  }
+  <span style="color:#ff79c6">return</span> max
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="最长回文子串">最长回文子串</h2>
+<h3 id="题目描述-3">题目描述</h3>
+<p>给你一个字符串 s，找到 s 中最长的回文子串。</p>
+<p>示例 1：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">输入：s = &#34;babad&#34;
+输出：&#34;bab&#34;
+解释：&#34;aba&#34; 同样是符合题意的答案。
+</code></pre></td></tr></table>
+</div>
+</div><p>示例 2：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">输入：s = &#34;cbbd&#34;
+输出：&#34;bb&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>提示：</p>
+<ul>
+<li>1 &lt;= s.length &lt;= 1000</li>
+<li>s 仅由数字和英文字母组成</li>
+</ul>
+
     </div>
   </article>
 
@@ -484,6 +653,17 @@
       <ul>
         <li><a href="#题目描述-1">题目描述</a></li>
         <li><a href="#解答-1">解答</a></li>
+      </ul>
+    </li>
+    <li><a href="#无重复字符的最长子串中等">无重复字符的最长子串（中等）</a>
+      <ul>
+        <li><a href="#题目描述-2">题目描述</a></li>
+        <li><a href="#解答-2">解答</a></li>
+      </ul>
+    </li>
+    <li><a href="#最长回文子串">最长回文子串</a>
+      <ul>
+        <li><a href="#题目描述-3">题目描述</a></li>
       </ul>
     </li>
   </ul>
