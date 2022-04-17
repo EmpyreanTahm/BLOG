@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on GeekKery</title>
+    <link>https://geekkery.4everland.app/tags/git/</link>
+    <description>Recent content in Git on GeekKery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>GeekKery</copyright>
+    <lastBuildDate>Sun, 17 Apr 2022 18:33:03 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oh My Zsh 常用 Git 命令</title>
+      <link>https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 17 Apr 2022 18:33:03 +0800</pubDate>
+      
+      <guid>https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/</guid>
+      <description>基本概念  工作区（workspace）：就是你在电脑里能看到的目录； 暂存区（staging area）：存放在 .git/index 文件中，有时也把暂存区叫作索引； 版本库（local repository）：工作区有一个隐藏目录 .git，这就是 Git 版本库； 远程仓库（remote repository）：本地版本库对应的远程仓库。  Git 基本信息配置 1 2 3 4 5 6 7 8 9 10 11  # 全局配置；只修改当前项目去掉 --global 参数 git config --global user.name &amp;#34;Jayden Deng&amp;#34; git config --global user.email &amp;#34;jayden@gmail.com&amp;#34; # 编辑配置文件 git config -e # 针对当前仓库  git config -e --global # 针对系统上所有仓库 # 查看配置 gcf = &amp;#39;git config --list&amp;#39; # 查看所有配置 git config user.name # 查看特定项配置   状态查询 1 2 3 4 5 6 7 8  gss = &amp;#39;git status -s&amp;#39; # 简短模式 gsb = &amp;#39;git status -sb&amp;#39; # 简短模式 + 分支 gd = &amp;#39;git diff&amp;#39; # 工作区与暂存区差异 gdca = &amp;#39;git diff --cached&amp;#39; # 已暂存文件和上次提交时的快照之间的差异 glo = &amp;#39;git log --oneline --decorate&amp;#39; # 单行提交信息查看提交记录 glol = &amp;#34;git log --graph --pretty=&amp;#39;&amp;#39;&amp;#34; # 全方位查看提交记录   工作区 =&amp;gt; 版本库 注意，Git2.</description>
+    </item>
+    
+  </channel>
+</rss>

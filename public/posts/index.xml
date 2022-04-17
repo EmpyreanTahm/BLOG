@@ -7,14 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Mon, 05 Apr 2021 18:13:23 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Apr 2022 18:33:03 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oh My Zsh 常用 Git 命令</title>
+      <link>https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 17 Apr 2022 18:33:03 +0800</pubDate>
+      
+      <guid>https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/</guid>
+      <description>基本概念  工作区（workspace）：就是你在电脑里能看到的目录； 暂存区（staging area）：存放在 .git/index 文件中，有时也把暂存区叫作索引； 版本库（local repository）：工作区有一个隐藏目录 .git，这就是 Git 版本库； 远程仓库（remote repository）：本地版本库对应的远程仓库。  Git 基本信息配置 1 2 3 4 5 6 7 8 9 10 11  # 全局配置；只修改当前项目去掉 --global 参数 git config --global user.name &amp;#34;Jayden Deng&amp;#34; git config --global user.email &amp;#34;jayden@gmail.com&amp;#34; # 编辑配置文件 git config -e # 针对当前仓库  git config -e --global # 针对系统上所有仓库 # 查看配置 gcf = &amp;#39;git config --list&amp;#39; # 查看所有配置 git config user.name # 查看特定项配置   状态查询 1 2 3 4 5 6 7 8  gss = &amp;#39;git status -s&amp;#39; # 简短模式 gsb = &amp;#39;git status -sb&amp;#39; # 简短模式 + 分支 gd = &amp;#39;git diff&amp;#39; # 工作区与暂存区差异 gdca = &amp;#39;git diff --cached&amp;#39; # 已暂存文件和上次提交时的快照之间的差异 glo = &amp;#39;git log --oneline --decorate&amp;#39; # 单行提交信息查看提交记录 glol = &amp;#34;git log --graph --pretty=&amp;#39;&amp;#39;&amp;#34; # 全方位查看提交记录   工作区 =&amp;gt; 版本库 注意，Git2.</description>
+    </item>
+    
     <item>
       <title>算法解析</title>
       <link>https://geekkery.4everland.app/posts/%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Mon, 05 Apr 2021 18:13:23 +0800</pubDate>
       
       <guid>https://geekkery.4everland.app/posts/%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/</guid>
-      <description>两数之和（简单） 题目描述 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。
+      <description>两数之和（简单） 题目描述 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。
 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
 你可以按任意顺序返回答案。
 示例 1：
