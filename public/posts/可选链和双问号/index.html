@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> 可选链和双问号 | GeekKery</title>
+  <meta name="google-site-verification" content="FZMz_7s8NfUWqk6Jhj7XTO-uF-fCf8GNLP3a9Ki95rQ" />
+  <link rel = 'canonical' href = 'https://geekkery.4everland.app/posts/%E5%8F%AF%E9%80%89%E9%93%BE%E5%92%8C%E5%8F%8C%E9%97%AE%E5%8F%B7/'>
+  <meta name="description" content="GeekKery | Jayden 的个人博客 | web 前端技术文章">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="可选链和双问号" />
+<meta property="og:description" content="可选链 ?. 访问多层对象属性时，若其中某个对象类型错误，将导致引用错误。在已约定好类型的情况下，为获取正确的 petitioners[0].address.street.number，需对整个链路进行校验：
+1 2  const petitioners = [] const num = petitioners &amp;&amp; petitioners[0] &amp;&amp; petitioners[0].address &amp;&amp; petitioners[0].address.street &amp;&amp; petitioners[0].address.street.number   可选链写法：
+1 2  const petitioners = [] const num = petitioners?.[0]?.address?.street?.number // undefined，不报错   可选链操作符 ?. 允许读取位于连接对象（包括数组类型）链深处的属性的值，而不必明确验证链中的每个引用是否有效。在引用为 null 或 undefined 的情况下不会引起错误，该表达式短路返回值是 undefined。与函数调用一起使用时，如果给定的函数不存在返回 undefined，而不是抛出异常。
+1  petitioner.applyForGreenCard?.() // undefined，不报错   双问号 ?? 空值合并操作符 ?? 是一个逻辑操作符，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。
+逻辑或操作符 || 会在左侧操作数为假值时返回右侧操作数。也就是说，|| 计算值时，左侧值会进行隐式类型转换成布尔值，比如 0， &lsquo;&#39;， NaN， null， undefined 等都会返回右侧值。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geekkery.4everland.app/posts/%E5%8F%AF%E9%80%89%E9%93%BE%E5%92%8C%E5%8F%8C%E9%97%AE%E5%8F%B7/" />
+<meta property="article:published_time" content="2022-04-18T21:17:03+08:00" />
+<meta property="article:modified_time" content="2022-04-18T21:17:03+08:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="可选链和双问号"/>
+<meta name="twitter:description" content="可选链 ?. 访问多层对象属性时，若其中某个对象类型错误，将导致引用错误。在已约定好类型的情况下，为获取正确的 petitioners[0].address.street.number，需对整个链路进行校验：
+1 2  const petitioners = [] const num = petitioners &amp;&amp; petitioners[0] &amp;&amp; petitioners[0].address &amp;&amp; petitioners[0].address.street &amp;&amp; petitioners[0].address.street.number   可选链写法：
+1 2  const petitioners = [] const num = petitioners?.[0]?.address?.street?.number // undefined，不报错   可选链操作符 ?. 允许读取位于连接对象（包括数组类型）链深处的属性的值，而不必明确验证链中的每个引用是否有效。在引用为 null 或 undefined 的情况下不会引起错误，该表达式短路返回值是 undefined。与函数调用一起使用时，如果给定的函数不存在返回 undefined，而不是抛出异常。
+1  petitioner.applyForGreenCard?.() // undefined，不报错   双问号 ?? 空值合并操作符 ?? 是一个逻辑操作符，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。
+逻辑或操作符 || 会在左侧操作数为假值时返回右侧操作数。也就是说，|| 计算值时，左侧值会进行隐式类型转换成布尔值，比如 0， &lsquo;&#39;， NaN， null， undefined 等都会返回右侧值。"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://geekkery.4everland.app/css/styles.4c2b9aa1d874d6766f554b2d404e8fd62ab4761f51ee9b3f358d12e81e7fa43a1b4378db995bc1926bbe5ed98c060be5e7bd4f2470504cf94f22b4b3a74e62b6.css" integrity="sha512-TCuaodh01nZvVUstQE6P1iq0dh9R7ps/NY0S6B5/pDobQ3jbmVvBkmu&#43;XtmMBgvl571PJHBQTPlPIrSzp05itg==">
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://geekkery.4everland.app/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/posts">Writings</a></li>
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&text=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&title=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&is_video=false&description=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7&body=Check out this article: https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&title=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&title=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&name=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7&description=%e5%8f%af%e9%80%89%e9%93%be%20%3f.%20%e8%ae%bf%e9%97%ae%e5%a4%9a%e5%b1%82%e5%af%b9%e8%b1%a1%e5%b1%9e%e6%80%a7%e6%97%b6%ef%bc%8c%e8%8b%a5%e5%85%b6%e4%b8%ad%e6%9f%90%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%b1%bb%e5%9e%8b%e9%94%99%e8%af%af%ef%bc%8c%e5%b0%86%e5%af%bc%e8%87%b4%e5%bc%95%e7%94%a8%e9%94%99%e8%af%af%e3%80%82%e5%9c%a8%e5%b7%b2%e7%ba%a6%e5%ae%9a%e5%a5%bd%e7%b1%bb%e5%9e%8b%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b%ef%bc%8c%e4%b8%ba%e8%8e%b7%e5%8f%96%e6%ad%a3%e7%a1%ae%e7%9a%84%20petitioners%5b0%5d.address.street.number%ef%bc%8c%e9%9c%80%e5%af%b9%e6%95%b4%e4%b8%aa%e9%93%be%e8%b7%af%e8%bf%9b%e8%a1%8c%e6%a0%a1%e9%aa%8c%ef%bc%9a%0a1%202%20%20const%20petitioners%20%3d%20%5b%5d%20const%20num%20%3d%20petitioners%20%26amp%3b%26amp%3b%20petitioners%5b0%5d%20%26amp%3b%26amp%3b%20petitioners%5b0%5d.address%20%26amp%3b%26amp%3b%20petitioners%5b0%5d.address.street%20%26amp%3b%26amp%3b%20petitioners%5b0%5d.address.street.number%20%20%20%e5%8f%af%e9%80%89%e9%93%be%e5%86%99%e6%b3%95%ef%bc%9a%0a1%202%20%20const%20petitioners%20%3d%20%5b%5d%20const%20num%20%3d%20petitioners%3f.%5b0%5d%3f.address%3f.street%3f.number%20%2f%2f%20undefined%ef%bc%8c%e4%b8%8d%e6%8a%a5%e9%94%99%20%20%20%e5%8f%af%e9%80%89%e9%93%be%e6%93%8d%e4%bd%9c%e7%ac%a6%20%3f.%20%e5%85%81%e8%ae%b8%e8%af%bb%e5%8f%96%e4%bd%8d%e4%ba%8e%e8%bf%9e%e6%8e%a5%e5%af%b9%e8%b1%a1%ef%bc%88%e5%8c%85%e6%8b%ac%e6%95%b0%e7%bb%84%e7%b1%bb%e5%9e%8b%ef%bc%89%e9%93%be%e6%b7%b1%e5%a4%84%e7%9a%84%e5%b1%9e%e6%80%a7%e7%9a%84%e5%80%bc%ef%bc%8c%e8%80%8c%e4%b8%8d%e5%bf%85%e6%98%8e%e7%a1%ae%e9%aa%8c%e8%af%81%e9%93%be%e4%b8%ad%e7%9a%84%e6%af%8f%e4%b8%aa%e5%bc%95%e7%94%a8%e6%98%af%e5%90%a6%e6%9c%89%e6%95%88%e3%80%82%e5%9c%a8%e5%bc%95%e7%94%a8%e4%b8%ba%20null%20%e6%88%96%20undefined%20%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b%e4%b8%8d%e4%bc%9a%e5%bc%95%e8%b5%b7%e9%94%99%e8%af%af%ef%bc%8c%e8%af%a5%e8%a1%a8%e8%be%be%e5%bc%8f%e7%9f%ad%e8%b7%af%e8%bf%94%e5%9b%9e%e5%80%bc%e6%98%af%20undefined%e3%80%82%e4%b8%8e%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8%e6%97%b6%ef%bc%8c%e5%a6%82%e6%9e%9c%e7%bb%99%e5%ae%9a%e7%9a%84%e5%87%bd%e6%95%b0%e4%b8%8d%e5%ad%98%e5%9c%a8%e8%bf%94%e5%9b%9e%20undefined%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e6%8a%9b%e5%87%ba%e5%bc%82%e5%b8%b8%e3%80%82%0a1%20%20petitioner.applyForGreenCard%3f.%28%29%20%2f%2f%20undefined%ef%bc%8c%e4%b8%8d%e6%8a%a5%e9%94%99%20%20%20%e5%8f%8c%e9%97%ae%e5%8f%b7%20%3f%3f%20%e7%a9%ba%e5%80%bc%e5%90%88%e5%b9%b6%e6%93%8d%e4%bd%9c%e7%ac%a6%20%3f%3f%20%e6%98%af%e4%b8%80%e4%b8%aa%e9%80%bb%e8%be%91%e6%93%8d%e4%bd%9c%e7%ac%a6%ef%bc%8c%e5%bd%93%e5%b7%a6%e4%be%a7%e7%9a%84%e6%93%8d%e4%bd%9c%e6%95%b0%e4%b8%ba%20null%20%e6%88%96%e8%80%85%20undefined%20%e6%97%b6%ef%bc%8c%e8%bf%94%e5%9b%9e%e5%85%b6%e5%8f%b3%e4%be%a7%e6%93%8d%e4%bd%9c%e6%95%b0%ef%bc%8c%e5%90%a6%e5%88%99%e8%bf%94%e5%9b%9e%e5%b7%a6%e4%be%a7%e6%93%8d%e4%bd%9c%e6%95%b0%e3%80%82%0a%e9%80%bb%e8%be%91%e6%88%96%e6%93%8d%e4%bd%9c%e7%ac%a6%20%7c%7c%20%e4%bc%9a%e5%9c%a8%e5%b7%a6%e4%be%a7%e6%93%8d%e4%bd%9c%e6%95%b0%e4%b8%ba%e5%81%87%e5%80%bc%e6%97%b6%e8%bf%94%e5%9b%9e%e5%8f%b3%e4%be%a7%e6%93%8d%e4%bd%9c%e6%95%b0%e3%80%82%e4%b9%9f%e5%b0%b1%e6%98%af%e8%af%b4%ef%bc%8c%7c%7c%20%e8%ae%a1%e7%ae%97%e5%80%bc%e6%97%b6%ef%bc%8c%e5%b7%a6%e4%be%a7%e5%80%bc%e4%bc%9a%e8%bf%9b%e8%a1%8c%e9%9a%90%e5%bc%8f%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2%e6%88%90%e5%b8%83%e5%b0%94%e5%80%bc%ef%bc%8c%e6%af%94%e5%a6%82%200%ef%bc%8c%20%26lsquo%3b%27%ef%bc%8c%20NaN%ef%bc%8c%20null%ef%bc%8c%20undefined%20%e7%ad%89%e9%83%bd%e4%bc%9a%e8%bf%94%e5%9b%9e%e5%8f%b3%e4%be%a7%e5%80%bc%e3%80%82" aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&t=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#可选链-">可选链 ?.</a></li>
+    <li><a href="#双问号-">双问号 ??</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        可选链和双问号
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2022-04-18 21:17:03 &#43;0800 CST" itemprop="datePublished">2022-04-18</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          3 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/es6&#43;" rel="tag">ES6&#43;</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="可选链-">可选链 ?.</h2>
+<p>访问多层对象属性时，若其中某个对象类型错误，将导致引用错误。在已约定好类型的情况下，为获取正确的 petitioners[0].address.street.number，需对整个链路进行校验：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">const</span> petitioners <span style="color:#ff79c6">=</span> []
+<span style="color:#ff79c6">const</span> num <span style="color:#ff79c6">=</span> petitioners <span style="color:#ff79c6">&amp;&amp;</span> petitioners[<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">&amp;&amp;</span> petitioners[<span style="color:#bd93f9">0</span>].address <span style="color:#ff79c6">&amp;&amp;</span> petitioners[<span style="color:#bd93f9">0</span>].address.street <span style="color:#ff79c6">&amp;&amp;</span> petitioners[<span style="color:#bd93f9">0</span>].address.street.number
+</code></pre></td></tr></table>
+</div>
+</div><p>可选链写法：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">const</span> petitioners <span style="color:#ff79c6">=</span> []
+<span style="color:#ff79c6">const</span> num <span style="color:#ff79c6">=</span> petitioners<span style="color:#ff79c6">?</span>.[<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">?</span>.address<span style="color:#ff79c6">?</span>.street<span style="color:#ff79c6">?</span>.number  <span style="color:#6272a4">// undefined，不报错
+</span></code></pre></td></tr></table>
+</div>
+</div><p>可选链操作符 <code>?.</code> 允许读取位于连接对象（包括数组类型）链深处的属性的值，而不必明确验证链中的每个引用是否有效。在引用为 null 或 undefined 的情况下不会引起错误，该表达式短路返回值是 undefined。与函数调用一起使用时，如果给定的函数不存在返回 undefined，而不是抛出异常。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">petitioner.applyForGreenCard<span style="color:#ff79c6">?</span>.()    <span style="color:#6272a4">// undefined，不报错
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="双问号-">双问号 ??</h2>
+<p>空值合并操作符 <code>??</code> 是一个逻辑操作符，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。</p>
+<p>逻辑或操作符 <code>||</code> 会在左侧操作数为<strong>假值</strong>时返回右侧操作数。也就是说，<code>||</code> 计算值时，左侧值会进行隐式类型转换成布尔值，比如 0， &lsquo;'， NaN， null， undefined 等都会返回右侧值。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#bd93f9">0</span> <span style="color:#ff79c6">||</span> <span style="color:#bd93f9">8</span>)                    <span style="color:#6272a4">// 8
+</span><span style="color:#6272a4"></span>console.log(<span style="color:#f1fa8c">&#39;&#39;</span> <span style="color:#ff79c6">||</span> <span style="color:#f1fa8c">&#34;Hello World!&#34;</span>)      <span style="color:#6272a4">// &#34;Hello World!&#34;
+</span><span style="color:#6272a4"></span>
+console.log(<span style="color:#bd93f9">0</span> <span style="color:#ff79c6">??</span> <span style="color:#bd93f9">8</span>)                    <span style="color:#6272a4">// 0
+</span><span style="color:#6272a4"></span>console.log(<span style="color:#f1fa8c">&#39;&#39;</span> <span style="color:#ff79c6">??</span> <span style="color:#f1fa8c">&#34;Hello World!&#34;</span>)      <span style="color:#6272a4">// &#34;&#34;
+</span><span style="color:#6272a4"></span>console.log(<span style="color:#ff79c6">undefined</span> <span style="color:#ff79c6">??</span> <span style="color:#bd93f9">8</span>)            <span style="color:#6272a4">// 8
+</span><span style="color:#6272a4"></span>console.log(<span style="color:#ff79c6">null</span> <span style="color:#ff79c6">??</span> <span style="color:#f1fa8c">&#39;Hello World!&#39;</span>)    <span style="color:#6272a4">// &#34;Hello World!&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><p>另，空值合并操作符与 <code>&amp;&amp;</code> 或 <code>||</code> 逻辑操作符连用时，应使用括号明确定义优先级。</p>
+<h2 id="总结">总结</h2>
+<p>本质上，可选链和空值合并操作符都是在针对 undefined 和 null 的情况。为提高兼容性，在项目中使用需确保 Babel 为最新版本。Babel，当然是有新的用新的~</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#可选链-">可选链 ?.</a></li>
+    <li><a href="#双问号-">双问号 ??</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&text=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&title=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&is_video=false&description=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7&body=Check out this article: https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&title=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&title=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&name=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7&description=%e5%8f%af%e9%80%89%e9%93%be%20%3f.%20%e8%ae%bf%e9%97%ae%e5%a4%9a%e5%b1%82%e5%af%b9%e8%b1%a1%e5%b1%9e%e6%80%a7%e6%97%b6%ef%bc%8c%e8%8b%a5%e5%85%b6%e4%b8%ad%e6%9f%90%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%b1%bb%e5%9e%8b%e9%94%99%e8%af%af%ef%bc%8c%e5%b0%86%e5%af%bc%e8%87%b4%e5%bc%95%e7%94%a8%e9%94%99%e8%af%af%e3%80%82%e5%9c%a8%e5%b7%b2%e7%ba%a6%e5%ae%9a%e5%a5%bd%e7%b1%bb%e5%9e%8b%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b%ef%bc%8c%e4%b8%ba%e8%8e%b7%e5%8f%96%e6%ad%a3%e7%a1%ae%e7%9a%84%20petitioners%5b0%5d.address.street.number%ef%bc%8c%e9%9c%80%e5%af%b9%e6%95%b4%e4%b8%aa%e9%93%be%e8%b7%af%e8%bf%9b%e8%a1%8c%e6%a0%a1%e9%aa%8c%ef%bc%9a%0a1%202%20%20const%20petitioners%20%3d%20%5b%5d%20const%20num%20%3d%20petitioners%20%26amp%3b%26amp%3b%20petitioners%5b0%5d%20%26amp%3b%26amp%3b%20petitioners%5b0%5d.address%20%26amp%3b%26amp%3b%20petitioners%5b0%5d.address.street%20%26amp%3b%26amp%3b%20petitioners%5b0%5d.address.street.number%20%20%20%e5%8f%af%e9%80%89%e9%93%be%e5%86%99%e6%b3%95%ef%bc%9a%0a1%202%20%20const%20petitioners%20%3d%20%5b%5d%20const%20num%20%3d%20petitioners%3f.%5b0%5d%3f.address%3f.street%3f.number%20%2f%2f%20undefined%ef%bc%8c%e4%b8%8d%e6%8a%a5%e9%94%99%20%20%20%e5%8f%af%e9%80%89%e9%93%be%e6%93%8d%e4%bd%9c%e7%ac%a6%20%3f.%20%e5%85%81%e8%ae%b8%e8%af%bb%e5%8f%96%e4%bd%8d%e4%ba%8e%e8%bf%9e%e6%8e%a5%e5%af%b9%e8%b1%a1%ef%bc%88%e5%8c%85%e6%8b%ac%e6%95%b0%e7%bb%84%e7%b1%bb%e5%9e%8b%ef%bc%89%e9%93%be%e6%b7%b1%e5%a4%84%e7%9a%84%e5%b1%9e%e6%80%a7%e7%9a%84%e5%80%bc%ef%bc%8c%e8%80%8c%e4%b8%8d%e5%bf%85%e6%98%8e%e7%a1%ae%e9%aa%8c%e8%af%81%e9%93%be%e4%b8%ad%e7%9a%84%e6%af%8f%e4%b8%aa%e5%bc%95%e7%94%a8%e6%98%af%e5%90%a6%e6%9c%89%e6%95%88%e3%80%82%e5%9c%a8%e5%bc%95%e7%94%a8%e4%b8%ba%20null%20%e6%88%96%20undefined%20%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b%e4%b8%8d%e4%bc%9a%e5%bc%95%e8%b5%b7%e9%94%99%e8%af%af%ef%bc%8c%e8%af%a5%e8%a1%a8%e8%be%be%e5%bc%8f%e7%9f%ad%e8%b7%af%e8%bf%94%e5%9b%9e%e5%80%bc%e6%98%af%20undefined%e3%80%82%e4%b8%8e%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8%e6%97%b6%ef%bc%8c%e5%a6%82%e6%9e%9c%e7%bb%99%e5%ae%9a%e7%9a%84%e5%87%bd%e6%95%b0%e4%b8%8d%e5%ad%98%e5%9c%a8%e8%bf%94%e5%9b%9e%20undefined%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af%e6%8a%9b%e5%87%ba%e5%bc%82%e5%b8%b8%e3%80%82%0a1%20%20petitioner.applyForGreenCard%3f.%28%29%20%2f%2f%20undefined%ef%bc%8c%e4%b8%8d%e6%8a%a5%e9%94%99%20%20%20%e5%8f%8c%e9%97%ae%e5%8f%b7%20%3f%3f%20%e7%a9%ba%e5%80%bc%e5%90%88%e5%b9%b6%e6%93%8d%e4%bd%9c%e7%ac%a6%20%3f%3f%20%e6%98%af%e4%b8%80%e4%b8%aa%e9%80%bb%e8%be%91%e6%93%8d%e4%bd%9c%e7%ac%a6%ef%bc%8c%e5%bd%93%e5%b7%a6%e4%be%a7%e7%9a%84%e6%93%8d%e4%bd%9c%e6%95%b0%e4%b8%ba%20null%20%e6%88%96%e8%80%85%20undefined%20%e6%97%b6%ef%bc%8c%e8%bf%94%e5%9b%9e%e5%85%b6%e5%8f%b3%e4%be%a7%e6%93%8d%e4%bd%9c%e6%95%b0%ef%bc%8c%e5%90%a6%e5%88%99%e8%bf%94%e5%9b%9e%e5%b7%a6%e4%be%a7%e6%93%8d%e4%bd%9c%e6%95%b0%e3%80%82%0a%e9%80%bb%e8%be%91%e6%88%96%e6%93%8d%e4%bd%9c%e7%ac%a6%20%7c%7c%20%e4%bc%9a%e5%9c%a8%e5%b7%a6%e4%be%a7%e6%93%8d%e4%bd%9c%e6%95%b0%e4%b8%ba%e5%81%87%e5%80%bc%e6%97%b6%e8%bf%94%e5%9b%9e%e5%8f%b3%e4%be%a7%e6%93%8d%e4%bd%9c%e6%95%b0%e3%80%82%e4%b9%9f%e5%b0%b1%e6%98%af%e8%af%b4%ef%bc%8c%7c%7c%20%e8%ae%a1%e7%ae%97%e5%80%bc%e6%97%b6%ef%bc%8c%e5%b7%a6%e4%be%a7%e5%80%bc%e4%bc%9a%e8%bf%9b%e8%a1%8c%e9%9a%90%e5%bc%8f%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2%e6%88%90%e5%b8%83%e5%b0%94%e5%80%bc%ef%bc%8c%e6%af%94%e5%a6%82%200%ef%bc%8c%20%26lsquo%3b%27%ef%bc%8c%20NaN%ef%bc%8c%20null%ef%bc%8c%20undefined%20%e7%ad%89%e9%83%bd%e4%bc%9a%e8%bf%94%e5%9b%9e%e5%8f%b3%e4%be%a7%e5%80%bc%e3%80%82" aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgeekkery.4everland.app%2fposts%2f%25E5%258F%25AF%25E9%2580%2589%25E9%2593%25BE%25E5%2592%258C%25E5%258F%258C%25E9%2597%25AE%25E5%258F%25B7%2f&t=%e5%8f%af%e9%80%89%e9%93%be%e5%92%8c%e5%8f%8c%e9%97%ae%e5%8f%b7" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  GeekKery 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
