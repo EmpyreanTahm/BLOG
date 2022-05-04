@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on GeekKery</title>
+    <link>https://geekkery.4everland.app/tags/vue/</link>
+    <description>Recent content in Vue on GeekKery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>GeekKery</copyright>
+    <lastBuildDate>Sun, 10 Apr 2022 17:00:51 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Composition API</title>
+      <link>https://geekkery.4everland.app/posts/composition-api/</link>
+      <pubDate>Sun, 10 Apr 2022 17:00:51 +0800</pubDate>
+      
+      <guid>https://geekkery.4everland.app/posts/composition-api/</guid>
+      <description>Vue3 中的更新内容不少，Composition API 是最吸引人的功能。
+某个视图包含多个功能：获取列表数据、搜索和筛选过滤等。Vue3 之前的 Options API 注定同一功能的 props、data、computed、watch 和 methods 等相关属性和方法被隔离开来，功能越繁多，碎片化越严重。为开发或修改某一功能，需要在 Vue 实例的 options 之间频繁切换。
+现在，通过 Composition API 可将组件中某一功能的 props、data、computed、watch 和 methods 等相关属性和方法进行聚合，避免碎片化。
+setup Vue 实例新增 setup(props,context) 函数属性，在组件被创建之前执行，props 被解析完成，setup 就被作为 Composition API 的入口。
+setup 的执行时机为 beforeCreate 钩子之前，无法通过 this 访问 Vue 实例。
+props 参数 props 为接收属性，使用 ES6 解构会消除 props 的响应式。若需解构 props，在 setup 函数中使用 toRefs 函数：
+1 2 3 4 5  import { toRefs } from &amp;#39;vue&amp;#39; setup(props) { const { title } = toRefs(props) console.</description>
+    </item>
+    
+  </channel>
+</rss>

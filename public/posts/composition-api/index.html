@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Composition API | GeekKery</title>
+  <meta name="google-site-verification" content="FZMz_7s8NfUWqk6Jhj7XTO-uF-fCf8GNLP3a9Ki95rQ" />
+  <link rel = 'canonical' href = 'https://geekkery.4everland.app/posts/composition-api/'>
+  <meta name="description" content="GeekKery | Jayden 的个人博客 | web 前端技术文章">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Composition API" />
+<meta property="og:description" content="Vue3 中的更新内容不少，Composition API 是最吸引人的功能。
+某个视图包含多个功能：获取列表数据、搜索和筛选过滤等。Vue3 之前的 Options API 注定同一功能的 props、data、computed、watch 和 methods 等相关属性和方法被隔离开来，功能越繁多，碎片化越严重。为开发或修改某一功能，需要在 Vue 实例的 options 之间频繁切换。
+现在，通过 Composition API 可将组件中某一功能的 props、data、computed、watch 和 methods 等相关属性和方法进行聚合，避免碎片化。
+setup Vue 实例新增 setup(props,context) 函数属性，在组件被创建之前执行，props 被解析完成，setup 就被作为 Composition API 的入口。
+setup 的执行时机为 beforeCreate 钩子之前，无法通过 this 访问 Vue 实例。
+props 参数 props 为接收属性，使用 ES6 解构会消除 props 的响应式。若需解构 props，在 setup 函数中使用 toRefs 函数：
+1 2 3 4 5  import { toRefs } from &#39;vue&#39; setup(props) { const { title } = toRefs(props) console." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geekkery.4everland.app/posts/composition-api/" />
+<meta property="article:published_time" content="2022-04-10T17:00:51+08:00" />
+<meta property="article:modified_time" content="2022-04-10T17:00:51+08:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Composition API"/>
+<meta name="twitter:description" content="Vue3 中的更新内容不少，Composition API 是最吸引人的功能。
+某个视图包含多个功能：获取列表数据、搜索和筛选过滤等。Vue3 之前的 Options API 注定同一功能的 props、data、computed、watch 和 methods 等相关属性和方法被隔离开来，功能越繁多，碎片化越严重。为开发或修改某一功能，需要在 Vue 实例的 options 之间频繁切换。
+现在，通过 Composition API 可将组件中某一功能的 props、data、computed、watch 和 methods 等相关属性和方法进行聚合，避免碎片化。
+setup Vue 实例新增 setup(props,context) 函数属性，在组件被创建之前执行，props 被解析完成，setup 就被作为 Composition API 的入口。
+setup 的执行时机为 beforeCreate 钩子之前，无法通过 this 访问 Vue 实例。
+props 参数 props 为接收属性，使用 ES6 解构会消除 props 的响应式。若需解构 props，在 setup 函数中使用 toRefs 函数：
+1 2 3 4 5  import { toRefs } from &#39;vue&#39; setup(props) { const { title } = toRefs(props) console."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://geekkery.4everland.app/css/styles.4c2b9aa1d874d6766f554b2d404e8fd62ab4761f51ee9b3f358d12e81e7fa43a1b4378db995bc1926bbe5ed98c060be5e7bd4f2470504cf94f22b4b3a74e62b6.css" integrity="sha512-TCuaodh01nZvVUstQE6P1iq0dh9R7ps/NY0S6B5/pDobQ3jbmVvBkmu&#43;XtmMBgvl571PJHBQTPlPIrSzp05itg==">
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://geekkery.4everland.app/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/posts">Writings</a></li>
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://geekkery.4everland.app/posts/%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&text=Composition%20API" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&title=Composition%20API" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&is_video=false&description=Composition%20API" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Composition%20API&body=Check out this article: https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&title=Composition%20API" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&title=Composition%20API" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&name=Composition%20API&description=Vue3%20%e4%b8%ad%e7%9a%84%e6%9b%b4%e6%96%b0%e5%86%85%e5%ae%b9%e4%b8%8d%e5%b0%91%ef%bc%8cComposition%20API%20%e6%98%af%e6%9c%80%e5%90%b8%e5%bc%95%e4%ba%ba%e7%9a%84%e5%8a%9f%e8%83%bd%e3%80%82%0a%e6%9f%90%e4%b8%aa%e8%a7%86%e5%9b%be%e5%8c%85%e5%90%ab%e5%a4%9a%e4%b8%aa%e5%8a%9f%e8%83%bd%ef%bc%9a%e8%8e%b7%e5%8f%96%e5%88%97%e8%a1%a8%e6%95%b0%e6%8d%ae%e3%80%81%e6%90%9c%e7%b4%a2%e5%92%8c%e7%ad%9b%e9%80%89%e8%bf%87%e6%bb%a4%e7%ad%89%e3%80%82Vue3%20%e4%b9%8b%e5%89%8d%e7%9a%84%20Options%20API%20%e6%b3%a8%e5%ae%9a%e5%90%8c%e4%b8%80%e5%8a%9f%e8%83%bd%e7%9a%84%20props%e3%80%81data%e3%80%81computed%e3%80%81watch%20%e5%92%8c%20methods%20%e7%ad%89%e7%9b%b8%e5%85%b3%e5%b1%9e%e6%80%a7%e5%92%8c%e6%96%b9%e6%b3%95%e8%a2%ab%e9%9a%94%e7%a6%bb%e5%bc%80%e6%9d%a5%ef%bc%8c%e5%8a%9f%e8%83%bd%e8%b6%8a%e7%b9%81%e5%a4%9a%ef%bc%8c%e7%a2%8e%e7%89%87%e5%8c%96%e8%b6%8a%e4%b8%a5%e9%87%8d%e3%80%82%e4%b8%ba%e5%bc%80%e5%8f%91%e6%88%96%e4%bf%ae%e6%94%b9%e6%9f%90%e4%b8%80%e5%8a%9f%e8%83%bd%ef%bc%8c%e9%9c%80%e8%a6%81%e5%9c%a8%20Vue%20%e5%ae%9e%e4%be%8b%e7%9a%84%20options%20%e4%b9%8b%e9%97%b4%e9%a2%91%e7%b9%81%e5%88%87%e6%8d%a2%e3%80%82%0a%e7%8e%b0%e5%9c%a8%ef%bc%8c%e9%80%9a%e8%bf%87%20Composition%20API%20%e5%8f%af%e5%b0%86%e7%bb%84%e4%bb%b6%e4%b8%ad%e6%9f%90%e4%b8%80%e5%8a%9f%e8%83%bd%e7%9a%84%20props%e3%80%81data%e3%80%81computed%e3%80%81watch%20%e5%92%8c%20methods%20%e7%ad%89%e7%9b%b8%e5%85%b3%e5%b1%9e%e6%80%a7%e5%92%8c%e6%96%b9%e6%b3%95%e8%bf%9b%e8%a1%8c%e8%81%9a%e5%90%88%ef%bc%8c%e9%81%bf%e5%85%8d%e7%a2%8e%e7%89%87%e5%8c%96%e3%80%82%0asetup%20Vue%20%e5%ae%9e%e4%be%8b%e6%96%b0%e5%a2%9e%20setup%28props%2ccontext%29%20%e5%87%bd%e6%95%b0%e5%b1%9e%e6%80%a7%ef%bc%8c%e5%9c%a8%e7%bb%84%e4%bb%b6%e8%a2%ab%e5%88%9b%e5%bb%ba%e4%b9%8b%e5%89%8d%e6%89%a7%e8%a1%8c%ef%bc%8cprops%20%e8%a2%ab%e8%a7%a3%e6%9e%90%e5%ae%8c%e6%88%90%ef%bc%8csetup%20%e5%b0%b1%e8%a2%ab%e4%bd%9c%e4%b8%ba%20Composition%20API%20%e7%9a%84%e5%85%a5%e5%8f%a3%e3%80%82%0asetup%20%e7%9a%84%e6%89%a7%e8%a1%8c%e6%97%b6%e6%9c%ba%e4%b8%ba%20beforeCreate%20%e9%92%a9%e5%ad%90%e4%b9%8b%e5%89%8d%ef%bc%8c%e6%97%a0%e6%b3%95%e9%80%9a%e8%bf%87%20this%20%e8%ae%bf%e9%97%ae%20Vue%20%e5%ae%9e%e4%be%8b%e3%80%82%0aprops%20%e5%8f%82%e6%95%b0%20props%20%e4%b8%ba%e6%8e%a5%e6%94%b6%e5%b1%9e%e6%80%a7%ef%bc%8c%e4%bd%bf%e7%94%a8%20ES6%20%e8%a7%a3%e6%9e%84%e4%bc%9a%e6%b6%88%e9%99%a4%20props%20%e7%9a%84%e5%93%8d%e5%ba%94%e5%bc%8f%e3%80%82%e8%8b%a5%e9%9c%80%e8%a7%a3%e6%9e%84%20props%ef%bc%8c%e5%9c%a8%20setup%20%e5%87%bd%e6%95%b0%e4%b8%ad%e4%bd%bf%e7%94%a8%20toRefs%20%e5%87%bd%e6%95%b0%ef%bc%9a%0a1%202%203%204%205%20%20import%20%7b%20toRefs%20%7d%20from%20%26%2339%3bvue%26%2339%3b%20setup%28props%29%20%7b%20const%20%7b%20title%20%7d%20%3d%20toRefs%28props%29%20console." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&t=Composition%20API" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#setup">setup</a>
+      <ul>
+        <li><a href="#props-参数">props 参数</a></li>
+        <li><a href="#context-参数">context 参数</a></li>
+        <li><a href="#返回值对象或渲染函数">返回值（对象或渲染函数）</a></li>
+      </ul>
+    </li>
+    <li><a href="#响应式">响应式</a>
+      <ul>
+        <li><a href="#ref-函数">ref 函数</a></li>
+        <li><a href="#reactive-函数">reactive 函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#setup-内注册生命周期钩子">setup 内注册生命周期钩子</a></li>
+    <li><a href="#watch-函数">watch 函数</a></li>
+    <li><a href="#computed-函数">computed 函数</a></li>
+    <li><a href="#provideinject">provide/inject</a></li>
+    <li><a href="#单文件组件-script-setup">单文件组件 &lt;script setup&gt;</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Composition API
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2022-04-10 17:00:51 &#43;0800 CST" itemprop="datePublished">2022-04-10</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          8 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/vue" rel="tag">Vue</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>Vue3 中的更新内容不少，Composition API 是最吸引人的功能。</p>
+<p>某个视图包含多个功能：获取列表数据、搜索和筛选过滤等。Vue3 之前的 Options API 注定同一功能的 props、data、computed、watch 和 methods 等相关属性和方法被隔离开来，功能越繁多，碎片化越严重。为开发或修改某一功能，需要在 Vue 实例的 options 之间频繁切换。</p>
+<p>现在，通过 Composition API 可将组件中某一功能的 props、data、computed、watch 和 methods 等相关属性和方法进行聚合，避免碎片化。</p>
+<h2 id="setup">setup</h2>
+<p>Vue 实例新增 setup(props,context) 函数属性，在组件被创建之前执行，props 被解析完成，setup 就被作为 Composition API 的入口。</p>
+<p>setup 的执行时机为 beforeCreate 钩子之前，无法通过 this 访问 Vue 实例。</p>
+<h3 id="props-参数">props 参数</h3>
+<p>props 为接收属性，<strong>使用 ES6 解构会消除 props 的响应式</strong>。若需解构 props，在 setup 函数中使用 toRefs 函数：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { toRefs } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+setup(props) {
+  <span style="color:#ff79c6">const</span> { title } <span style="color:#ff79c6">=</span> toRefs(props)
+  console.log(title.value)
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>若 title 可选，则可能 props 中没有 title，需使用 toRef 替代：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { toRef } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+setup(props) {
+  <span style="color:#ff79c6">const</span> title <span style="color:#ff79c6">=</span> toRef(props, <span style="color:#f1fa8c">&#39;title&#39;</span>)
+  console.log(title.value)
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="context-参数">context 参数</h3>
+<p>context 参数是一个普通的 JavaScript 对象，暴露一些常用的值 { props, attrs, slots, emit }。非响应式，随意解构。</p>
+<p>attrs 和 slots 是有状态的对象，它们总是会随组件本身的更新而更新。这意味着应该避免对它们进行解构，并始终以 attrs.x 或 slots.x 的方式引用。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> {
+  setup(props, { attrs, slots, emit, expose }) {
+    <span style="color:#6272a4">// Attribute (非响应式对象，等同于 $attrs)
+</span><span style="color:#6272a4"></span>    console.log(attrs)
+    <span style="color:#6272a4">// 插槽 (非响应式对象，等同于 $slots)
+</span><span style="color:#6272a4"></span>    console.log(slots)
+    <span style="color:#6272a4">// 触发事件 (方法，等同于 $emit)
+</span><span style="color:#6272a4"></span>    console.log(emit)
+    <span style="color:#6272a4">// 暴露公共 property (函数)
+</span><span style="color:#6272a4"></span>    console.log(expose)
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="返回值对象或渲染函数">返回值（对象或渲染函数）</h3>
+<p>setup 可以 return 模板使用的数据对象。模板中使用自动浅解包，不需以 .value 的形式使用。</p>
+<p>setup 还可以 return 一个渲染函数，若需将此组件的方法通过模板 ref 暴露给父组件可使用 expose 解决：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { h, ref } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> {
+  setup(props, { expose }) {
+    <span style="color:#ff79c6">const</span> count <span style="color:#ff79c6">=</span> ref(<span style="color:#bd93f9">0</span>)
+    <span style="color:#ff79c6">const</span> increment <span style="color:#ff79c6">=</span> () =&gt; <span style="color:#ff79c6">++</span>count.value
+
+    expose({
+      increment
+    })
+
+    <span style="color:#ff79c6">return</span> () =&gt; h(<span style="color:#f1fa8c">&#39;div&#39;</span>, count.value)
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="响应式">响应式</h2>
+<h3 id="ref-函数">ref 函数</h3>
+<p>ref 函数为任意类型的值创建一个响应式引用：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { ref } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> {
+    setup(props, { expose }) {
+        <span style="color:#ff79c6">const</span> counter <span style="color:#ff79c6">=</span> ref(<span style="color:#bd93f9">0</span>)
+
+        console.log(counter)        <span style="color:#6272a4">// { value: 0 }
+</span><span style="color:#6272a4"></span>        console.log(counter.value)  <span style="color:#6272a4">// 0
+</span><span style="color:#6272a4"></span>
+        counter.value<span style="color:#ff79c6">++</span>
+        console.log(counter.value)  <span style="color:#6272a4">// 1
+</span><span style="color:#6272a4"></span>        
+        <span style="color:#ff79c6">return</span> {
+            counter
+        }
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="reactive-函数">reactive 函数</h3>
+<p>reactive 函数为对象类型（包括数组）创建一个响应式引用，参数不可为基本类型。</p>
+<h2 id="setup-内注册生命周期钩子">setup 内注册生命周期钩子</h2>
+<p>Composition API 的生命周期钩子与 Options API 名称相同，但需加 on 前缀，参数为回调函数。</p>
+<p>另，生命周期 beforeDestroy、destroyed 被移除，用 beforeUnmount、unmounted 替代。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { fetchUserRepositories } from <span style="color:#f1fa8c">&#39;@/api/repositories&#39;</span>
+<span style="color:#ff79c6">import</span> { ref, onMounted } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+
+<span style="color:#6272a4">// 在我们的组件中
+</span><span style="color:#6272a4"></span>setup (props) {
+  <span style="color:#ff79c6">const</span> repositories <span style="color:#ff79c6">=</span> ref([])
+  <span style="color:#ff79c6">const</span> getUserRepositories <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">async</span> () =&gt; {
+    repositories.value <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> fetchUserRepositories(props.user)
+  }
+
+  onMounted(getUserRepositories) <span style="color:#6272a4">// 在 `mounted` 时调用 `getUserRepositories`
+</span><span style="color:#6272a4"></span>
+  <span style="color:#ff79c6">return</span> {
+    repositories,
+    getUserRepositories
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="watch-函数">watch 函数</h2>
+<p>watch 函数接受 3 个参数：</p>
+<ul>
+<li>一个想要侦听的响应式引用或 getter 函数；（监听多个源，放入数组）</li>
+<li>一个回调；</li>
+<li>可选的配置选项。</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { ref, watch } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+
+<span style="color:#ff79c6">const</span> counter <span style="color:#ff79c6">=</span> ref(<span style="color:#bd93f9">0</span>)
+watch(counter, (newValue, oldValue) =&gt; {
+  console.log(<span style="color:#f1fa8c">&#39;The new counter value is: &#39;</span> <span style="color:#ff79c6">+</span> counter.value)
+})
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="computed-函数">computed 函数</h2>
+<p>默认配置 getter，可指定配置 setter：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { ref, computed } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+
+<span style="color:#ff79c6">const</span> counter <span style="color:#ff79c6">=</span> ref(<span style="color:#bd93f9">0</span>)
+<span style="color:#ff79c6">const</span> twiceTheCounter <span style="color:#ff79c6">=</span> computed(() =&gt; counter.value <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">2</span>)
+
+counter.value<span style="color:#ff79c6">++</span>
+console.log(counter.value)          <span style="color:#6272a4">// 1
+</span><span style="color:#6272a4"></span>console.log(twiceTheCounter.value)  <span style="color:#6272a4">// 2
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="provideinject">provide/inject</h2>
+<p>provide 函数有两个参数定义属性：</p>
+<ul>
+<li>name（String 类型）</li>
+<li>value</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { provide } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+setup() {
+    provide(<span style="color:#f1fa8c">&#39;location&#39;</span>, <span style="color:#f1fa8c">&#39;North Pole&#39;</span>)
+    provide(<span style="color:#f1fa8c">&#39;geolocation&#39;</span>, {
+        longitude<span style="color:#ff79c6">:</span> <span style="color:#bd93f9">90</span>,
+        latitude<span style="color:#ff79c6">:</span> <span style="color:#bd93f9">135</span>
+    })
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>inject 函数有两个参数：</p>
+<ul>
+<li>要注入的属性名（String 类型）</li>
+<li>默认值（可选）</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { inject } from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+setup() {
+    <span style="color:#ff79c6">const</span> userLocation <span style="color:#ff79c6">=</span> inject(<span style="color:#f1fa8c">&#39;location&#39;</span>, <span style="color:#f1fa8c">&#39;The Universe&#39;</span>)
+    <span style="color:#ff79c6">const</span> userGeolocation <span style="color:#ff79c6">=</span> inject(<span style="color:#f1fa8c">&#39;geolocation&#39;</span>)
+
+    <span style="color:#ff79c6">return</span> {
+        userLocation,
+        userGeolocation
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>父组件到后代组件的响应式实现，需在 provide 时将数据转换成响应式引用。</strong></p>
+<p>后代组件要修改属性，需在父组件中定义修改函数 provide/inject 给后代组件。若禁止后代组件修改，可在父组件 provide 时使用 readonly 函数包装响应式引用。</p>
+<h2 id="单文件组件-script-setup">单文件组件 &lt;script setup&gt;</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">&lt;</span>script setup lang<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;ts&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#6272a4">// code here
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">&lt;</span>/script&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>上述代码会被编译成组件 setup 函数的内容，这意味着与普通的 &lt;script&gt; 只在组件被首次引入的时候执行一次不同，&lt;script setup&gt; 中的代码会在<strong>每次组件实例被创建的时候执行</strong>。</p>
+<p>&lt;script setup&gt; 特性：</p>
+<ul>
+<li>顶层的绑定会暴露给模板，包括变量、函数以及 import 的内容；</li>
+<li>响应式 APIs 创建的响应式状态，模板中使用 ref 值默认解包；</li>
+<li>&lt;script setup&gt; 中的值能被作为自定义组件的标签名使用，模板中驼峰和 kebab-case 两种形式均可使用；</li>
+<li>支持动态组件、递归组件和命名空间组件；</li>
+<li>可直接使用 defineProps、defineEmits 和 defineExpose；</li>
+<li>可搭配 &lt;script&gt; 同时使用；</li>
+<li>顶层可使用 await，setup 将被添加 async 声明；</li>
+<li>如果使用 TypeScript，props 和 emits 都可以使用传递字面量类型的纯类型语法做为参数给 defineProps 和 defineEmits 来声明：</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#ff79c6">const</span> props <span style="color:#ff79c6">=</span> defineProps<span style="color:#ff79c6">&lt;</span>{
+  foo: <span style="color:#8be9fd">string</span>
+  bar?: <span style="color:#8be9fd">number</span>
+}<span style="color:#ff79c6">&gt;</span>()
+
+<span style="color:#ff79c6">const</span> emit <span style="color:#ff79c6">=</span> defineEmits<span style="color:#ff79c6">&lt;</span>{
+  (e<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;change&#39;</span>, id: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">void</span>
+  (e<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;update&#39;</span>, value: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">void</span>
+}<span style="color:#ff79c6">&gt;</span>()
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#setup">setup</a>
+      <ul>
+        <li><a href="#props-参数">props 参数</a></li>
+        <li><a href="#context-参数">context 参数</a></li>
+        <li><a href="#返回值对象或渲染函数">返回值（对象或渲染函数）</a></li>
+      </ul>
+    </li>
+    <li><a href="#响应式">响应式</a>
+      <ul>
+        <li><a href="#ref-函数">ref 函数</a></li>
+        <li><a href="#reactive-函数">reactive 函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#setup-内注册生命周期钩子">setup 内注册生命周期钩子</a></li>
+    <li><a href="#watch-函数">watch 函数</a></li>
+    <li><a href="#computed-函数">computed 函数</a></li>
+    <li><a href="#provideinject">provide/inject</a></li>
+    <li><a href="#单文件组件-script-setup">单文件组件 &lt;script setup&gt;</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&text=Composition%20API" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&title=Composition%20API" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&is_video=false&description=Composition%20API" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Composition%20API&body=Check out this article: https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&title=Composition%20API" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&title=Composition%20API" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&name=Composition%20API&description=Vue3%20%e4%b8%ad%e7%9a%84%e6%9b%b4%e6%96%b0%e5%86%85%e5%ae%b9%e4%b8%8d%e5%b0%91%ef%bc%8cComposition%20API%20%e6%98%af%e6%9c%80%e5%90%b8%e5%bc%95%e4%ba%ba%e7%9a%84%e5%8a%9f%e8%83%bd%e3%80%82%0a%e6%9f%90%e4%b8%aa%e8%a7%86%e5%9b%be%e5%8c%85%e5%90%ab%e5%a4%9a%e4%b8%aa%e5%8a%9f%e8%83%bd%ef%bc%9a%e8%8e%b7%e5%8f%96%e5%88%97%e8%a1%a8%e6%95%b0%e6%8d%ae%e3%80%81%e6%90%9c%e7%b4%a2%e5%92%8c%e7%ad%9b%e9%80%89%e8%bf%87%e6%bb%a4%e7%ad%89%e3%80%82Vue3%20%e4%b9%8b%e5%89%8d%e7%9a%84%20Options%20API%20%e6%b3%a8%e5%ae%9a%e5%90%8c%e4%b8%80%e5%8a%9f%e8%83%bd%e7%9a%84%20props%e3%80%81data%e3%80%81computed%e3%80%81watch%20%e5%92%8c%20methods%20%e7%ad%89%e7%9b%b8%e5%85%b3%e5%b1%9e%e6%80%a7%e5%92%8c%e6%96%b9%e6%b3%95%e8%a2%ab%e9%9a%94%e7%a6%bb%e5%bc%80%e6%9d%a5%ef%bc%8c%e5%8a%9f%e8%83%bd%e8%b6%8a%e7%b9%81%e5%a4%9a%ef%bc%8c%e7%a2%8e%e7%89%87%e5%8c%96%e8%b6%8a%e4%b8%a5%e9%87%8d%e3%80%82%e4%b8%ba%e5%bc%80%e5%8f%91%e6%88%96%e4%bf%ae%e6%94%b9%e6%9f%90%e4%b8%80%e5%8a%9f%e8%83%bd%ef%bc%8c%e9%9c%80%e8%a6%81%e5%9c%a8%20Vue%20%e5%ae%9e%e4%be%8b%e7%9a%84%20options%20%e4%b9%8b%e9%97%b4%e9%a2%91%e7%b9%81%e5%88%87%e6%8d%a2%e3%80%82%0a%e7%8e%b0%e5%9c%a8%ef%bc%8c%e9%80%9a%e8%bf%87%20Composition%20API%20%e5%8f%af%e5%b0%86%e7%bb%84%e4%bb%b6%e4%b8%ad%e6%9f%90%e4%b8%80%e5%8a%9f%e8%83%bd%e7%9a%84%20props%e3%80%81data%e3%80%81computed%e3%80%81watch%20%e5%92%8c%20methods%20%e7%ad%89%e7%9b%b8%e5%85%b3%e5%b1%9e%e6%80%a7%e5%92%8c%e6%96%b9%e6%b3%95%e8%bf%9b%e8%a1%8c%e8%81%9a%e5%90%88%ef%bc%8c%e9%81%bf%e5%85%8d%e7%a2%8e%e7%89%87%e5%8c%96%e3%80%82%0asetup%20Vue%20%e5%ae%9e%e4%be%8b%e6%96%b0%e5%a2%9e%20setup%28props%2ccontext%29%20%e5%87%bd%e6%95%b0%e5%b1%9e%e6%80%a7%ef%bc%8c%e5%9c%a8%e7%bb%84%e4%bb%b6%e8%a2%ab%e5%88%9b%e5%bb%ba%e4%b9%8b%e5%89%8d%e6%89%a7%e8%a1%8c%ef%bc%8cprops%20%e8%a2%ab%e8%a7%a3%e6%9e%90%e5%ae%8c%e6%88%90%ef%bc%8csetup%20%e5%b0%b1%e8%a2%ab%e4%bd%9c%e4%b8%ba%20Composition%20API%20%e7%9a%84%e5%85%a5%e5%8f%a3%e3%80%82%0asetup%20%e7%9a%84%e6%89%a7%e8%a1%8c%e6%97%b6%e6%9c%ba%e4%b8%ba%20beforeCreate%20%e9%92%a9%e5%ad%90%e4%b9%8b%e5%89%8d%ef%bc%8c%e6%97%a0%e6%b3%95%e9%80%9a%e8%bf%87%20this%20%e8%ae%bf%e9%97%ae%20Vue%20%e5%ae%9e%e4%be%8b%e3%80%82%0aprops%20%e5%8f%82%e6%95%b0%20props%20%e4%b8%ba%e6%8e%a5%e6%94%b6%e5%b1%9e%e6%80%a7%ef%bc%8c%e4%bd%bf%e7%94%a8%20ES6%20%e8%a7%a3%e6%9e%84%e4%bc%9a%e6%b6%88%e9%99%a4%20props%20%e7%9a%84%e5%93%8d%e5%ba%94%e5%bc%8f%e3%80%82%e8%8b%a5%e9%9c%80%e8%a7%a3%e6%9e%84%20props%ef%bc%8c%e5%9c%a8%20setup%20%e5%87%bd%e6%95%b0%e4%b8%ad%e4%bd%bf%e7%94%a8%20toRefs%20%e5%87%bd%e6%95%b0%ef%bc%9a%0a1%202%203%204%205%20%20import%20%7b%20toRefs%20%7d%20from%20%26%2339%3bvue%26%2339%3b%20setup%28props%29%20%7b%20const%20%7b%20title%20%7d%20%3d%20toRefs%28props%29%20console." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fgeekkery.4everland.app%2fposts%2fcomposition-api%2f&t=Composition%20API" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  GeekKery 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>

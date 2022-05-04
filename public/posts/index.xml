@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Mon, 18 Apr 2022 21:17:03 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 May 2022 18:07:18 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>代码回滚的两种模式</title>
+      <link>https://geekkery.4everland.app/posts/%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 04 May 2022 18:07:18 +0800</pubDate>
+      
+      <guid>https://geekkery.4everland.app/posts/%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F/</guid>
+      <description>职业生涯以来，少有项目版本需要回滚的情况。回滚操作时，无暇截图，今简要记录。
+提交记录 1 2 3 4 5  git log --oneline # Oh My Zsh glo glol   查看提交记录，获取需要回滚的版本对应的 &amp;lt;commit ID&amp;gt;。
+reset 1 2 3 4  # unstage all and rollback git reset --hard &amp;lt;commit ID&amp;gt; # push git push -f origin &amp;lt;branch&amp;gt;   reset 命令的问题在于：push 远程后，其他开发人员本地会被告知版本领先，如果这些发开人员习惯性地 push 本地领先版本，就会造成回滚的撤销。这种回滚代码的形式，需要在回滚后通知其他开发人员，注意丢弃某些版本的代码，避免造成困惑。
+换句话说，reset 回滚需要当前分支的所有开发人员一起执行回滚。
+事实上，reset 命令并非用于已 push 的代码回滚，而是主要用于本地未 push 的代码回滚。
+reset 记录模型 1 2 3 4 5 6 7 8  # 回滚前 .</description>
+    </item>
+    
     <item>
       <title>可选链和双问号</title>
       <link>https://geekkery.4everland.app/posts/%E5%8F%AF%E9%80%89%E9%93%BE%E5%92%8C%E5%8F%8C%E9%97%AE%E5%8F%B7/</link>
@@ -28,6 +42,21 @@
       
       <guid>https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/</guid>
       <description>基本概念  工作区（workspace）：就是你在电脑里能看到的目录； 暂存区（staging area）：存放在 .git/index 文件中，有时也把暂存区叫作索引； 版本库（local repository）：工作区有一个隐藏目录 .git，这就是 Git 版本库； 远程仓库（remote repository）：本地版本库对应的远程仓库。  Git 基本信息配置 1 2 3 4 5 6 7 8 9 10 11  # 全局配置；只修改当前项目去掉 --global 参数 git config --global user.name &amp;#34;Jayden Deng&amp;#34; git config --global user.email &amp;#34;jayden@gmail.com&amp;#34; # 编辑配置文件 git config -e # 针对当前仓库  git config -e --global # 针对系统上所有仓库 # 查看配置 gcf = &amp;#39;git config --list&amp;#39; # 查看所有配置 git config user.name # 查看特定项配置   状态查询 1 2 3 4 5 6 7 8  gss = &amp;#39;git status -s&amp;#39; # 简短模式 gsb = &amp;#39;git status -sb&amp;#39; # 简短模式 + 分支 gd = &amp;#39;git diff&amp;#39; # 工作区与暂存区差异 gdca = &amp;#39;git diff --cached&amp;#39; # 已暂存文件和上次提交时的快照之间的差异 glo = &amp;#39;git log --oneline --decorate&amp;#39; # 单行提交信息查看提交记录 glol = &amp;#34;git log --graph --pretty=&amp;#39;&amp;#39;&amp;#34; # 全方位查看提交记录   工作区 =&amp;gt; 版本库 注意，Git2.</description>
+    </item>
+    
+    <item>
+      <title>Composition API</title>
+      <link>https://geekkery.4everland.app/posts/composition-api/</link>
+      <pubDate>Sun, 10 Apr 2022 17:00:51 +0800</pubDate>
+      
+      <guid>https://geekkery.4everland.app/posts/composition-api/</guid>
+      <description>Vue3 中的更新内容不少，Composition API 是最吸引人的功能。
+某个视图包含多个功能：获取列表数据、搜索和筛选过滤等。Vue3 之前的 Options API 注定同一功能的 props、data、computed、watch 和 methods 等相关属性和方法被隔离开来，功能越繁多，碎片化越严重。为开发或修改某一功能，需要在 Vue 实例的 options 之间频繁切换。
+现在，通过 Composition API 可将组件中某一功能的 props、data、computed、watch 和 methods 等相关属性和方法进行聚合，避免碎片化。
+setup Vue 实例新增 setup(props,context) 函数属性，在组件被创建之前执行，props 被解析完成，setup 就被作为 Composition API 的入口。
+setup 的执行时机为 beforeCreate 钩子之前，无法通过 this 访问 Vue 实例。
+props 参数 props 为接收属性，使用 ES6 解构会消除 props 的响应式。若需解构 props，在 setup 函数中使用 toRefs 函数：
+1 2 3 4 5  import { toRefs } from &amp;#39;vue&amp;#39; setup(props) { const { title } = toRefs(props) console.</description>
     </item>
     
     <item>
@@ -137,12 +166,11 @@ Cache-Control 为弥补 Expires 的缺点，HTTP/1.1 新增了 Cache-Control 通
       <pubDate>Tue, 05 Jan 2021 04:12:59 +0800</pubDate>
       
       <guid>https://geekkery.4everland.app/posts/%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
-      <description>Mac OS 持久化别名指定 在终端中执行的 alias 命令指定的别名仅本次登录有效，若需使别名永久生效，可以执行 vi ~/.bashrc，在文件末尾中添加行：
+      <description>grep 查找搜索 1 2  # 查找 src 目录及其所有子目录下的 target.pidNumber 文本 grep -r target.pidNumber src   Mac OS 持久化别名指定 在终端中执行的 alias 命令指定的别名仅本次登录有效，若需使别名永久生效，可以执行 vi ~/.bashrc，在文件末尾中添加行：
 1  ub2=&amp;#39;ssh ubuntu@139.155.86.169&amp;#39;   保存退出后，使用 source 命令刷新环境变量后即可使用自定义的 ub2 命令：
 1  source ~/.bashrc   如果系统使用的是 zsh，编辑配置 ~/.zshrc 即可，终端执行 echo $0 可查看当前使用的 shell 类型。
 Linux 拷贝命令 cp、rcp 和 scp cp Linux cp 命令语法：
-1 2 3  cp [options] source destination cp [options] source... directory   [options] 参数说明：
- -d：复制时保留链接 -p：除复制文件的内容外，还保留源文件或目录的属性，包括所有者、所属组、权限与修改时间也复制到新文件中 -r：若给出的源文件是一个目录，将复制该目录下所有的子目录和文件 -a：通常在复制目录时使用，表示保留链接、文件属性，并复制目录下的所有内容。作用等于 -dpR 参数组合  Linux cp 命令使用实例：</description>
+1 2 3  cp [options] source destination cp [options] source.</description>
     </item>
     
     <item>

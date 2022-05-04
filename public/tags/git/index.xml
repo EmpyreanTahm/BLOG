@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>GeekKery</copyright>
-    <lastBuildDate>Sun, 17 Apr 2022 18:33:03 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 May 2022 18:07:18 +0800</lastBuildDate><atom:link href="https://geekkery.4everland.app/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>代码回滚的两种模式</title>
+      <link>https://geekkery.4everland.app/posts/%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 04 May 2022 18:07:18 +0800</pubDate>
+      
+      <guid>https://geekkery.4everland.app/posts/%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F/</guid>
+      <description>职业生涯以来，少有项目版本需要回滚的情况。回滚操作时，无暇截图，今简要记录。
+提交记录 1 2 3 4 5  git log --oneline # Oh My Zsh glo glol   查看提交记录，获取需要回滚的版本对应的 &amp;lt;commit ID&amp;gt;。
+reset 1 2 3 4  # unstage all and rollback git reset --hard &amp;lt;commit ID&amp;gt; # push git push -f origin &amp;lt;branch&amp;gt;   reset 命令的问题在于：push 远程后，其他开发人员本地会被告知版本领先，如果这些发开人员习惯性地 push 本地领先版本，就会造成回滚的撤销。这种回滚代码的形式，需要在回滚后通知其他开发人员，注意丢弃某些版本的代码，避免造成困惑。
+换句话说，reset 回滚需要当前分支的所有开发人员一起执行回滚。
+事实上，reset 命令并非用于已 push 的代码回滚，而是主要用于本地未 push 的代码回滚。
+reset 记录模型 1 2 3 4 5 6 7 8  # 回滚前 .</description>
+    </item>
+    
     <item>
       <title>Oh My Zsh 常用 Git 命令</title>
       <link>https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/</link>
