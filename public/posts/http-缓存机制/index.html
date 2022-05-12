@@ -28,9 +28,10 @@ Expires HTTP/1.0 定义了 Expires 响应首部字段，用于告知客户端资
 Cache-Control 为弥补 Expires 的缺点，HTTP/1.1 新增了 Cache-Control 通用首部字段，时间值为相对时间，且不依赖客户端时间，优先级高于 Expires。
    指令 类型 说明     no-cache 通用 资源正常缓存，但使用前必须进行协商校验   no-store 通用 禁用所有缓存，从源服务器获取资源   public 响应 共享缓存（中间代理和 CDN等）和私有缓存（客户端）都可以缓存响应，缺省值为 private   private 响应 只有私有缓存可以缓存响应   max-age = N 响应 缓存有效期（单位秒），为 0 时与 no-cache 效果一致   s-maxage = N 响应 覆盖 max-age，只适用于共享缓存，私有缓存会忽略   must-revalidation 响应 在缓存过期前可以使用，过期（如缓存时间超过 max-age）后必须向服务器验证   proxy-revalidation 响应 与 must-revalidate 作用相同，但仅适用于共享缓存，私有缓存会忽略。   no-transform 通用 代理不可更改媒体类型如 Content-Encoding、Content-Range、Content-Type    对于那些改动频率极低的资源如 CSS 或 JS 库，常见的做法是将 max-age 的值设为 31536000，代表一年内缓存有效。如果在缓存有效期内，内容资源内容发生了改动，可以修改资源名称，如在资源名称中加版本号或生成随机 hash。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://geekkery.4everland.app/posts/http-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" />
+<meta property="og:url" content="https://geekkery.4everland.app/posts/http-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-01-09T12:26:02+08:00" />
 <meta property="article:modified_time" content="2021-01-09T12:26:02+08:00" />
+
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HTTP 缓存机制"/>
@@ -270,13 +271,13 @@ Cache-Control 为弥补 Expires 的缺点，HTTP/1.1 新增了 Cache-Control 通
 <p>强缓存指首次向服务器发起资源请求后，服务器会告知客户端资源缓存的有效时间，有效期内直接从客户端缓存中读取，不必与服务器交互。强缓存通过 Expires 和 Cache-Control 首部字段来实现，<strong>后者优先级更高</strong>。</p>
 <h3 id="expires">Expires</h3>
 <p>HTTP/1.0 定义了 Expires 响应首部字段，用于告知客户端资源缓存的过期时间，在过期时间之前请求资源直接使用缓存，不需要再次请求服务器（排除其它首部字段干扰的情况下）。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Expires: Mon, 25 Jan 2021 23:04:06 GMT
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Expires: Mon, 25 Jan 2021 23:04:06 GMT
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Expires 过期时间由服务器生成，是否过期的判定最终需要参考客户端时间。客户端和服务器时间可能不一致，而且客户端的时间是可以自行修改的，修改客户端时间可能导致缓存失效（如浏览器时间参考操作系统时间，修改系统时间会影响到缓存），所以不一定满足预期。</p>
 <h3 id="cache-control">Cache-Control</h3>
@@ -340,15 +341,15 @@ Cache-Control 为弥补 Expires 的缺点，HTTP/1.1 新增了 Cache-Control 通
 <p>对于那些改动频率极低的资源如 CSS 或 JS 库，常见的做法是将 max-age 的值设为 31536000，代表一年内缓存有效。如果在缓存有效期内，内容资源内容发生了改动，可以修改资源名称，如在资源名称中加版本号或生成随机 hash。</p>
 <h3 id="pragma">Pragma</h3>
 <p>Pragma 是 HTTP/1.0 标准中定义的一个首部字段，Pragma 只有一个值 no-cache，效果跟 <code>Cache-Control: no-cache</code> 效果相同，请求中一般会额外添加 Pragma 以兼容基于 HTTP/1.0 的服务器。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Cache-Control: no-cache
-Pragma: no-cache
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Cache-Control: no-cache
+</span></span><span style="display:flex;"><span>Pragma: no-cache
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="协商缓存">协商缓存</h2>
 <p>协商缓存是指在强缓存失效后，客户端携带缓存标识向服务器发起请求，由服务器根据缓存标识来决定是否使用缓存，缓存有效返回 304 Not Modified，否则返回响应内容。协商缓存使用 「Last-Modified/If-Modified-Since」和「ETag/If-None-Match」两对首部字段作为标识确定缓存是否有效，<strong>后者优先级更高</strong>。</p>
@@ -382,27 +383,27 @@ Pragma: no-cache
 <p>Date 通用首部包含了报文创建的日期和时间。Date 在响应中说明响应生成的时间，请求经过代理服务器时, 返回的 Date 未必是最新的，通常这个时候，代理服务器将增加一个 Age 字段告知该资源已缓存了多久。</p>
 <h3 id="age">Age</h3>
 <p>Age 响应首部字段里包含资源在缓存代理中存贮的时长，单位为秒。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Age: 40152
-Date: Fri, 05 Feb 2021 16:58:00 GMT
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Age: 40152
+</span></span><span style="display:flex;"><span>Date: Fri, 05 Feb 2021 16:58:00 GMT
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>以上响应意为代理服务器在 2021 年 2 月 5 日 16:58:00 时向源服务器发起了对该资源的请求，目前已缓存了该资源 741427 秒。</p>
 <h3 id="vary">Vary</h3>
 <p>通过 Vary 响应首部字段，源服务器会向代理服务器传达关于本地缓存使用方法的指令。代理服务器接收到源服务器包含 Vary 的响应后，缓存对应资源，后续仅对 <strong>Vary 值属性一样的请求</strong>返回此缓存。即使对相同资源发起请求，但由于 Vary 指定的首部字段不相同，因此必须要从源服务器重新获取资源。</p>
 <p>举例来说，同一 URL 的资源，根据客户端 Accept-Language 值的不同，需要内容不同的资源文件。中文客户端用户请求资源后，代理服务器进行了缓存：如果没有指定 <code>Vary: Accept-Language</code>，那么后续所有客户端将只能使用这份中文内容的缓存；如果指定 <code>Vary: Accept-Language</code>，那么只有中文客户端才会使用代理服务器的这份缓存。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Vary: Accept-Encoding, Accept-Language, User-Agent
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>Vary: Accept-Encoding, Accept-Language, User-Agent
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如上设置，代理服务器将根据客户端支持的编码类型、自然语言和用户代理（如 PC、Android、iOS 等）三个方面去缓存资源。如此，同一路径的资源，就能针对这三者的不同，返回对应的缓存内容，避免返回同一缓存。</p>
 

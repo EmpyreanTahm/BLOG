@@ -18,7 +18,7 @@
 1  ub2=&amp;#39;ssh ubuntu@139.155.86.169&amp;#39;   保存退出后，使用 source 命令刷新环境变量后即可使用自定义的 ub2 命令：
 1  source ~/.bashrc   如果系统使用的是 zsh，编辑配置 ~/.zshrc 即可，终端执行 echo $0 可查看当前使用的 shell 类型。
 Linux 拷贝命令 cp、rcp 和 scp cp Linux cp 命令语法：
-1 2 3  cp [options] source destination cp [options] source.</description>
+1 2 3  cp [options] source destination  cp [options] source.</description>
     </item>
     
   </channel>

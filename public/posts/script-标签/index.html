@@ -23,9 +23,10 @@ anonymous 值表示对此元素的 CORS 请求将不设置凭据标志；use-cre
 1  &lt;link href=&#34;/manifest?pwa=webhp&#34; crossorigin=&#34;use-credentials&#34; rel=&#34;manifest&#34;&gt;   integrity 属性 integrity 属性的值是经 base64 编码过后的文件哈希值，用于确认脚本或样式表内容未经篡改，防止遭遇 CDN 被入侵或中间人攻击引发的安全问题。integrity 可有多个哈希值，只要文件匹配其中任意一个哈希值，就可以通过校验并加载。在许多 CDN 上，提供了拷贝「HTML &#43; SRI」的功能，就是在引用资源的 integrity 属性上携带了 CDN 服务器生成的哈希值，SRI 即子资源完整性（Subresource Integrity）。
 integrity 值共两个部分：第一部分指定哈希值的生成算法（目前支持 sha256、sha384 及 sha512）；第二部分是经过 base64 编码的实际哈希值，两者之间通过一个短横（-）分割。可以通过 openssl 或者 shasum 生成 SRI 哈希值，在服务器或 CDN 中，可强制脚本或样式表必须通过 integrity 携带哈希值检验资源完整性，若未携带或值错误，内容将不会被加载，在安全性要求较高的项目可采取这种方式增加可靠性。实际生成的哈希值如下：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://geekkery.4everland.app/posts/script-%E6%A0%87%E7%AD%BE/" />
+<meta property="og:url" content="https://geekkery.4everland.app/posts/script-%E6%A0%87%E7%AD%BE/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-06-26T03:35:39+08:00" />
 <meta property="article:modified_time" content="2020-06-26T03:35:39+08:00" />
+
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="&lt;script&gt; 标签"/>
@@ -222,28 +223,28 @@ integrity 值共两个部分：第一部分指定哈希值的生成算法（目�
 <p>crossorigin 值有 anonymous 和 use-credentials，空值如 crossorigin 或 crossorigin=&quot;&quot; 缺省为 anonymous，如果未指定此属性，CORS 将不会启用，若启用必须保证<strong>服务器已开启跨域请求允许</strong>。其他 HTML5 元素如 &lt;audio&gt;、&lt;video&gt;、&lt;link&gt;、&lt;img&gt; 等均有跨域属性。</p>
 <p>anonymous 值表示对此元素的 CORS 请求将不设置凭据标志；use-credentials 表示对此元素的 CORS 请求将设置凭证标志，这意味着请求将提供凭据。换句话说，就是 use-credentials 允许浏览器携带 Cookie 等凭证数据到服务器，而 anonymous 不允许。</p>
 <p>请求 CDN 等内容可指定为 anonymous，在获取需要用户凭证的内容如 manifest 时，属性就必须(即使同源也要设置）设置为 use-credentials，Google 搜索首页的案例如下：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">link</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/manifest?pwa=webhp&#34;</span> <span style="color:#50fa7b">crossorigin</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;use-credentials&#34;</span> <span style="color:#50fa7b">rel</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;manifest&#34;</span>&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">link</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;/manifest?pwa=webhp&#34;</span> <span style="color:#50fa7b">crossorigin</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;use-credentials&#34;</span> <span style="color:#50fa7b">rel</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;manifest&#34;</span>&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="integrity-属性">integrity 属性</h2>
 <p>integrity 属性的值是经 base64 编码过后的文件哈希值，用于确认<strong>脚本或样式表</strong>内容未经篡改，防止遭遇 CDN 被入侵或中间人攻击引发的安全问题。integrity 可有多个哈希值，只要文件匹配其中任意一个哈希值，就可以通过校验并加载。在许多 CDN 上，提供了拷贝「HTML + SRI」的功能，就是在引用资源的 integrity 属性上携带了 CDN 服务器生成的哈希值，SRI 即子资源完整性（Subresource Integrity）。</p>
 <p>integrity 值共两个部分：第一部分指定哈希值的生成算法（目前支持 sha256、sha384 及 sha512）；第二部分是经过 base64 编码的实际哈希值，两者之间通过一个短横（-）分割。可以通过 openssl 或者 shasum 生成 SRI 哈希值，在服务器或 CDN 中，可强制脚本或样式表必须通过 integrity 携带哈希值检验资源完整性，若未携带或值错误，内容将不会被加载，在安全性要求较高的项目可采取这种方式增加可靠性。实际生成的哈希值如下：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js&#34;</span> 
-        <span style="color:#50fa7b">integrity</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sha256-ur/YlHMU96MxHEsy3fHGszZHas7NzH4RQlD4tDVvFhw=&#34;</span> 
-        <span style="color:#50fa7b">crossorigin</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js&#34;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">integrity</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sha256-ur/YlHMU96MxHEsy3fHGszZHas7NzH4RQlD4tDVvFhw=&#34;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#50fa7b">crossorigin</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="type-属性">type 属性</h2>
 <p>type 属性用于代替旧有非标准属性 language，用以表示代码块中脚本语言的 MIME 类型。type 属性支持的 MIME 类型有：text/javascript、text/ecmascript、application/javascript 和 application/ecmascript。HTML5 中的缺省值为 text/javascript。</p>
@@ -263,19 +264,19 @@ integrity 值共两个部分：第一部分指定哈希值的生成算法（目�
 <p>当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完全加载。async、defer 和普通渲染流程示意如下：</p>
 <p><img src="/%3Cscript%3E%E6%A0%87%E7%AD%BE/async_defer.png" alt="async_defer"></p>
 <h2 id="动态导入脚本文件">动态导入脚本文件</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> script <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.createElement(<span style="color:#f1fa8c">&#39;script&#39;</span>)
-script.src <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;lodash.js&#39;</span>
-<span style="color:#6272a4">// script.async = false
-</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">document</span>.head.appendChild(script)
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> script <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.createElement(<span style="color:#f1fa8c">&#39;script&#39;</span>)
+</span></span><span style="display:flex;"><span>script.src <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;lodash.js&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// script.async = false
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">document</span>.head.appendChild(script)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>脚本通过上述方式动态加载时，会<strong>异步加载</strong>，相当于添加了 async 属性。若需按照加载的顺序执行，要将 async 属性设置为 false。</p>
 

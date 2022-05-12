@@ -15,7 +15,7 @@
       
       <guid>https://geekkery.4everland.app/posts/%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F/</guid>
       <description>职业生涯以来，少有项目版本需要回滚的情况。回滚操作时，无暇截图，今简要记录。
-提交记录 1 2 3 4 5  git log --oneline # Oh My Zsh glo glol   查看提交记录，获取需要回滚的版本对应的 &amp;lt;commit ID&amp;gt;。
+提交记录 1 2 3 4 5  git log --oneline  # Oh My Zsh glo glol   查看提交记录，获取需要回滚的版本对应的 &amp;lt;commit ID&amp;gt;。
 reset 1 2 3 4  # unstage all and rollback git reset --hard &amp;lt;commit ID&amp;gt; # push git push -f origin &amp;lt;branch&amp;gt;   reset 命令的问题在于：push 远程后，其他开发人员本地会被告知版本领先，如果这些发开人员习惯性地 push 本地领先版本，就会造成回滚的撤销。这种回滚代码的形式，需要在回滚后通知其他开发人员，注意丢弃某些版本的代码，避免造成困惑。
 换句话说，reset 回滚需要当前分支的所有开发人员一起执行回滚。
 事实上，reset 命令并非用于已 push 的代码回滚，而是主要用于本地未 push 的代码回滚。
@@ -24,11 +24,11 @@ reset 记录模型 1 2 3 4 5 6 7 8  # 回滚前 .</description>
     
     <item>
       <title>Oh My Zsh 常用 Git 命令</title>
-      <link>https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/</link>
+      <link>https://geekkery.4everland.app/posts/ohmyzsh-%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sun, 17 Apr 2022 18:33:03 +0800</pubDate>
       
-      <guid>https://geekkery.4everland.app/posts/ohmyzsh%E5%B8%B8%E7%94%A8git%E5%91%BD%E4%BB%A4/</guid>
-      <description>基本概念  工作区（workspace）：就是你在电脑里能看到的目录； 暂存区（staging area）：存放在 .git/index 文件中，有时也把暂存区叫作索引； 版本库（local repository）：工作区有一个隐藏目录 .git，这就是 Git 版本库； 远程仓库（remote repository）：本地版本库对应的远程仓库。  Git 基本信息配置 1 2 3 4 5 6 7 8 9 10 11  # 全局配置；只修改当前项目去掉 --global 参数 git config --global user.name &amp;#34;Jayden Deng&amp;#34; git config --global user.email &amp;#34;jayden@gmail.com&amp;#34; # 编辑配置文件 git config -e # 针对当前仓库  git config -e --global # 针对系统上所有仓库 # 查看配置 gcf = &amp;#39;git config --list&amp;#39; # 查看所有配置 git config user.name # 查看特定项配置   状态查询 1 2 3 4 5 6 7 8  gss = &amp;#39;git status -s&amp;#39; # 简短模式 gsb = &amp;#39;git status -sb&amp;#39; # 简短模式 + 分支 gd = &amp;#39;git diff&amp;#39; # 工作区与暂存区差异 gdca = &amp;#39;git diff --cached&amp;#39; # 已暂存文件和上次提交时的快照之间的差异 glo = &amp;#39;git log --oneline --decorate&amp;#39; # 单行提交信息查看提交记录 glol = &amp;#34;git log --graph --pretty=&amp;#39;&amp;#39;&amp;#34; # 全方位查看提交记录   工作区 =&amp;gt; 版本库 注意，Git2.</description>
+      <guid>https://geekkery.4everland.app/posts/ohmyzsh-%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4/</guid>
+      <description>基本概念  工作区（workspace）：就是你在电脑里能看到的目录； 暂存区（staging area）：存放在 .git/index 文件中，有时也把暂存区叫作索引； 版本库（local repository）：工作区有一个隐藏目录 .git，这就是 Git 版本库； 远程仓库（remote repository）：本地版本库对应的远程仓库。  Git 基本信息配置 1 2 3 4 5 6 7 8 9 10 11  # 全局配置；只修改当前项目去掉 --global 参数 git config --global user.name &amp;#34;Jayden Deng&amp;#34; git config --global user.email &amp;#34;jayden@gmail.com&amp;#34;  # 编辑配置文件 git config -e # 针对当前仓库  git config -e --global # 针对系统上所有仓库  # 查看配置 gcf = &amp;#39;git config --list&amp;#39; # 查看所有配置 git config user.</description>
     </item>
     
   </channel>

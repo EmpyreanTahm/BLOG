@@ -20,7 +20,7 @@
 setup Vue 实例新增 setup(props,context) 函数属性，在组件被创建之前执行，props 被解析完成，setup 就被作为 Composition API 的入口。
 setup 的执行时机为 beforeCreate 钩子之前，无法通过 this 访问 Vue 实例。
 props 参数 props 为接收属性，使用 ES6 解构会消除 props 的响应式。若需解构 props，在 setup 函数中使用 toRefs 函数：
-1 2 3 4 5  import { toRefs } from &amp;#39;vue&amp;#39; setup(props) { const { title } = toRefs(props) console.</description>
+1 2 3 4 5  import { toRefs } from &amp;#39;vue&amp;#39; setup(props) {  const { title } = toRefs(props)  console.</description>
     </item>
     
   </channel>
